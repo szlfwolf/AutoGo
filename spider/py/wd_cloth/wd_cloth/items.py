@@ -8,7 +8,15 @@
 import scrapy
 
 
-class WdClothItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class ShopItem(scrapy.Item):
+	# define the fields for your item here like:
+	shopname = scrapy.Field()
+	shopurl = scrapy.Field()
+	marketname= scrapy.Field()
+	marketfloor= scrapy.Field()
+	marketdk= scrapy.Field()
+	category= scrapy.Field()
+	tip= scrapy.Field()
+	qqinfo= scrapy.Field()
+	wwinfo= scrapy.Field()
+	props= scrapy.Field()
