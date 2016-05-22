@@ -9,7 +9,20 @@ import re
 class A17zwdSpider(scrapy.Spider):
 	name = "17zwd"
 	allowed_domains = ["17zwd.com"]
-	start_urls = ['http://sz.17zwd.com/market.htm']
+	start_urls = ["http://sz.17zwd.com/market.htm"]
+	start_urls_test = {
+		'http://gz.17zwd.com/market.htm',
+		'http://hz.17zwd.com/market.htm',
+		'http://cs.17zwd.com/market.htm',
+		'http://jy.17zwd.com/market.htm',
+		'http://sz.17zwd.com/market.htm',
+		'http://zz.17zwd.com/market.htm',
+		'http://zhengzhou.17zwd.com/market.htm',
+		'http://xintang.17zwd.com/market.htm',
+		'http://bj.17zwd.com/market.htm',
+		'http://dg.17zwd.com/market.htm',
+		'http://sz.17zwd.com/market.htm?zdid=48&mid=679'
+	}
 	
 		
 	
@@ -32,7 +45,7 @@ class A17zwdSpider(scrapy.Spider):
 			else:
 				#市场首页信息。
 				print 'get markert index :%s' % response.url
-				self.parse_page(response)
+				yield self.parse_page(response)
 			#分析市场信息，获取商店信息,获取商品列表url
 			for item in self.parse_market(response):
 				goodslisturl = item['shopurl'] + "?item_type=onsale"
@@ -42,14 +55,14 @@ class A17zwdSpider(scrapy.Spider):
 			if m3:
 				print 'get shop page: %s' % response.url
 			else:
-				print 'get shop index :%s' % response.url
+				print 'get shop index: %s' % response.url
 				#分析商店信息
-				self.parse_shop(response)
+				yield self.parse_shop(response)
 				#分析分页信息
-				self.parse_page(response)
+				yield self.parse_page(response)
 			#抓取链接中增加：商品url
-			for item in self.parse_goodslist(response):
-				yield item
+			#for item in self.parse_goodslist(response):
+				#yield item
 
 
 	def parse_market(self, response):
@@ -74,7 +87,7 @@ class A17zwdSpider(scrapy.Spider):
 			yield item
 	
 	def parse_shop(self,response):
-		print 'parse_shop: %s' % response.url
+		#print 'parse_shop: %s' % response.url
 		item = ShopInfoItem()
 		item['shopinfourl']=response.url.split('?')[0]
 		#QQ
@@ -89,7 +102,7 @@ class A17zwdSpider(scrapy.Spider):
 		#淘宝店地址
 		item['tburl']="http:" +response.css('div.florid-goods-details-taobao-enter a::attr(href)').extract_first()
 		
-		yield item
+		return item
 	
 	def parse_goodslist(self,response):
 		goodsurllist = response.css('div.florid-shop-link a::attr(href)').extract()
@@ -97,7 +110,7 @@ class A17zwdSpider(scrapy.Spider):
 			b = a.split('&')
 			goodsurl = response.urljoin(b[0])
 			#抓取商品信息页面
-			#yield scrapy.Request(goodsurl,callback=self.parse_goods) 
+			yield scrapy.Request(goodsurl,callback=self.parse_goods) 
 		
 	def parse_goods(self,response):
 		print 'get goods page: %s' % response.url
@@ -120,7 +133,7 @@ class A17zwdSpider(scrapy.Spider):
 					page=i+1
 					url = response.urljoin('?page=%d' % page)
 					print 'get page:%s'% url
-					yield scrapy.Request(url,callback=self.parse)
+					yield scrapy.Request(url,callback=self.parse_market)
 		else :
 			print 'no page found'
 			self.log('no pager fond!')
