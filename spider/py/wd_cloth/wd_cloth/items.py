@@ -20,3 +20,24 @@ class ShopItem(scrapy.Item):
 	qqinfo= scrapy.Field()
 	wwinfo= scrapy.Field()
 	props= scrapy.Field()
+	
+class ShopInfoItem(scrapy.Item):
+	# define the fields for your item here like:
+	shopinfourl = scrapy.Field()
+	qqnum = scrapy.Field()
+	wwname= scrapy.Field()
+	phonenum= scrapy.Field()
+	tburl= scrapy.Field()
+	
+class GoodsItem(scrapy.Item):
+	# define the fields for your item here like:
+	goodsname = scrapy.Field()
+	goodsurl = scrapy.Field()
+	marketname= scrapy.Field()
+	marketfloor= scrapy.Field()
+	marketdk= scrapy.Field()
+	category= scrapy.Field()
+	tip= scrapy.Field()
+	qqinfo= scrapy.Field()
+	wwinfo= scrapy.Field()
+	props= scrapy.Field()

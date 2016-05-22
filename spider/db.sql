@@ -13,6 +13,10 @@ category varchar(20),
 tip varchar(20),
 qqinfo varchar(120),
 wwinfo varchar(120),
+qqnum varchar(30),
+wwname varchar(80),
+phonenum varchar(30),
+tburl varchar(120),
 props varchar(150)
 
 

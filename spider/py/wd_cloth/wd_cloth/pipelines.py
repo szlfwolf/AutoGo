@@ -33,11 +33,26 @@ class WdClothPipeline(object):
 	def process_item(self, item, spider):
 		if item.get('shopname') :
 			query = self.dbpool.runInteraction(self._conditional_insert, item)
-			query.addErrback(self.handle_error)
+		if item.get('shopinfourl') :
+			print 'get shopinfourl: %s' % item['shopinfourl']
+			query = self.dbpool.runInteraction(self._conditional_insert_shopinfo, item)
+		query.addErrback(self.handle_error)
 		return item
 
 	def handle_error(self, e):
 		print 'error: %s' % e
+
+	def _conditional_insert_shopinfo(self, tx, item):
+		tx.execute("select qqnum from s_shopinfo where shopurl = %s", (item['shopinfourl'] ))
+		result = tx.fetchone()
+		if result:
+			if result['qqnum']:
+				print 'shop url[%s] already exist and qqnum is not null ...' % item['shopinfourl']
+			else:
+				tx.execute(\
+					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
+					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
+					)
 
 	def _conditional_insert(self, tx, item):
 		tx.execute("select * from s_shopinfo where shopurl = %s", (item['shopurl'] ))
