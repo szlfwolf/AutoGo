@@ -9,8 +9,8 @@ import re
 class A17zwdSpider(scrapy.Spider):
 	name = "17zwd"
 	allowed_domains = ["17zwd.com"]
-	start_urls = ["http://sz.17zwd.com/market.htm"]
-	start_urls_test = {
+	start_urls_test = ["http://sz.17zwd.com/market.htm"]
+	start_urls = {
 		'http://gz.17zwd.com/market.htm',
 		'http://hz.17zwd.com/market.htm',
 		'http://cs.17zwd.com/market.htm',
@@ -69,7 +69,11 @@ class A17zwdSpider(scrapy.Spider):
 		for index,shop in enumerate(shoplist):
 			item = ShopItem()
 			item['shopname'] = shop.css('div.florid-describing-clothes::text').extract_first()
-			item['shopurl'] = response.urljoin(shop.css('a.florid-product-picture::attr(href)').extract_first())
+			shopurl=response.urljoin(shop.css('a.florid-product-picture::attr(href)').extract_first())
+			if shopurl:
+				item['shopurl'] = shopurl.split('?')[0]
+			else:
+				pass
 			marketinfo = shop.css('span.florid-arch-infor-block-font::text').extract()
 			item['marketname'] = marketinfo[0]
 			item['marketfloor'] = marketinfo[1]
