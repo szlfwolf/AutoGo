@@ -11,7 +11,7 @@ class WdClothPipeline(object):
 
 	def __init__(self):
 		try:
-			conn=MySQLdb.connect(host='localhost',user='root',passwd='',db='wd_cloth',port=3306)
+			conn=MySQLdb.connect(host='localhost',user='root',passwd='root',db='wd_cloth',port=3306)
 			cur=conn.cursor()
 			cur.execute('select * from s_shopinfo')
 			cur.close()
@@ -24,7 +24,7 @@ class WdClothPipeline(object):
 			host = '127.0.0.1',
 			db = 'wd_cloth',
 			user = 'root',
-			passwd = '',
+			passwd = 'root',
 			cursorclass = MySQLdb.cursors.DictCursor,
 			charset = 'utf8',
 			use_unicode = True
@@ -49,8 +49,6 @@ class WdClothPipeline(object):
 		if result:
 			if not result['qqnum']:
 				print 'shop url[%s] already exist and qqnum is null ...' % item['shopinfourl']
-				
-			#else:
 				tx.execute(\
 					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
 					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
