@@ -11,7 +11,7 @@ class WdClothPipeline(object):
 
 	def __init__(self):
 		try:
-			conn=MySQLdb.connect(host='localhost',user='root',passwd='root',db='wd_cloth',port=3306)
+			conn=MySQLdb.connect(host='localhost',user='root',passwd='',db='wd_cloth',port=3306)
 			cur=conn.cursor()
 			cur.execute('select count(*) from s_shopinfo')
 			cur.close()
@@ -24,7 +24,7 @@ class WdClothPipeline(object):
 			host = '127.0.0.1',
 			db = 'wd_cloth',
 			user = 'root',
-			passwd = 'root',
+			passwd = '',
 			cursorclass = MySQLdb.cursors.DictCursor,
 			charset = 'utf8',
 			use_unicode = True
