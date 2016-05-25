@@ -13,7 +13,7 @@ class WdClothPipeline(object):
 		try:
 			conn=MySQLdb.connect(host='localhost',user='root',passwd='root',db='wd_cloth',port=3306)
 			cur=conn.cursor()
-			cur.execute('select * from s_shopinfo')
+			cur.execute('select count(*) from s_shopinfo')
 			cur.close()
 			conn.close()
 			print "ok"
@@ -33,26 +33,17 @@ class WdClothPipeline(object):
 	def process_item(self, item, spider):
 		if item.get('shopname') :
 			query = self.dbpool.runInteraction(self._conditional_insert, item)
-			query.addErrback(self.handle_error)
 		elif item.get('shopinfourl') :
-			query = self.dbpool.runInteraction(self._conditional_insert_shopinfo, item)
-			query.addErrback(self.handle_error)
-		
+			query = self.dbpool.runInteraction(self._conditional_update_shopinfo, item)
+		elif item.get('goodsurl') :
+			print "save item :%s" % item['goodsurl']
+			query = self.dbpool.runInteraction(self._conditional_insert_goods, item)
+		query.addErrback(self.handle_error)
 		return item
 
 	def handle_error(self, e):
 		print 'error: %s' % e
-
-	def _conditional_insert_shopinfo(self, tx, item):
-		tx.execute("select qqnum from s_shopinfo where shopurl = %s", (item['shopinfourl'] ))
-		result = tx.fetchone()
-		if result:
-			if not result['qqnum']:
-				print 'shop url[%s] already exist and qqnum is null ...' % item['shopinfourl']
-				tx.execute(\
-					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
-					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
-					)
+		
 
 	def _conditional_insert(self, tx, item):
 		tx.execute("select * from s_shopinfo where shopurl = %s", (item['shopurl'] ))
@@ -74,3 +65,35 @@ class WdClothPipeline(object):
 				 item['wwinfo'].encode('utf-8'),
 				 json.dumps(item['props'],ensure_ascii=False))
 				)
+
+	def _conditional_update_shopinfo(self, tx, item):
+		tx.execute("select qqnum from s_shopinfo where shopurl = %s", (item['shopinfourl'] ))
+		result = tx.fetchone()
+		if result:
+			if not result['qqnum']:
+				print 'shop url[%s] already exist and qqnum is null ...' % item['shopinfourl']
+				tx.execute(\
+					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
+					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
+					)
+
+
+
+	def _conditional_insert_goods(self, tx, item):
+		tx.execute("select * from s_goodsinfo where goodsurl = %s", (item['goodsurl'] ))
+		result = tx.fetchone()
+		if not result:
+			tx.execute(\
+				"insert into s_goodsinfo (goodsurl,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details)\
+				values (%s, %s,%s,%s,%s,%s,%s,%s)",
+				(item['goodsurl'],
+				 item['goodsname'].encode('utf-8'),
+				 item['goodsprice'],
+				 item['taobaoprice'],
+				 item['taobaourl'],
+				 item['uptime'],
+				 item['props'],
+				 item['details']
+				 )
+				)
+

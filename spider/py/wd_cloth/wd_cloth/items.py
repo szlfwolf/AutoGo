@@ -33,11 +33,10 @@ class GoodsItem(scrapy.Item):
 	# define the fields for your item here like:
 	goodsname = scrapy.Field()
 	goodsurl = scrapy.Field()
-	marketname= scrapy.Field()
-	marketfloor= scrapy.Field()
-	marketdk= scrapy.Field()
-	category= scrapy.Field()
-	tip= scrapy.Field()
-	qqinfo= scrapy.Field()
-	wwinfo= scrapy.Field()
-	props= scrapy.Field()
+	goodsprice =scrapy.Field()
+	taobaoprice = scrapy.Field()
+	uptime = scrapy.Field()
+	taobaourl=scrapy.Field()
+	props = scrapy.Field()
+	details = scrapy.Field()
+	

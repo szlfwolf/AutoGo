@@ -23,3 +23,16 @@ props varchar(150)
 );
 
 insert into s_shopinfo (shopname,shopurl,marketname,marketfloor,marketdk,category,tip,qqinfo,wwinfo,props)
+
+create table s_goodsinfo ( 
+id int(5) PRIMARY KEY AUTO_INCREMENT,
+goodsname varchar(150),
+goodsurl varchar(120),
+goodsprice decimal(5,2),
+taobaoprice decimal(5,2),
+taobaourl varchar(120),
+uptime datetime,
+props varchar(150),
+details varchar(4000),
+createtime timestamp not null default now()
+);
