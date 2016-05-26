@@ -12,6 +12,7 @@ class ShopItem(scrapy.Item):
 	# define the fields for your item here like:
 	shopname = scrapy.Field()
 	shopurl = scrapy.Field()
+	shopimg = scrapy.Field()
 	marketname= scrapy.Field()
 	marketfloor= scrapy.Field()
 	marketdk= scrapy.Field()
@@ -34,6 +35,7 @@ class GoodsItem(scrapy.Item):
 	goodsname = scrapy.Field()
 	goodsimgs = scrapy.Field()
 	goodsurl = scrapy.Field()
+	shopurl = scrapy.Field()
 	goodsprice =scrapy.Field()
 	taobaoprice = scrapy.Field()
 	uptime = scrapy.Field()

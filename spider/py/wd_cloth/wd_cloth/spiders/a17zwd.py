@@ -9,8 +9,8 @@ import re
 class A17zwdSpider(scrapy.Spider):
 	name = "17zwd"
 	allowed_domains = ["17zwd.com"]
-	start_urls_test = ["http://sz.17zwd.com/market.htm"]
-	start_urls = {
+	start_urls = ["http://sz.17zwd.com/market.htm"]
+	start_urls_test = {
 		'http://gz.17zwd.com/market.htm',
 		'http://hz.17zwd.com/market.htm',
 		'http://cs.17zwd.com/market.htm',
@@ -97,6 +97,7 @@ class A17zwdSpider(scrapy.Spider):
 		#print 'parse_shop: %s' % response.url
 		item = ShopInfoItem()
 		item['shopinfourl']=response.url.split('?')[0]
+		item['shopimg'] = response.css('div.figure-image img::attr(src)').extract()
 		#QQ
 		#淘宝
 		#电话
@@ -105,6 +106,10 @@ class A17zwdSpider(scrapy.Spider):
 			item['qqnum'] = contactlist[0]
 			item['wwname'] = contactlist[1]
 			item['phonenum'] = contactlist[2].strip()
+		elif len(contactlist) == 2:
+			#qq可能为空
+			item['wwname'] = contactlist[0]
+			item['phonenum'] = contactlist[1].strip()
 		
 		#淘宝店地址
 		item['tburl']="http:" +response.css('div.florid-goods-details-taobao-enter a::attr(href)').extract_first()

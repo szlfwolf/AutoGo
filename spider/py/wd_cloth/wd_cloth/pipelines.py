@@ -2,9 +2,11 @@
 import scrapy
 import time
 from twisted.enterprise import adbapi
+from twisted.python import log
 import MySQLdb
 import MySQLdb.cursors
 import json
+import sys
 
 
 class WdClothPipeline(object):
@@ -20,6 +22,7 @@ class WdClothPipeline(object):
 		except MySQLdb.Error,e:
 			print "Mysql Error %d: %s" % (e.args[0], e.args[1])
 		
+		log.startLogging(sys.stdout)
 		self.dbpool = adbapi.ConnectionPool('MySQLdb',
 			host = '127.0.0.1',
 			db = 'wd_cloth',
@@ -29,6 +32,8 @@ class WdClothPipeline(object):
 			charset = 'utf8',
 			use_unicode = True
 		)
+		
+		
 
 	def process_item(self, item, spider):
 		if item.get('shopname') :
@@ -38,6 +43,7 @@ class WdClothPipeline(object):
 		elif item.get('goodsurl') :
 			print "save item :%s" % item['goodsurl']
 			query = self.dbpool.runInteraction(self._conditional_insert_goods, item)
+		
 		query.addErrback(self.handle_error)
 		return item
 
@@ -65,17 +71,24 @@ class WdClothPipeline(object):
 				 item['wwinfo'].encode('utf-8'),
 				 json.dumps(item['props'],ensure_ascii=False))
 				)
+			shopid = tx.connection.insert_id()
+			print "insert s_goodsinfo[%s]: done." % shopid
+			tx.execute("insert into s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("add",shopid,"s_shopinfo"))
+			
 
 	def _conditional_update_shopinfo(self, tx, item):
-		tx.execute("select qqnum from s_shopinfo where shopurl = %s", (item['shopinfourl'] ))
+		tx.execute("select id,wwname from s_shopinfo where shopurl = %s", (item['shopinfourl'] ))
 		result = tx.fetchone()
 		if result:
-			if not result['qqnum']:
-				print 'shop url[%s] already exist and qqnum is null ...' % item['shopinfourl']
+			if not result['wwname']:
+				print 'shop url[%s] already exist and begin to update ...' % item['shopinfourl']
 				tx.execute(\
-					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
+					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s, updatetime=now() where shopurl = %s",
 					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
 					)
+			shopid = result['id']
+			print "insert s_goodsinfo[%s]: done." % shopid
+			tx.execute("insert into s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("update",shopid,"s_shopinfo"))
 
 
 
@@ -83,10 +96,13 @@ class WdClothPipeline(object):
 		tx.execute("select * from s_goodsinfo where goodsurl = %s", (item['goodsurl'] ))
 		result = tx.fetchone()
 		if not result:
+			print "begin insert s_goodsinfo"
 			tx.execute(\
-				"insert into s_goodsinfo (goodsurl,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details)\
-				values (%s, %s,%s,%s,%s,%s,%s,%s)",
+				"insert into s_goodsinfo (goodsurl,shopurl,goodsimgs,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details)\
+				values (%s,%s,%s,%s,%s,%s,%s,%s,%s.%s)",
 				(item['goodsurl'],
+				 item['shopurl'],
+				 item['goodsimgs'],
 				 item['goodsname'].encode('utf-8'),
 				 item['goodsprice'],
 				 item['taobaoprice'],
@@ -96,4 +112,8 @@ class WdClothPipeline(object):
 				 item['details']
 				 )
 				)
+			goodsid = tx.connection.insert_id()
+			print "insert s_goodsinfo[%s]: done." % goodsid
+			tx.execute("insert into s_spiderlog (optype,keyid,objname) values ( %s,%s,%s)",("add",goodsid,"s_goodsinfo"))
+			#tx.commit()
 
