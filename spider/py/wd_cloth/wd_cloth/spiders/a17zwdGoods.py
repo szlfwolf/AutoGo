@@ -8,8 +8,8 @@ import json
 class A17zwdGoodsSpider(scrapy.Spider):
 	name = "17zwdgoods"
 	allowed_domains = ["17zwd.com"]
-	start_urls = ["http://sz.17zwd.com/shop/11985.htm?item_type=onsale"]
-	start_urls_all = (
+	start_urls_tmp = ["http://sz.17zwd.com/shop/11985.htm?item_type=onsale"]
+	start_urls = (
 		'http://gz.17zwd.com/market.htm',
 		'http://hz.17zwd.com/market.htm',
 		'http://cs.17zwd.com/market.htm',

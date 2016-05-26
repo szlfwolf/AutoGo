@@ -23,7 +23,6 @@ createtime timestamp not null default now()
 
 );
 
-insert into s_shopinfo (shopname,shopurl,marketname,marketfloor,marketdk,category,tip,qqinfo,wwinfo,props)
 
 create table s_goodsinfo ( 
 id int(5) PRIMARY KEY AUTO_INCREMENT,
@@ -38,3 +37,11 @@ props varchar(2000),
 details varchar(4000),
 createtime timestamp not null default now()
 );
+
+create table s_spiderlog (
+id int(5) PRIMARY KEY AUTO_INCREMENT,
+optype varchar(10) not null,
+keyid int(5) not null,
+objname varchar(10) not null,
+createtime timestamp not null default now()
+)
