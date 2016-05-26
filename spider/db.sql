@@ -17,8 +17,8 @@ qqnum varchar(30),
 wwname varchar(80),
 phonenum varchar(30),
 tburl varchar(120),
-props varchar(2000)
-
+props varchar(2000),
+createtime timestamp not null default now()
 
 );
 
