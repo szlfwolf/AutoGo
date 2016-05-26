@@ -93,13 +93,13 @@ class WdClothPipeline(object):
 
 
 	def _conditional_insert_goods(self, tx, item):
-		tx.execute("select * from s_goodsinfo where goodsurl = %s", (item['goodsurl'] ))
+		tx.execute("select id from s_goodsinfo where goodsurl = %s", (item['goodsurl'] ))
 		result = tx.fetchone()
 		if not result:
 			print "begin insert s_goodsinfo"
 			tx.execute(\
 				"insert into s_goodsinfo (goodsurl,shopurl,goodsimgs,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details)\
-				values (%s,%s,%s,%s,%s,%s,%s,%s,%s.%s)",
+				values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
 				(item['goodsurl'],
 				 item['shopurl'],
 				 item['goodsimgs'],

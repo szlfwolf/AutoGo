@@ -3,27 +3,20 @@ import scrapy
 from wd_cloth.items import GoodsItem
 import re
 import json
-
+from wd_cloth.dbcontext import dbcontext
+import time
 
 class A17zwdGoodsSpider(scrapy.Spider):
 	name = "17zwdgoods"
 	allowed_domains = ["17zwd.com"]
-	start_urls_tmp = ["http://sz.17zwd.com/shop/11985.htm?item_type=onsale"]
-	start_urls = (
-		'http://gz.17zwd.com/market.htm',
-		'http://hz.17zwd.com/market.htm',
-		'http://cs.17zwd.com/market.htm',
-		'http://jy.17zwd.com/market.htm',
-		'http://sz.17zwd.com/market.htm',
-		'http://zz.17zwd.com/market.htm',
-		'http://zhengzhou.17zwd.com/market.htm',
-		'http://xintang.17zwd.com/market.htm',
-		'http://bj.17zwd.com/market.htm',
-		'http://dg.17zwd.com/market.htm',
-		'http://sz.17zwd.com/market.htm?zdid=48&mid=679'
-	)
-	#def start_requests(self):
+	#start_urls = ["http://sz.17zwd.com/shop/11985.htm?item_type=onsale"]
+	
+	def start_requests(self):
 		#return ['http://sz.17zwd.com/shop/11985.htm?item_type=onsale']
+		dbc = dbcontext()
+		for url in dbc.getshops():
+			#time.sleep(2)
+			yield self.make_requests_from_url(url)
 		
 	def parse(self, response):
 		self.parse_page(response)
@@ -56,7 +49,6 @@ class A17zwdGoodsSpider(scrapy.Spider):
 			item['goodsurl'] = response.urljoin(goods.css('a::attr(href)').extract_first()).split('&')[0]
 			request = scrapy.Request(item['goodsurl'], callback=self.parse_GoodsDetail, meta={'item': item})
 			yield request
-			break
 	
 	def parse_GoodsDetail(self, response):
 		item = response.meta['item']
