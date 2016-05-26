@@ -9,7 +9,7 @@ import re
 class A17zwdSpider(scrapy.Spider):
 	name = "17zwd"
 	allowed_domains = ["17zwd.com"]
-	start_urls = ["http://sz.17zwd.com/market.htm"]
+	start_urls = ["http://sz.17zwd.com/shop/11296.htm?item_type=onsale"]
 	start_urls_test = {
 		'http://gz.17zwd.com/market.htm',
 		'http://hz.17zwd.com/market.htm',
@@ -32,7 +32,7 @@ class A17zwdSpider(scrapy.Spider):
 		#匹配市场分页
 		m1=re.match(r"http://\w+\.17zwd\.com/market\.htm\?page=\d+",response.url)
 		#匹配店铺所有宝贝页+分页
-		#m2=re.match(r"http://\w+\.17zwd\.com/shop/\d+\.htm\?item_type=onsale",response.url)
+		m2=re.match(r"http://\w+\.17zwd\.com/shop/\d+\.htm\?item_type=onsale",response.url)
 		#匹配店铺所有宝贝页分页
 		#m3=re.match(r"http://\w+\.17zwd\.com/shop/\d+\.htm\?item_type=onsale?page=\d+",response.url)
 		#匹配商品页
@@ -61,6 +61,8 @@ class A17zwdSpider(scrapy.Spider):
 				#获取商店页面信息。
 				yield scrapy.Request(goodslisturl,callback=self.parse_shop)
 				yield item
+		elif m2:
+			yield scrapy.Request(goodslisturl,callback=self.parse_shop)
 
 
 	#分析市场页面内容(market.htm)
@@ -116,18 +118,4 @@ class A17zwdSpider(scrapy.Spider):
 		
 		yield item
 	
-	#分析商店页面内容(shop/12345.htm)，抓取商品信息
-	def parse_goodslist(self,response):
-		goodsurllist = response.css('div.florid-shop-link a::attr(href)').extract()
-		for a in goodsurllist:
-			b = a.split('&')
-			goodsurl = response.urljoin(b[0])
-			#抓取商品信息页面
-			yield scrapy.Request(goodsurl,callback=self.parse_goods) 
-		
-	#分析商品页面内容(item.htm?gid=12345)
-	def parse_goods(self,response):
-		print 'get goods page: %s' % response.url
-		item = GoodsItem()
-		return item
 

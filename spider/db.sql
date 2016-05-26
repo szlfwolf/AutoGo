@@ -6,6 +6,7 @@ create table s_shopinfo (
 id int(5) PRIMARY KEY AUTO_INCREMENT,
 shopname varchar(80),
 shopurl varchar(120),
+shopimg varchar(120),
 marketname varchar(80),
 marketfloor varchar(20),
 marketdk varchar(20),

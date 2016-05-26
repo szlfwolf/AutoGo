@@ -83,11 +83,11 @@ class WdClothPipeline(object):
 			if not result['wwname']:
 				print 'shop url[%s] already exist and begin to update ...' % item['shopinfourl']
 				tx.execute(\
-					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s, updatetime=now() where shopurl = %s",
-					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
+					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s,shopimg=%s, updatetime=now() where shopurl = %s",
+					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopimg'],item['shopinfourl'])
 					)
 			shopid = result['id']
-			print "insert s_goodsinfo[%s]: done." % shopid
+			print "update s_goodsinfo[%s]: done." % shopid
 			tx.execute("insert into s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("update",shopid,"s_shopinfo"))
 
 
