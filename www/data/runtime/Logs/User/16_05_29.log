@@ -1,0 +1,7 @@
+[ 2016-05-29T18:54:24+08:00 ] ::1 /zwd/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001003s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002131s ]
+NOTIC: [8] Undefined index: url C:\Users\Administrator\autogo\web\cmfx\application\Common\Controller\AppframeController.class.php 第 24 行.
+
