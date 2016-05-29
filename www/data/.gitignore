@@ -1,2 +1,2 @@
-runtime
-uc_cache
+runtime/*
+uc_cache/*
