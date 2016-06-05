@@ -1,5 +1,6 @@
 <?php
 $configs = array(
+	'URL_ROUTER_ON' => false,
 	//数据库配置信息
 	'DB_TYPE'   => 'mysql', // 数据库类型
 	'DB_HOST'   => '127.0.0.1', // 服务器地址
