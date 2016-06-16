@@ -6,6 +6,10 @@ import json
 from wd_cloth.dbcontext import dbcontext
 import time
 
+#输入【从db读取的店铺地址】
+#抓取【店铺信息】
+#抓取【商品列表信息】
+#抓取【商品信息】
 class A17zwdGoodsSpider(scrapy.Spider):
 	name = "17zwdgoods"
 	allowed_domains = ["17zwd.com"]

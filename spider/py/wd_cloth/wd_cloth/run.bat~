@@ -1,0 +1,1 @@
+scrapy crawl 17zwd --logfile=a.log

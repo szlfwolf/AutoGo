@@ -50,7 +50,7 @@ class ShopController extends HomebaseController{
 			$goodsimg[$key] = str_replace("50x50","220x220",explode(",", $goods['goodsimgs'])[0]);
 			
 		}
-		#dump($goodslist[0], $echo=true, $label=null, $strict=true);
+		dump($shopinfo[0], $echo=true, $label=null, $strict=true);
 		
 		$this->assign("total",$total[0]['total']);
 		$this->assign("pagesize",5);
