@@ -136,30 +136,5 @@ class A17zwdSpider(scrapy.Spider):
 			self.log('shop info [%d]: name[%s],market[%s]'% args)
 			yield item
 	
-	#分析商店页面内容(shop/12345.htm)
-	def parse_shop(self,response):
-		#print 'parse_shop: %s' % response.url
-		item = ShopInfoItem()
-		item['shopid'] = int(re.match(".*\/(\d+)\.htm.*",response.url).groups()[0])
-		item['shopinfourl']=response.url.split('?')[0]
-		#item['shopimg'] = response.css('div.figure-image img::attr(src)').extract()
-		#QQ
-		#淘宝
-		#电话
-		contactlist = response.css('div.figure-server-right a::text').extract()
-		if len(contactlist) == 3:
-			item['qqnum'] = contactlist[0]
-			item['wwname'] = contactlist[1]
-			item['phonenum'] = contactlist[2].strip()
-		elif len(contactlist) == 2:
-			#qq可能为空
-			item['qqnum'] = ''
-			item['wwname'] = contactlist[0]
-			item['phonenum'] = contactlist[1].strip()
-		
-		#淘宝店地址
-		item['tburl']="http:" +response.css('div.florid-goods-details-taobao-enter a::attr(href)').extract_first()
-		
-		yield item
-	
+
 

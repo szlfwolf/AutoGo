@@ -11,7 +11,8 @@ from wd_cloth.items import ShopItem
 from wd_cloth.items import ShopInfoItem
 from wd_cloth.items import CityItem
 from wd_cloth.items import MarketItem
-from wd_cloth.items import CategoryItem
+#from wd_cloth.items import CategoryItem
+from wd_cloth.items import GoodsItem
 
 
 
@@ -24,7 +25,7 @@ class WdClothPipeline(object):
 			cur.execute('select count(*) from s_shopinfo')
 			cur.close()
 			conn.close()
-			print "mysql connect db[wd_cloth]ok "
+			print "mysql connect db[wd_cloth2]ok "
 		except MySQLdb.Error,e:
 			print "Mysql Error %d: %s" % (e.args[0], e.args[1])
 		
@@ -49,12 +50,12 @@ class WdClothPipeline(object):
 		elif isinstance(item,MarketItem):
 			#print 'MarketItem: ',item['cityname'],'-',item['marketname'],'-',item['marketurl']
 			query = self.dbpool.runInteraction(self._insert_market, item)
-		if item.get('shopname') :
+		elif isinstance(item,ShopItem):
 			query = self.dbpool.runInteraction(self._conditional_insert, item)
-		elif item.get('shopinfourl') :
+		elif isinstance(item,ShopInfoItem):
+			print 'begin update shop info'
 			query = self.dbpool.runInteraction(self._conditional_update_shopinfo, item)
-		elif item.get('goodsurl') :
-			print "save item :%s" % item['goodsurl']
+		elif isinstance(item,GoodsItem):
 			query = self.dbpool.runInteraction(self._conditional_insert_goods, item)
 		
 		if query:
@@ -108,7 +109,7 @@ class WdClothPipeline(object):
 			if result:
 				marketid = int(result['id'])
 				tx.execute("insert into s_market_shop (marketid,shopid) values (%s,%s)", (marketid,sid))
-			print "insert s_goodsinfo[%s]: done, shopid:%s" % (sid,item['shopid'])
+			print "insert s_shopinfo[%s]: done, shopid:%s" % (sid,item['shopid'])
 			tx.execute("insert into s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("add",sid,"s_shopinfo"))
 			
 
@@ -134,8 +135,8 @@ class WdClothPipeline(object):
 		if not result:
 			print "begin insert s_goodsinfo"
 			tx.execute(\
-				"insert into s_goodsinfo (goodsurl,shopurl,goodsimgs,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details)\
-				values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+				"insert into s_goodsinfo (goodsurl,shopurl,goodsimgs,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details,goodsid)\
+				values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
 				(item['goodsurl'],
 				 item['shopurl'],
 				 item['goodsimgs'],
@@ -145,11 +146,16 @@ class WdClothPipeline(object):
 				 item['taobaourl'],
 				 item['uptime'],
 				 item['props'],
-				 item['details']
+				 item['details'],
+				 item['goodsid']
 				 )
 				)
-			goodsid = tx.connection.insert_id()
-			print "insert s_goodsinfo[%s]: done." % goodsid
-			tx.execute("insert into s_spiderlog (optype,keyid,objname) values ( %s,%s,%s)",("add",goodsid,"s_goodsinfo"))
+			id = tx.connection.insert_id()
+			#保存【店铺】与【商品】的关联关系
+			tx.execute("insert into s_shop_goods (goodsid,shopid) values (%s,%s)", (item['goodsid'],item['shopid']))
+
+
+			print "insert s_goodsinfo[%s]: done." %  item['goodsid']
+			#tx.execute("insert into s_spiderlog (optype,keyid,objname) values ( %s,%s,%s)",("add",item['goodsid'],"s_goodsinfo"))
 			#tx.commit()
 
