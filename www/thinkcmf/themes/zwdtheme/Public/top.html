@@ -38,11 +38,11 @@
                     <div class="line-bottom"></div>
                     <div class="app-drop-down">
                         <div class="app-drop-down-outside line">
-                            <img src="./index_files/iphone_app_store.png" width="100" alt="苹果手机客户端 - 一起做网店"> IOS
+                            <img src="__TMPL__Public/images/iphone_app_store.png" width="100" alt="苹果手机客户端 - 一起做网店"> IOS
                         </div>
                         <div class="line-demo"></div>
                         <div class="app-drop-down-outside">
-                            <img src="./index_files/android.png" width="100" alt="安卓手机客户端 - 一起做网店"> Android
+                            <img src="__TMPL__Public/images/android.png" width="100" alt="安卓手机客户端 - 一起做网店"> Android
                         </div>
                     </div>
                 </div>
@@ -135,12 +135,21 @@
 <div class="florid-header-outside-container" style="border-bottom-width: 0px;">
     <div class="florid-header-container" style="margin: 22px auto;">
         <div class="logo-container">
-            <a href="http://www.17zwd.com/" title="一起做网店" class="logo"></a>
-            <a href="http://www.17zwd.com/" title="一起做网店" class="small-logo" style="display: none;"></a>
+            <a href="__ROOT__" title="一起做网店" class="logo"></a>
+            <a href="__ROOT__" title="一起做网店" class="small-logo" style="display: none;"></a>
         </div>
         <div class="locale-container">
             <div class="clear-container" id="J_Locale">
-                <div class="locale-font-container"> [<span class="locale-font" data-id="gz">广州</span> ] </div><div class="locale-click-change">切换城市</div><div class="xxx_drop_up_container"> <div class="xxx_drop_up_deflut"> <i class="iconfont top-icon"></i> </div> <div class="xxx_drop_up_content">  <a href="http://gz.17zwd.com/?zd=42" class="xxx_drop_up_item xxx_drop_up_item_clicked" data-id="gz" title="广州网店之家 - 一起做网店">广州</a>  <a href="http://hz.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="hz" title="杭州网店之家 - 一起做网店">杭州</a>  <a href="http://cs.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="cs" title="潮汕网店之家 - 一起做网店">潮汕</a>  <a href="http://jy.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="jy" title="揭阳网店之家 - 一起做网店">揭阳</a>  <a href="http://sz.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="sz" title="深圳网店之家 - 一起做网店">深圳</a>  <a href="http://zz.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="zz" title="株洲网店之家 - 一起做网店">株洲</a>  <a href="http://zhengzhou.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="zhengzhou" title="郑州网店之家 - 一起做网店">郑州</a>  <a href="http://xintang.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="xintang" title="新塘网店之家 - 一起做网店">新塘</a>  <a href="http://bj.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="bj" title="北京网店之家 - 一起做网店">北京</a>  <a href="http://dg.17zwd.com/?zd=42" class="xxx_drop_up_item" data-id="dg" title="东莞网店之家 - 一起做网店">东莞</a>  <div class="site_hint_container">更多新站点，敬请期待！</div> </div> </div>
+                <div class="locale-font-container"> [<span class="locale-font" data-id="gz">{$CityInfo['cityname']}</span> ] </div>
+                <div class="locale-click-change">切换城市</div>
+                <div class="xxx_drop_up_container"> 
+                	<div class="xxx_drop_up_deflut"> <i class="iconfont top-icon"></i> </div> 
+                	<div class="xxx_drop_up_content">
+                			<foreach name="CityList" item="vo">                			
+                				<a href="__ROOT__?cityid={$vo['id']}" class="<if condition="$vo['id'] eq $CityInfo['id']">xxx_drop_up_item xxx_drop_up_item_clicked<else />xxx_drop_up_item</if>" data-id="{$vo['id']}" title="{$vo['cityname']}网店之家 - 一起做网店">{$vo['cityname']}</a>	
+                			</foreach>
+ 
+                	<div class="site_hint_container">更多新站点，敬请期待！</div> </div> </div>
             </div>
         </div>
         <form action="http://gz.17zwd.com/sks.aspx" method="get" name="frmSearch" id="J_search" autocomplete="off" style="margin-top: 0px;">
@@ -192,7 +201,7 @@
                     <div class="server-icon-float-container">
                         <div class="ax x-ax"></div>
                         <div class="erver-icon-float-item">
-                            <img src="./index_files/wx.png" width="140"><br>
+                            <img src="__TMPL__Public/images/wx.png" width="140"><br>
                             微信公众号
                         </div>
                     </div>
@@ -202,7 +211,7 @@
                     <div class="server-icon-float-container">
                         <div class="ax"></div>
                         <div class="erver-icon-float-item">
-                            <img src="./index_files/telphone.png" width="150">
+                            <img src="__TMPL__Public/images/telphone.png" width="150">
                         </div>
                     </div>
                 </div>
