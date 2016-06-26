@@ -23,7 +23,7 @@
 					<ul class="function-market-list" id="J_MARKERLST">  
 						<foreach name="CityMarketList" item="vo">
     						<li class="function-market-item" data-mid="{$vo['id']}">
-    							<a href="###">{$vo.marketname|mb_substr=0,4,"utf-8"}</a>
+    							<a href="__ROOT__?m=market&cityid={$CityInfo.id}&mid={$vo.id}">{$vo.marketname|mb_substr=0,4,"utf-8"}</a>
     						</li>
 						</foreach>	   
 					</ul> 
