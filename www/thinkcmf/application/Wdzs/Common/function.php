@@ -11,8 +11,8 @@
 function Signature($api,$param=array())
 {
     //param为其他参数，调用不同接口，参数也不同。参数会随之加入签名计算
-    $appKey = C('API_1688.APP_KEY');
-    $appSecret = C('API_1688.APP_CODE');
+    
+    
     $redirectUrl = C('API_1688.R_URL');
 	
 	$url = 'http://gw.api.alibaba.com/openapi';//1688开放平台使用gw.open.1688.com域名
@@ -23,17 +23,17 @@ function Signature($api,$param=array())
     	$apiInfo = $api . $appKey;
 	}
     
-    //生成签名
-    if(!empty($param)){
-        $code_arr[]=$param;
-    }
+    //生成签名    
 	$aliParams = array();
-    foreach ($code_arr as $key => $val) {
+    foreach ($param as $key => $val) {
         $aliParams[] = $key . $val;
     }
     sort($aliParams);
     $sign_str = join('', $aliParams);
-    $sign_str = $apiInfo . $sign_str;
+	
+	if(!empty($api)){
+    	$sign_str = $apiInfo . $sign_str;
+	}
 	
 	
 	
