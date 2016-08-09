@@ -22,6 +22,7 @@ function Signature($api,$param=array())
     if(!empty($api)){
     	$apiInfo = $api . $appKey;
 	}
+	
     
     //生成签名    
 	$aliParams = array();
@@ -31,9 +32,10 @@ function Signature($api,$param=array())
     sort($aliParams);
     $sign_str = join('', $aliParams);
 	
-	if(!empty($api)){
+	if(!empty($apiInfo)){
     	$sign_str = $apiInfo . $sign_str;
 	}
+	
 	
 	var_dump($sign_str);
 	
@@ -51,6 +53,13 @@ function Signature($api,$param=array())
  * @return string 
  */  
 function send_post($url, $post_data) {  
+  
+  $postdatastr=array();  
+  foreach ($post_data as $key => $val) {
+        $postdatastr[] = $key ."=". $val;
+    }
+  var_dump(join('&',$postdatastr));
+  
   
   if ( !empty($post_data)){
   	$postdata = http_build_query($post_data);
@@ -71,7 +80,7 @@ function send_post($url, $post_data) {
   $context = stream_context_create($options);  
   $result = file_get_contents($url, false, $context);  
      
-  var_dump($url,$postdata,$result);
+  var_dump('encode_postdata:'.$postdata,$result);
   return $result;  
 }
 
@@ -101,12 +110,17 @@ function send_get($url, $get_data) {
 }
 
 
+function _getToken($id)
+{
+	$usertoken = M("UserToken");
+	$usertoken->find($id);
+	return $usertoken->access_token;
+}
 		
 function do_sync($urls){
 	if(IS_POST){
 		$apiInfo = C("API_1688.API_ADD_PRODUCT");
-		$usertoken = M("UserToken");
-		$usertoken->find(1);
+		
 		//
 //		$goodsModel = new \Think\Model('Goodsinfo','s_',C("SPIDER_DB"));
 //		$goods = $goodsModel->where('id=120')->select(); 
@@ -115,6 +129,7 @@ function do_sync($urls){
 //		$productImg = json_encode(array(
 //			"images"	=>	$img,
 //		));
+		$t = _getToken(1);
 		$img = '{"images":["http://g03.s.alicdn.com/kf/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg/200042360/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg.jpg"]}';
 		$postdata = array(				
 			'productType' 	=>	"wholesale",
@@ -124,19 +139,17 @@ function do_sync($urls){
 			"language"		=>	"CHINESE",
 			"image"			=>	$img,
 			"webSite"		=>	"1688",
-		);				
-		$postdata_sys = array(
-			"_aop_signature" => Signature($apiInfo,$postdata),
-			"access_token"	=> $usertoken->access_token,
+			"access_token"	=>	$t,
 		);
-		
-		$postdata = array_merge($postdata,$postdata_sys);
-		
+		$postdata["_aop_signature"] = Signature($apiInfo,$postdata);
+						
 			
 		$url =  C("API_1688.API_BASE") .$apiInfo.C("API_1688.APP_KEY");
 				
 		$json = send_post($url,$postdata);
+		$arr =json_decode($json,true);
 		
+
 	}
 } 
 	
@@ -161,23 +174,29 @@ function getCat($catid){
 		var_dump($json);	
 	}
 } 
-
+/*
+ * 获取商品列表信息。
+ */
 function getProductList()
 {
+	$t = _getToken(1);
+	
 	$apiInfo ="param2/1/com.alibaba.product/alibaba.product.getList/";
 	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
 	$postdata= array(
-		"categoryID"=> $catid,
-		"webSite"	=> "1688",
+		"webSite"		=> "1688",
+		"access_token"	=>	$t,//"233e786d-71e1-4652-8cdf-b3e6b9cc976e",
 	);	
-	$postdatasys = array{
-		"_aop_signature" => Signature("/".$apiinfo, $postdata),
-		"access_token"	=> 
-	}
+	$s = Signature($apiInfo, $postdata);	
+	$postdata['_aop_signature'] = $s;
+	
 	$json = send_post($url,$postdata);
 	$arr =json_decode($json,true);	
-	var_dump($arr);	
+	
+	trace($arr,'产品列表');
 		
+		
+
 }
 
 	function _init_apiinfo()

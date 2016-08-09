@@ -13,7 +13,8 @@ class GoodsController extends HomebaseController {
 			
 			_init_apiinfo();
 			
-			getCat(0);
+			//getCat(0);
+			getProductList();
 			//do_sync($urls);
 					
 		}
