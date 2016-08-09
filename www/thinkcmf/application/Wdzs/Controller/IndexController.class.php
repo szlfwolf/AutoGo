@@ -7,30 +7,22 @@ namespace Wdzs\Controller;
 use Common\Controller\HomebaseController;
 class IndexController extends HomebaseController {
 	
-	
+
     //登录
-	public function index() {
-		
-			$apiinfo = M("ApiInfo");
-			$arr = $apiinfo->where("api_type='1688'")->select();
-			
-			C('API_1688.APP_KEY',$arr[0]["api_value"]);
-			C('API_1688.APP_CODE',$arr[1]["api_value"]);
-			C('API_1688.R_URL',$arr[2]["api_value"]);
-						
-		
-	$appKey = C('API_1688.APP_KEY');
-    $redirectUrl = C('API_1688.R_URL');					
-								//生成签名
-    $code_arr = array(
-        'client_id' => $appKey,
-        'redirect_uri' => $redirectUrl,
-        'site' => 'china'
-    ); 
-		$authurl="http://gw.open.1688.com/auth/authorize.htm?client_id=".$appKey."&site=china&redirect_uri=".$redirectUrl."&_aop_signature=".Signature(null,$code_arr);	
-		this.redirect($authurl);
-		//$this->assign("authurl",$authurl);
-		//$this->display(":index");
+	public function index() {		
+		_init_apiinfo();										
+		$appKey = C('API_1688.APP_KEY');
+	    $redirectUrl = C('API_1688.R_URL');					
+									//生成签名
+	    $code_arr = array(
+	        'client_id' => $appKey,
+	        'redirect_uri' => $redirectUrl,
+	        'site' => 'china'
+	    ); 
+			$authurl="http://gw.open.1688.com/auth/authorize.htm?client_id=".$appKey."&site=china&redirect_uri=".$redirectUrl."&_aop_signature=".Signature(null,$code_arr);	
+			this.redirect($authurl);
+			//$this->assign("authurl",$authurl);
+			//$this->display(":index");
 
     }
 	
@@ -38,6 +30,7 @@ class IndexController extends HomebaseController {
 		$authcode = I("get.code",'');
 		if (!empty($authcode))
 		{
+			_init_apiinfo();
 			$tokenurl = "https://gw.open.1688.com/openapi/http/1/system.oauth2/getToken/".
 				C('API_1688.APP_KEY')."?grant_type=authorization_code&need_refresh_token=true&client_id=".
 				C('API_1688.APP_KEY')."&client_secret=".
@@ -54,7 +47,7 @@ class IndexController extends HomebaseController {
 
 			//session('name','value'); 
 			
-			$this->display(":index");	
+			this.redirect(U("goods/index"));
 		}
 		else{
 			$ip = get_client_ip();
@@ -69,15 +62,10 @@ class IndexController extends HomebaseController {
 			C('API_1688.APP_CODE')."&refresh_token=REFRESH_TOKEN";
 		
 	}
-    
-    function is_login(){
-    	if(sp_is_user_login()){
-    		$this->ajaxReturn(array("status"=>1,"user"=>sp_get_current_user()));
-    	}else{
-    		$this->ajaxReturn(array("status"=>0,"info"=>"此用户未登录！"));
-    	}
-    }    
+
 	
+	
+
 	
 		
 }

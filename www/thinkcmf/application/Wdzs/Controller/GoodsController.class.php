@@ -10,7 +10,11 @@ class GoodsController extends HomebaseController {
 	public function index() {
 		if(IS_POST){
 			$urls = explode("\r\n", I('goodsurls'));
-			do_sync($urls);
+			
+			_init_apiinfo();
+			
+			getCat(0);
+			//do_sync($urls);
 					
 		}
 		

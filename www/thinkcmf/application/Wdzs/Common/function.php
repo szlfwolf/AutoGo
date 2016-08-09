@@ -35,7 +35,7 @@ function Signature($api,$param=array())
     	$sign_str = $apiInfo . $sign_str;
 	}
 	
-	
+	var_dump($sign_str);
 	
     $code_sign = strtoupper(bin2hex(hash_hmac("sha1", $sign_str, $appSecret, true)));
 	
@@ -52,7 +52,12 @@ function Signature($api,$param=array())
  */  
 function send_post($url, $post_data) {  
   
-  $postdata = http_build_query($post_data);  
+  if ( !empty($post_data)){
+  	$postdata = http_build_query($post_data);
+  }  
+  else{
+  	$postdata = $post_data;
+  }
   $options = array(  
     'http' => array(  
       'method' => 'POST',  
@@ -61,34 +66,55 @@ function send_post($url, $post_data) {
       'timeout' => 15 * 60 // 超时时间（单位:s）  
     )  
   );  
-  var_dump($url,$postdata);  
-  
+   
+
   $context = stream_context_create($options);  
   $result = file_get_contents($url, false, $context);  
-  
-  var_dump($http_response_code, $http_response_header,$php_errormsg);   
-  
+     
+  var_dump($url,$postdata,$result);
   return $result;  
 }
+
+function send_get($url, $get_data) {  
+  
+  if ( !empty($get_data)){
+  	$getdata = http_build_query($get_data);
+  }  
+  else{
+  	$getdata = $get_data;
+  }
+  $url = $url ."?".$getdata;
+  $options = array(  
+    'http' => array(  
+      'method' => 'GET',  
+      'header' => 'Content-type:application/x-www-form-urlencoded',   
+      'timeout' => 15 * 60 // 超时时间（单位:s）  
+    )  
+  );  
+
+
+  $context = stream_context_create($options);  
+  $result = file_get_contents($url, false, $context);  
+     
+  var_dump($url,$result);  
+  return $result;  
+}
+
 
 		
 function do_sync($urls){
 	if(IS_POST){
 		$apiInfo = C("API_1688.API_ADD_PRODUCT");
 		$usertoken = M("UserToken");
-		$usertoken->find(2);
+		$usertoken->find(1);
 		//
-		$goodsModel = new \Think\Model('Goodsinfo','s_',C("SPIDER_DB"));
-		$goods = $goodsModel->where('id=120')->select(); 
-		
-		foreach($urls as $u){
-			//$goods = $goodsModel->query("SELECT * FROM `s_goodsinfo` where goodsurl like '%s' and rownum = 1",$u);			
-		}			
-		$g = $goods[0];		
-		$img = "{\"images\":". str_replace("//", "http://", $g["goodsimgs"]) . "}";
-		$productImg = json_encode(array(
-			"images"	=>	$img,
-		));
+//		$goodsModel = new \Think\Model('Goodsinfo','s_',C("SPIDER_DB"));
+//		$goods = $goodsModel->where('id=120')->select(); 
+//		$g = $goods[0];		
+//		$img = "{\"images\":". str_replace("//", "http://", $g["goodsimgs"]) . "}";
+//		$productImg = json_encode(array(
+//			"images"	=>	$img,
+//		));
 		$img = '{"images":["http://g03.s.alicdn.com/kf/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg/200042360/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg.jpg"]}';
 		$postdata = array(				
 			'productType' 	=>	"wholesale",
@@ -96,7 +122,7 @@ function do_sync($urls){
 			"subject"		=>	"goodsname",
 			"description"	=>	"details",
 			"language"		=>	"CHINESE",
-			"image"			=>	'{"images":["http://g03.s.alicdn.com/kf/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg/200042360/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg.jpg","http://g01.s.alicdn.com/kf/HTB1tNhsIFXXXXb2XXXXq6xXFXXX9/200042360/HTB1tNhsIFXXXXb2XXXXq6xXFXXX9.jpg"]}',
+			"image"			=>	$img,
 			"webSite"		=>	"1688",
 		);				
 		$postdata_sys = array(
@@ -110,7 +136,7 @@ function do_sync($urls){
 		$url =  C("API_1688.API_BASE") .$apiInfo.C("API_1688.APP_KEY");
 				
 		$json = send_post($url,$postdata);
-		var_dump($json);
+		
 	}
 } 
 	
@@ -119,23 +145,48 @@ function do_sync($urls){
  *	获取1688网站的类目信息。
  */
 function getCat($catid){
-		$url = "http://gw.open.1688.com:80/openapi/param2/1/com.alibaba.product/alibaba.category.get/9982392?categoryID=%u&webSite=1688&access_token=5a1dbc83-8a81-4575-bb28-7feaf3be8668&_aop_signature=7974801A90C24516614C9A208E0CC36F7D7308D1";
-		$url = sprintf($url,$catid);		
-		$json = send_post($url);
-		$arr =json_decode($json,true);		
-		if ( $arr["errorMsg"] == "success")
-		{
-			return $arr["categoryInfo"];			
-		}else
-		{
-			var_dump($json);	
-		}
+	$apiInfo ="param2/1/com.alibaba.product/alibaba.category.get/";
+	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
+	$postdata= array(
+		"categoryID"=> $catid,
+		"webSite"	=> "1688",
+	);	
+	$json = send_post($url,$postdata);
+	$arr =json_decode($json,true);		
+	if ( $arr["errorMsg"] == "success")
+	{
+		return $arr["categoryInfo"];			
+	}else
+	{
+		var_dump($json);	
+	}
 } 
 
 function getProductList()
 {
-	$url = "http://gw.open.1688.com:80/openapi/param2/1/com.alibaba.product/alibaba.product.getList/9982392?&webSite=1688&access_token=5a1dbc83-8a81-4575-bb28-7feaf3be8668&_aop_signature=7974801A90C24516614C9A208E0CC36F7D7308D1";
-	$json = send_post(sprintf($url,$catid));
-	$arr =json_decode($json,true);
+	$apiInfo ="param2/1/com.alibaba.product/alibaba.product.getList/";
+	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
+	$postdata= array(
+		"categoryID"=> $catid,
+		"webSite"	=> "1688",
+	);	
+	$postdatasys = array{
+		"_aop_signature" => Signature("/".$apiinfo, $postdata),
+		"access_token"	=> 
+	}
+	$json = send_post($url,$postdata);
+	$arr =json_decode($json,true);	
+	var_dump($arr);	
 		
 }
+
+	function _init_apiinfo()
+	{		
+		$apiinfo = M("ApiInfo");
+		$arr = $apiinfo->where("api_type='1688'")->select();
+		
+		C('API_1688.APP_KEY',$arr[0]["api_value"]);
+		C('API_1688.APP_CODE',$arr[1]["api_value"]);
+		C('API_1688.R_URL',$arr[2]["api_value"]);
+	}
+	

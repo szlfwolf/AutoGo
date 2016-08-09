@@ -12,7 +12,7 @@ CREATE TABLE `wdzs_api_info` (
 	`API_TYPE` varchar(255) NOT NULL COMMENT 'app唯一标识',
 	`API_CODE` varchar(255) NOT NULL COMMENT 'app唯一标识',
 	`API_VALUE` varchar(255) NOT NULL COMMENT 'app唯一标识',
-	`createtime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '创建时间',
+	`createtime` datetime NOT NULL DEFAULT  NOW() COMMENT '创建时间',
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -30,7 +30,7 @@ CREATE TABLE `wdzs_user_token` (
   `refresh_token` varchar(255) NOT NULL COMMENT '长时令牌',
   `access_token` varchar(255) NOT NULL COMMENT '访问令牌',
   `refresh_token_timeout` text COMMENT 'refreshToken的过期时间',
-  `createtime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '授权时间',
+  `createtime` datetime NOT NULL DEFAULT  NOW() COMMENT '授权时间',
   PRIMARY KEY (`id`),
   KEY `access_token` (`access_token`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
