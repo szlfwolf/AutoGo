@@ -42,7 +42,7 @@ class IndexController extends HomebaseController {
 			$tokenarr = json_decode($json,TRUE);
 			var_dump($tokenarr);
 
-			$usertoken = M("user_token");
+			$usertoken = M("WdzsUserToken");
 			$usertoken->add($tokenarr);
 
 			//session('name','value'); 

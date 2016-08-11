@@ -37,7 +37,7 @@ function Signature($api,$param=array())
 	}
 	
 	
-	var_dump($sign_str);
+	//var_dump($sign_str);
 	
     $code_sign = strtoupper(bin2hex(hash_hmac("sha1", $sign_str, $appSecret, true)));
 	
@@ -58,7 +58,7 @@ function send_post($url, $post_data) {
   foreach ($post_data as $key => $val) {
         $postdatastr[] = $key ."=". $val;
     }
-  var_dump(join('&',$postdatastr));
+  //var_dump(join('&',$postdatastr));
   
   
   if ( !empty($post_data)){
@@ -80,7 +80,7 @@ function send_post($url, $post_data) {
   $context = stream_context_create($options);  
   $result = file_get_contents($url, false, $context);  
      
-  var_dump('encode_postdata:'.$postdata,$result);
+  //var_dump('encode_postdata:'.$postdata,$result);
   return $result;  
 }
 
@@ -105,50 +105,21 @@ function send_get($url, $get_data) {
   $context = stream_context_create($options);  
   $result = file_get_contents($url, false, $context);  
      
-  var_dump($url,$result);  
+  //var_dump($url,$result);  
   return $result;  
 }
 
 
 function _getToken($id)
 {
-	$usertoken = M("UserToken");
-	$usertoken->find($id);
+	$usertoken = M("WdzsUserToken");
+	$usertoken->find(2);
 	return $usertoken->access_token;
 }
 		
 function do_sync($urls){
 	if(IS_POST){
-		$apiInfo = C("API_1688.API_ADD_PRODUCT");
-		
-		//
-//		$goodsModel = new \Think\Model('Goodsinfo','s_',C("SPIDER_DB"));
-//		$goods = $goodsModel->where('id=120')->select(); 
-//		$g = $goods[0];		
-//		$img = "{\"images\":". str_replace("//", "http://", $g["goodsimgs"]) . "}";
-//		$productImg = json_encode(array(
-//			"images"	=>	$img,
-//		));
-		$t = _getToken(1);
-		$img = '{"images":["http://g03.s.alicdn.com/kf/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg/200042360/HTB1PYE9IpXXXXbsXVXXq6xXFXXXg.jpg"]}';
-		$postdata = array(				
-			'productType' 	=>	"wholesale",
-			"categoryID"	=>	"122214007",
-			"subject"		=>	"goodsname",
-			"description"	=>	"details",
-			"language"		=>	"CHINESE",
-			"image"			=>	$img,
-			"webSite"		=>	"1688",
-			"access_token"	=>	$t,
-		);
-		$postdata["_aop_signature"] = Signature($apiInfo,$postdata);
-						
-			
-		$url =  C("API_1688.API_BASE") .$apiInfo.C("API_1688.APP_KEY");
-				
-		$json = send_post($url,$postdata);
-		$arr =json_decode($json,true);
-		
+
 
 	}
 } 
@@ -157,55 +128,106 @@ function do_sync($urls){
 /*
  *	获取1688网站的类目信息。
  */
-function getCat($catid){
-	$apiInfo ="param2/1/com.alibaba.product/alibaba.category.get/";
-	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
+function getCat($catid){	
 	$postdata= array(
 		"categoryID"=> $catid,
 		"webSite"	=> "1688",
 	);	
-	$json = send_post($url,$postdata);
-	$arr =json_decode($json,true);		
-	if ( $arr["errorMsg"] == "success")
-	{
-		return $arr["categoryInfo"];			
-	}else
-	{
-		var_dump($json);	
-	}
-} 
+	return _invokeApi("alibaba.category.get",$postdata);
+}
 /*
  * 获取商品列表信息。
  */
 function getProductList()
 {
-	$t = _getToken(1);
-	
-	$apiInfo ="param2/1/com.alibaba.product/alibaba.product.getList/";
-	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
+
 	$postdata= array(
 		"webSite"		=> "1688",
-		"access_token"	=>	$t,//"233e786d-71e1-4652-8cdf-b3e6b9cc976e",
+		
 	);	
-	$s = Signature($apiInfo, $postdata);	
-	$postdata['_aop_signature'] = $s;
-	
-	$json = send_post($url,$postdata);
-	$arr =json_decode($json,true);	
-	
-	trace($arr,'产品列表');
-		
-		
+
+	return _invokeApi("alibaba.product.getList",$postdata,True,True);	
 
 }
 
-	function _init_apiinfo()
-	{		
-		$apiinfo = M("ApiInfo");
-		$arr = $apiinfo->where("api_type='1688'")->select();
+function getProduct($productId)
+{
+
+	$postdata= array(
+		"productID"		=>	$productId,
+		"webSite"		=> "1688",
+	);	
+	
+	return _invokeApi("alibaba.product.get",$postdata,True,True);
+			
+}
+
+function addProduct(){
+	$postdata= array(
+		"productType"	=>	"wholesale",
+		"categoryID"	=>	"122196005",
+		"attributes"	=>	"",
+		"groupID"		=>	"{[69931588,70763194]}",
+		"subject"		=>	"孕妇装裙子夏季欧美外贸大牌走秀原单肩章系带不规则雪纺连衣裙subject",
+		"description"	=>	"孕妇装裙子夏季欧美外贸大牌走秀原单肩章系带不规则雪纺连衣裙description",
+		"language"		=>	"CHINESE",
+		"periodOfValidity"=>	200,
+		"bizType"		=>	1,
+		"pictureAuth"	=>	"false",
+		"image"			=>	'{"images":["img/ibank/2016/364/959/2882959463_858335242.jpg","img/ibank/2016/364/959/2882959463_858335242.jpg"]}',
+		"skuInfos"		=>	"",
+		"saleInfo"		=>	"",
+		"shippingInfo"	=>	"",
+		"webSite"		=> "1688",	
+	);	
+	return _invokeApi("alibaba.product.add",$postdata,True,True);	
+}
+
+function addGroup($groupname){
+	
+	$postdata= array(
+		"name"	=>	$groupname,
+		"parentID"	=>	70850122,
+		"webSite"		=> "1688",
 		
-		C('API_1688.APP_KEY',$arr[0]["api_value"]);
-		C('API_1688.APP_CODE',$arr[1]["api_value"]);
-		C('API_1688.R_URL',$arr[2]["api_value"]);
+	);	
+	return _invokeApi("alibaba.product.group.add",$postdata,True,True);
+}
+
+function _invokeApi($apiname,$postdata,$needSign,$needToken){
+	
+	$apiInfo ="param2/1/com.alibaba.product/".$apiname."/";
+	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
+
+	
+	if($needToken){
+		$t = _getToken(1);
+		$postdata["access_token"]=	$t;//"233e786d-71e1-4652-8cdf-b3e6b9cc976e",	
 	}
 	
+	
+	if($needSign){
+		$s = Signature($apiInfo, $postdata);
+		$postdata['_aop_signature'] = $s;
+	}
+			
+	trace($postdata,"postdata");
+	$json = send_post($url,$postdata);
+	
+	trace($json,"api return");
+	
+	$arr =json_decode($json,true);
+		
+	return $arr;
+}
+
+function _init_apiinfo()
+{		
+	$apiinfo = M("WdzsApiInfo");
+	$arr = $apiinfo->where("api_type='1688'")->select();
+	
+	C('API_1688.APP_KEY',$arr[0]["api_value"]);
+	C('API_1688.APP_CODE',$arr[1]["api_value"]);
+	C('API_1688.R_URL',$arr[2]["api_value"]);
+}
+

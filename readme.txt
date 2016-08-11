@@ -1,4 +1,4 @@
-AutoGo Ŀ���������������Ѽ���Դ��ͬ�����Ա���B2Bƽ̨ʵ��ȫ�Զ�����Ӫ����
+﻿AutoGo 目标在于利用爬虫搜集货源，同步到淘宝等B2B平台实现全自动网上营销。
 
-���棺scrapy
-�̳ǣ�����thinkphp���
+爬虫：scrapy
+商城：基于thinkphp框架

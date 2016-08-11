@@ -1,0 +1,350 @@
+body {
+    font-family: 'Hiragino Sans GB', 'microsoft yahei', arial, sans-serif;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    height: 0;
+    font-size: 0;
+    content: '\0020';
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+.page {
+    position: relative;
+    width: 100%;
+}
+
+#header {
+    width: 100%;
+    line-height: 54px;
+    background-color: #1a1b21;
+    min-width: 1190px;
+}
+
+#inner {
+    position: relative;
+    margin: 0 60px;
+    overflow: hidden;
+}
+
+.logo {
+    background: url(//os.alipayobjects.com/rmsportal/CYCDhWnaGiemHmT.png) no-repeat;
+    float: left;
+    vertical-align: baseline;
+    line-height: 36px;
+    padding-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    margin: 9px 0 0;
+    font-size: 16px;
+}
+
+.navright {
+    font-size: 0;
+    float: right;
+    height: 54px;
+}
+
+.nav-item {
+    position: relative;
+    margin-right: 90px;
+    /*border-radius: 3px;*/
+    display: inline-block;
+    _display: inline;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 54px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-i18n {
+    margin-right: 30px;
+}
+
+.nav-i18n span {
+    display: inline-block;
+    _display: inline;
+    height: 30px;
+    width: 30px;
+    line-height: 32px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 14px;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: #ff3000;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    _display: inline;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background: #ff3000;
+    color: #FFF;
+    height: 54px;
+    width: 100px;
+    line-height: 54px;
+}
+
+.button:hover {
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    background-color: #e52a00;
+}
+
+#content {
+    width: 940px;
+    margin: 30px auto 80px;
+    padding-left: 250px;
+    overflow: hidden;
+}
+
+#content nav {
+    float: left;
+    width: 220px;
+    margin-left: -250px;
+    background-color: #f6f6f6;
+}
+
+#sticky-wrapper {
+    position: absolute;
+}
+
+article.doc {
+    float: right;
+    width: 100%;
+    /*background-color: blue;*/
+}
+
+ul,
+li {
+    margin: 0;
+    list-style: none;
+}
+
+
+/**/
+
+.rheader {
+    display: none;
+}
+
+.container {
+    position: relative;
+    margin: 20px auto 80px;
+    overflow: hidden;
+}
+
+.col-sub {
+    float: left;
+    width: 220px;
+    border: solid 1px #e8e8e8;
+    margin-left: 0 !important;
+    background-color: #f6f6f6;
+    overflow: auto;
+}
+
+.col-main {
+    float: right;
+    overflow-y: auto;
+}
+
+article.doc {
+    float: right;
+    width: 100%;
+    /*background-color: blue;*/
+}
+
+ul,
+li {
+    margin: 0;
+    list-style: none;
+}
+
+.summary {
+    padding: 20px 0;
+}
+
+.chapter {
+    padding: 10px 0 0;
+    margin-bottom: -1px;
+    font-size: 12px;
+    color: #666;
+    line-height: 40px;
+}
+
+.chapter h2 {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+    padding: 0 30px
+}
+
+.chapter h2 .ui2-icon:before {
+    content: '\e842';
+    color: #888;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+}
+
+.chapter.collapse h2 .ui2-icon:before {
+    content: '\e600';
+    color: #888;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+}
+
+.chapter.collapse .article {
+    display: none;
+}
+
+.chapter li a {
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.chapter li.active a {
+    color: #305eea;
+}
+
+.article {
+    border-bottom: solid 1px #e8e8e8;
+    padding: 0 0 10px;
+    margin: 0 0 20px;
+}
+
+.article li {
+    position: relative;
+    /*white-space: nowrap;*/
+    padding: 10px 30px;
+    display: table;
+    line-height: 1.5;
+    width: 160px;
+}
+
+.chapter li.active,
+.article li:hover {
+    background-color: #e8e8e8;
+    color: #305eea;
+}
+
+.article .sub-title {
+    font-weight: bold;
+}
+
+.article li.sub-title:hover {
+    background-color: transparent;
+    color: #666;
+}
+
+.main-wrap {
+    padding: 0 30px;
+    font-size: 16px;
+}
+
+.main-wrap h1.title {
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 20px;
+}
+
+.main-wrap a {
+    color: #305eea;
+    text-decoration: none;
+}
+
+.main-wrap .api-sub-title {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.main-wrap .sub-title {
+    float: left;
+    padding: 0 40px;
+    line-height: 1;
+    /*margin-right: -1px;*/
+    border-right: solid 1px #ddd;
+    /*border-left: solid 1px #ddd;*/
+}
+
+.main-wrap .sub-title:first-child {
+    padding: 0 40px 0 0;
+}
+
+.main-wrap .sub-title:last-child {
+    border-right: 0px;
+}
+
+.main-wrap .api-sub-title a {
+    font-size: 18px;
+}
+
+h2.head-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1.5em 0;
+}
+
+.api-table {
+    width: 100% !important;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.api-table th,
+.api-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.api-table th,
+.api-table th:hover {
+    background: #333;
+    color: #ddd;
+}
+
+.api-table tr:hover {
+    background: #e8e8e8;
+}
+
+.ui2-table-simple th,
+.ui2-table-simple td {
+    border-width: 0 0 1px 0;
+}
+
+.img-wrap pre {
+    font-size: 12px;
+}
+
+.img-wrap {
+    margin: 10px 0;
+}

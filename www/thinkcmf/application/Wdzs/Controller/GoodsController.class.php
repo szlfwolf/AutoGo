@@ -14,13 +14,15 @@ class GoodsController extends HomebaseController {
 			_init_apiinfo();
 			
 			//getCat(0);
-			getProductList();
+			//$goodsList = getProductList();
+			//$goods = getProduct("529010449551");
+			//addProduct();
+			addGroup("testgroup");
+			
 			//do_sync($urls);
 					
 		}
-		
-
-			
+					
 		$this->display("index");
 		
     }	  

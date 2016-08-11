@@ -1,0 +1,78 @@
+产品:
+Array ( 
+	[productInfo] => Array ( 
+		[productID] => 529010449551 
+		[productType] => wholesale 
+		[categoryID] => 122196005 
+		[attributes] => Array ( 
+			[0] => Array ( 
+				[attributeID] => 1398 
+				[attributeName] => 货号 
+				[value] => 3089C601232 
+				[isCustom] => ) 
+			[1] => Array ( [attributeID] => 364 [attributeName] => 产品类别 [value] => 连衣裙 [isCustom] => ) [2] => Array ( [attributeID] => 100000691 [attributeName] => 货源类别 [value] => 现货 [isCustom] => ) [3] => Array ( [attributeID] => 2176 [attributeName] => 品牌 [value] => 其他 [isCustom] => ) [4] => Array ( [attributeID] => 346 [attributeName] => 产地 [value] => 广州 [isCustom] => ) [5] => Array ( [attributeID] => 100017842 [attributeName] => 最快出货时间 [value] => 1-3天 [isCustom] => ) [6] => Array ( [attributeID] => 973 [attributeName] => 风格 [value] => 欧美 [isCustom] => ) [7] => Array ( [attributeID] => 2531 [attributeName] => 适合季节 [value] => 夏季 [isCustom] => ) [8] => Array ( [attributeID] => 7002 [attributeName] => 厚薄 [value] => 普通 [isCustom] => ) [9] => Array ( [attributeID] => 20602 [attributeName] => 领型 [value] => 圆领 [isCustom] => ) [10] => Array ( [attributeID] => 7001 [attributeName] => 袖长 [value] => 无袖 [isCustom] => ) [11] => Array ( [attributeID] => 31610 [attributeName] => 衣长 [value] => 常规 [isCustom] => ) [12] => Array ( [attributeID] => 20418023 [attributeName] => 主图来源 [value] => 实拍有模特 [isCustom] => ) [13] => Array ( [attributeID] => 100031521 [attributeName] => 面料名称 [value] => 雪纺 [isCustom] => ) [14] => Array ( [attributeID] => 117130178 [attributeName] => 主面料成分 [value] => 聚酯纤维（涤纶） [isCustom] => ) [15] => Array ( [attributeID] => 149092418 [attributeName] => 主面料成分含量 [value] => 90 [isCustom] => ) [16] => Array ( [attributeID] => 2900 [attributeName] => 图案 [value] => 纯色 [isCustom] => ) [17] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 砖红色 [isCustom] => ) [18] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 草绿色 [isCustom] => ) [19] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 杏色 [isCustom] => ) [20] => Array ( [attributeID] => 450 [attributeName] => 尺码 [value] => 均码（外贸加长版） [isCustom] => ) ) 
+		[groupID] => Array ( 
+			[0] => 69931588 [1] => 70763194 ) 
+		[status] => member deleted 
+		[subject] => 孕妇装裙子夏季欧美外贸大牌走秀原单肩章系带不规则雪纺连衣裙 
+		[description] => <p style="text-align: center;">&nbsp;</p><div style="text-align: center;padding-bottom: 0.0px;line-height: 1.8;margin: 8.0px 0.0px 0.0px;padding-left: 8.0px;padding-right: 36.0px;background: #ff7300 no-repeat right 0.0px;float: left;height: 24.0px;color: #ffffff;font-size: 14.0px;overflow: hidden;font-weight: bold;padding-top: 0.0px;">模 特 图</div><div style="text-align: center;line-height: 0;margin-top: -2.0px;height: 0.0px;clear: both;font-size: 0.0px;overflow: hidden;border-top: #dfdfdf 2.0px solid;">&nbsp;</div><div style="text-align: center;margin: -20.0px 0.0px 0.0px 200.0px;display: inline;float: left;"><div style="width: 9.0px;background: 0.0px 0.0px;height: 5.0px;overflow: hidden;top: -1.0px;left: 30.0px;">&nbsp;</div></div><p style="text-align: center;"><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/629/272/900272926_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/539/272/900272935_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/649/272/900272946_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/359/272/900272953_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/569/272/900272965_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/679/272/900272976_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/289/272/900272982_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/300/582/900285003_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/900/582/900285009_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/810/582/900285018_1498099837.jpg" /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/139/872/900278931_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/288/872/900278882_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/598/872/900278895_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/909/872/900278909_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/958/872/900278859_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/368/872/900278863_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/768/872/900278867_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/739/872/900278937_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/558/872/900278855_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/939/872/900278939_1498099837.jpg" /><br /><br /><img alt="undefined" src="https://cbu01.alicdn.com/img/ibank/2013/547/972/900279745_1498099837.jpg" /><br /><br />&nbsp;</p><div style="text-align: center;margin: -20.0px 0.0px 0.0px 200.0px;display: inline;float: left;">&nbsp;</div><div style="text-align: center;margin-top: 8.0px;clear: both;">&nbsp;&nbsp;</div><div style="text-align: center;padding-bottom: 0.0px;line-height: 1.8;margin: 8.0px 0.0px 0.0px;padding-left: 8.0px;padding-right: 36.0px;background: #ff7300 no-repeat right 0.0px;float: left;height: 24.0px;color: #ffffff;font-size: 14.0px;overflow: hidden;font-weight: bold;padding-top: 0.0px;">尺 码 表</div><div style="text-align: center;line-height: 0;margin-top: -2.0px;height: 0.0px;clear: both;font-size: 0.0px;overflow: hidden;border-top: #dfdfdf 2.0px solid;">&nbsp;</div><table border="0" cellpadding="0" cellspacing="1" style="background-color: #000000;border-spacing: 1.0px;width: 100.0%;border-collapse: separate;margin-left: auto;margin-right: auto;"><tr><td style="text-align: center;background-color: #ffffff;"><p><strong>尺码</strong></p></td><td style="text-align: center;background-color: #ffffff;"><strong>肩宽</strong></td><td style="text-align: center;background-color: #ffffff;"><strong>胸围</strong></td><td style="text-align: center;background-color: #ffffff;"><strong>腰围</strong></td><td style="text-align: center;background-color: #ffffff;"><strong>袖长</strong></td><td style="text-align: center;background-color: #ffffff;"><strong>衣长</strong></td><td style="text-align: center;background-color: #ffffff;"><strong>备注</strong></td></tr><tr><td style="text-align: center;background-color: #ffffff;">内贸优化版</td><td style="text-align: center;background-color: #ffffff;">/</td><td style="text-align: center;background-color: #ffffff;">90</td><td style="text-align: center;background-color: #ffffff;">/</td><td style="text-align: center;background-color: #ffffff;">/</td><td style="text-align: center;background-color: #ffffff;">90</td><td style="text-align: center;background-color: #ffffff;"><span style="color: #333333;font-size: 12.0px;line-height: normal;">赠送腰带</span></td></tr><tr><td style="text-align: center;background-color: #ffffff;">外贸加长版</td><td style="text-align: center;background-color: #ffffff;">/</td><td style="text-align: center;background-color: #ffffff;">102</td><td style="text-align: center;background-color: #ffffff;">/</td><td style="text-align: center;background-color: #ffffff;">/</td><td style="text-align: center;background-color: #ffffff;">100</td><td style="text-align: center;background-color: #ffffff;"><span style="color: #333333;font-size: 12.0px;line-height: normal;">赠送腰带</span></td></tr><tr><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td></tr><tr><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td></tr><tr><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td><td style="text-align: center;background-color: #ffffff;"></td></tr></table><p>&nbsp;</p> 
+		[language] => CHINESE 
+		[periodOfValidity] => 10 
+		[bizType] => 1 
+		[pictureAuth] => 
+		[image] => Array ( 
+			[images] => Array ( 
+				[0] => img/ibank/2016/364/959/2882959463_858335242.jpg 
+				[1] => img/ibank/2016/264/959/2882959462_858335242.jpg [2] => img/ibank/2016/105/805/2884508501_858335242.jpg ) ) 
+		[skuInfos] => Array ( 
+			[0] => Array ( 
+				[attributes] => Array ( 
+					[0] => Array ( 
+						[attributeID] => 3216 
+						[attributeValue] => 砖红色 ) 
+					[1] => Array ( [attributeID] => 450 [attributeValue] => 均码（外贸加长版） ) ) 
+				[cargoNumber] => 
+				[amountOnSale] => 888 
+				[retailPrice] => 64 
+				[skuId] => 3149890863276 
+				[specId] => 9da620ca4ba93e8c6ff98936d3de4f00 ) 
+			[1] => Array ( [attributes] => Array ( [0] => Array ( [attributeID] => 3216 [attributeValue] => 草绿色 ) [1] => Array ( [attributeID] => 450 [attributeValue] => 均码（外贸加长版） ) ) [cargoNumber] => [amountOnSale] => 888 [retailPrice] => 64 [skuId] => 3149890863277 [specId] => a23a5b27ba7c0dbab7674fd337431461 ) [2] => Array ( [attributes] => Array ( [0] => Array ( [attributeID] => 3216 [attributeValue] => 杏色 ) [1] => Array ( [attributeID] => 450 [attributeValue] => 均码（外贸加长版） ) ) [cargoNumber] => [amountOnSale] => 887 [retailPrice] => 64 [skuId] => 3149890863278 [specId] => d9cef63158df1c3a7c309229e17cdafc ) ) 
+		[saleInfo] => Array ( 
+			[supportOnlineTrade] => 1 
+			[mixWholeSale] => 1 
+			[saleType] => normal 
+			[priceAuth] => 
+			[priceRanges] => Array ( 
+				[0] => Array ( 
+					[startQuantity] => 1 
+					[price] => 39 ) 
+				[1] => Array ( [startQuantity] => 10 [price] => 38 ) [2] => Array ( [startQuantity] => 20 [price] => 37 ) ) 
+			[amountOnSale] => 2663 
+			[unit] => 件 
+			[minOrderQuantity] => 1 
+			[quoteType] => 2 ) 
+		[shippingInfo] => Array ( 
+			[freightTemplateID] => 3485370 
+			[unitWeight] => 0.2 
+			[sendGoodsAddressId] => 11933061 ) 
+		[extendInfos] => Array ( ) ) 
+		[createTime] => 20160329142448000+0800 
+		[lastUpdateTime] => 20160425160637000+0800 
+		[lastRepostTime] => 20160415100343000+0800 
+		[approvedTime] => 20160415100343000+0800 
+		[expireTime] => 20160425100343000+0800 )
+		
+
+postdata:
+Array ( 
+	[productType] => wholesale 
+	[categoryID] => 122196005 
+	[attributes] => 
+	[groupID] => {[69931588,70763194]} 
+	[subject] => 孕妇装裙子夏季欧美外贸大牌走秀原单肩章系带不规则雪纺连衣裙subject 
+	[description] => 孕妇装裙子夏季欧美外贸大牌走秀原单肩章系带不规则雪纺连衣裙description 
+	[language] => CHINESE 
+	[periodOfValidity] => 200 
+	[bizType] => 1 
+	[pictureAuth] => false 
+	[image] => {"images:["img/ibank/2016/364/959/2882959463_858335242.jpg","img/ibank/2016/364/959/2882959463_858335242.jpg"]} [skuInfos] => [saleInfo] => [shippingInfo] => [webSite] => 1688 [access_token] => 6b2afb2b-11c2-4c19-818e-01ad6db1024a [_aop_signature] => CB44E9CBC0DBCF327149BAF2523BE6F9011A633C )
