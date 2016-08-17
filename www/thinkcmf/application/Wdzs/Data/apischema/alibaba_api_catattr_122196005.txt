@@ -1,0 +1,2318 @@
+apireturn: {
+	"attributes": [{
+		"sign": 0,
+		"attrID": 1398,
+		"isSKUAttribute": false,
+		"name": "货号",
+		"required": true,
+		"attrValues": []
+	},
+	{
+		"sign": 0,
+		"attrID": 364,
+		"isSKUAttribute": false,
+		"name": "产品类别",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 20522,
+			"name": "半身裙"
+		},
+		{
+			"attrValueID": 3218228,
+			"name": "连衣裙"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 7869,
+		"isSKUAttribute": false,
+		"name": "是否进口",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 21958,
+			"name": "是"
+		},
+		{
+			"attrValueID": 21959,
+			"name": "否"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 100000691,
+		"isSKUAttribute": false,
+		"name": "货源类别",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 46874,
+			"name": "现货"
+		},
+		{
+			"attrValueID": 3261229,
+			"name": "订货"
+		},
+		{
+			"attrValueID": 12767422,
+			"name": "贴牌加工"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 159484581,
+		"isSKUAttribute": false,
+		"name": "原产国/地区",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 27015,
+			"name": "澳大利亚"
+		},
+		{
+			"attrValueID": 27019,
+			"name": "韩国"
+		},
+		{
+			"attrValueID": 27023,
+			"name": "日本"
+		},
+		{
+			"attrValueID": 27024,
+			"name": "泰国"
+		},
+		{
+			"attrValueID": 27026,
+			"name": "印度"
+		},
+		{
+			"attrValueID": 27027,
+			"name": "越南"
+		},
+		{
+			"attrValueID": 27368,
+			"name": "台湾"
+		},
+		{
+			"attrValueID": 27369,
+			"name": "香港"
+		},
+		{
+			"attrValueID": 27409,
+			"name": "美国"
+		},
+		{
+			"attrValueID": 27410,
+			"name": "加拿大"
+		},
+		{
+			"attrValueID": 27411,
+			"name": "英国"
+		},
+		{
+			"attrValueID": 27412,
+			"name": "法国"
+		},
+		{
+			"attrValueID": 27413,
+			"name": "德国"
+		},
+		{
+			"attrValueID": 27415,
+			"name": "瑞典"
+		},
+		{
+			"attrValueID": 27424,
+			"name": "西班牙"
+		},
+		{
+			"attrValueID": 29121,
+			"name": "澳门"
+		},
+		{
+			"attrValueID": 39272,
+			"name": "巴西"
+		},
+		{
+			"attrValueID": 39273,
+			"name": "阿根廷"
+		},
+		{
+			"attrValueID": 39274,
+			"name": "荷兰"
+		},
+		{
+			"attrValueID": 39276,
+			"name": "葡萄牙"
+		},
+		{
+			"attrValueID": 39486,
+			"name": "丹麦"
+		},
+		{
+			"attrValueID": 39487,
+			"name": "爱尔兰"
+		},
+		{
+			"attrValueID": 39488,
+			"name": "土耳其"
+		},
+		{
+			"attrValueID": 43444,
+			"name": "新西兰"
+		},
+		{
+			"attrValueID": 43446,
+			"name": "新加坡"
+		},
+		{
+			"attrValueID": 43550,
+			"name": "以色列"
+		},
+		{
+			"attrValueID": 43785,
+			"name": "芬兰"
+		},
+		{
+			"attrValueID": 52913,
+			"name": "所罗门群岛"
+		},
+		{
+			"attrValueID": 52992,
+			"name": "墨西哥"
+		},
+		{
+			"attrValueID": 52993,
+			"name": "牙买加"
+		},
+		{
+			"attrValueID": 52994,
+			"name": "巴拿马"
+		},
+		{
+			"attrValueID": 52995,
+			"name": "古巴"
+		},
+		{
+			"attrValueID": 52996,
+			"name": "哥伦比亚"
+		},
+		{
+			"attrValueID": 52999,
+			"name": "秘鲁"
+		},
+		{
+			"attrValueID": 53000,
+			"name": "玻利维亚"
+		},
+		{
+			"attrValueID": 53001,
+			"name": "智利"
+		},
+		{
+			"attrValueID": 53002,
+			"name": "巴拉圭"
+		},
+		{
+			"attrValueID": 53003,
+			"name": "乌拉圭"
+		},
+		{
+			"attrValueID": 94581,
+			"name": "哥斯达黎加"
+		},
+		{
+			"attrValueID": 107978,
+			"name": "阿富汗"
+		},
+		{
+			"attrValueID": 119853,
+			"name": "肯尼亚"
+		},
+		{
+			"attrValueID": 3255100,
+			"name": "瑞士"
+		},
+		{
+			"attrValueID": 3274954,
+			"name": "南非"
+		},
+		{
+			"attrValueID": 3276996,
+			"name": "海地"
+		},
+		{
+			"attrValueID": 3284227,
+			"name": "梵蒂冈"
+		},
+		{
+			"attrValueID": 3284903,
+			"name": "保加利亚"
+		},
+		{
+			"attrValueID": 3286452,
+			"name": "马来西亚"
+		},
+		{
+			"attrValueID": 3286564,
+			"name": "菲律宾"
+		},
+		{
+			"attrValueID": 3292344,
+			"name": "摩洛哥"
+		},
+		{
+			"attrValueID": 3298479,
+			"name": "格陵兰"
+		},
+		{
+			"attrValueID": 3298620,
+			"name": "希腊"
+		},
+		{
+			"attrValueID": 3299559,
+			"name": "马尔代夫"
+		},
+		{
+			"attrValueID": 3300871,
+			"name": "多米尼加"
+		},
+		{
+			"attrValueID": 3300942,
+			"name": "毛里求斯"
+		},
+		{
+			"attrValueID": 3300947,
+			"name": "斯里兰卡"
+		},
+		{
+			"attrValueID": 3300961,
+			"name": "科威特"
+		},
+		{
+			"attrValueID": 3300964,
+			"name": "巴林"
+		},
+		{
+			"attrValueID": 3300979,
+			"name": "巴基斯坦"
+		},
+		{
+			"attrValueID": 3301027,
+			"name": "印尼"
+		},
+		{
+			"attrValueID": 3301212,
+			"name": "加纳"
+		},
+		{
+			"attrValueID": 3302289,
+			"name": "关岛"
+		},
+		{
+			"attrValueID": 3302680,
+			"name": "突尼斯"
+		},
+		{
+			"attrValueID": 3302683,
+			"name": "喀麦隆"
+		},
+		{
+			"attrValueID": 3302689,
+			"name": "尼日利亚"
+		},
+		{
+			"attrValueID": 3302691,
+			"name": "科特迪瓦"
+		},
+		{
+			"attrValueID": 3308734,
+			"name": "卡塔尔"
+		},
+		{
+			"attrValueID": 3314460,
+			"name": "俄罗斯"
+		},
+		{
+			"attrValueID": 3316549,
+			"name": "乌克兰"
+		},
+		{
+			"attrValueID": 3332125,
+			"name": "马耳他"
+		},
+		{
+			"attrValueID": 3336649,
+			"name": "马达加斯加"
+		},
+		{
+			"attrValueID": 3357616,
+			"name": "埃及"
+		},
+		{
+			"attrValueID": 3563188,
+			"name": "挪威"
+		},
+		{
+			"attrValueID": 3611735,
+			"name": "安哥拉"
+		},
+		{
+			"attrValueID": 3617288,
+			"name": "冰岛"
+		},
+		{
+			"attrValueID": 3620977,
+			"name": "比利时"
+		},
+		{
+			"attrValueID": 3753248,
+			"name": "克罗地亚"
+		},
+		{
+			"attrValueID": 3793613,
+			"name": "尼泊尔"
+		},
+		{
+			"attrValueID": 3857691,
+			"name": "波兰"
+		},
+		{
+			"attrValueID": 3907207,
+			"name": "斐济"
+		},
+		{
+			"attrValueID": 3909606,
+			"name": "奥地利"
+		},
+		{
+			"attrValueID": 3936150,
+			"name": "缅甸"
+		},
+		{
+			"attrValueID": 4003960,
+			"name": "阿联酋"
+		},
+		{
+			"attrValueID": 4004107,
+			"name": "卢森堡"
+		},
+		{
+			"attrValueID": 4053742,
+			"name": "柬埔寨"
+		},
+		{
+			"attrValueID": 4272673,
+			"name": "约旦"
+		},
+		{
+			"attrValueID": 4383995,
+			"name": "蒙古"
+		},
+		{
+			"attrValueID": 4397591,
+			"name": "不丹"
+		},
+		{
+			"attrValueID": 4427509,
+			"name": "土库曼斯坦"
+		},
+		{
+			"attrValueID": 4486811,
+			"name": "巴哈马"
+		},
+		{
+			"attrValueID": 5274544,
+			"name": "圭亚那"
+		},
+		{
+			"attrValueID": 5749874,
+			"name": "摩尔多瓦"
+		},
+		{
+			"attrValueID": 6278180,
+			"name": "黑山"
+		},
+		{
+			"attrValueID": 6469571,
+			"name": "叙利亚"
+		},
+		{
+			"attrValueID": 6703242,
+			"name": "安圭拉"
+		},
+		{
+			"attrValueID": 6703582,
+			"name": "圣卢西亚"
+		},
+		{
+			"attrValueID": 6703746,
+			"name": "格林纳达"
+		},
+		{
+			"attrValueID": 6742614,
+			"name": "萨尔瓦多"
+		},
+		{
+			"attrValueID": 6849343,
+			"name": "哈萨克斯坦"
+		},
+		{
+			"attrValueID": 6897023,
+			"name": "匈牙利"
+		},
+		{
+			"attrValueID": 7080989,
+			"name": "波多黎各"
+		},
+		{
+			"attrValueID": 7098701,
+			"name": "伯利兹"
+		},
+		{
+			"attrValueID": 7104516,
+			"name": "安道尔"
+		},
+		{
+			"attrValueID": 7157308,
+			"name": "布隆迪"
+		},
+		{
+			"attrValueID": 7260977,
+			"name": "乌兹别克斯坦"
+		},
+		{
+			"attrValueID": 7576774,
+			"name": "亚美尼亚"
+		},
+		{
+			"attrValueID": 7665222,
+			"name": "沙特"
+		},
+		{
+			"attrValueID": 7717221,
+			"name": "老挝"
+		},
+		{
+			"attrValueID": 7793472,
+			"name": "伊拉克"
+		},
+		{
+			"attrValueID": 7798360,
+			"name": "阿曼"
+		},
+		{
+			"attrValueID": 7978434,
+			"name": "伊朗"
+		},
+		{
+			"attrValueID": 8356172,
+			"name": "阿尔及利亚"
+		},
+		{
+			"attrValueID": 8553329,
+			"name": "危地马拉"
+		},
+		{
+			"attrValueID": 8625062,
+			"name": "尼加拉瓜"
+		},
+		{
+			"attrValueID": 8741888,
+			"name": "爱沙尼亚"
+		},
+		{
+			"attrValueID": 8861704,
+			"name": "百慕大"
+		},
+		{
+			"attrValueID": 9363119,
+			"name": "罗马尼亚"
+		},
+		{
+			"attrValueID": 9788486,
+			"name": "捷克共和国"
+		},
+		{
+			"attrValueID": 10961557,
+			"name": "朝鲜"
+		},
+		{
+			"attrValueID": 11768346,
+			"name": "赞比亚"
+		},
+		{
+			"attrValueID": 11993570,
+			"name": "巴巴多斯"
+		},
+		{
+			"attrValueID": 12145015,
+			"name": "洪都拉斯"
+		},
+		{
+			"attrValueID": 12223323,
+			"name": "塞尔维亚"
+		},
+		{
+			"attrValueID": 12281302,
+			"name": "苏丹"
+		},
+		{
+			"attrValueID": 12386431,
+			"name": "白俄罗斯"
+		},
+		{
+			"attrValueID": 12551170,
+			"name": "索马里"
+		},
+		{
+			"attrValueID": 14142094,
+			"name": "阿鲁巴"
+		},
+		{
+			"attrValueID": 14700468,
+			"name": "多哥"
+		},
+		{
+			"attrValueID": 16245445,
+			"name": "立陶宛"
+		},
+		{
+			"attrValueID": 16413597,
+			"name": "巴勒斯坦"
+		},
+		{
+			"attrValueID": 17828418,
+			"name": "黎巴嫩"
+		},
+		{
+			"attrValueID": 20413562,
+			"name": "圣诞岛"
+		},
+		{
+			"attrValueID": 20660053,
+			"name": "刚果"
+		},
+		{
+			"attrValueID": 21643311,
+			"name": "厄瓜多尔"
+		},
+		{
+			"attrValueID": 23559851,
+			"name": "埃塞俄比亚"
+		},
+		{
+			"attrValueID": 25639632,
+			"name": "波黑"
+		},
+		{
+			"attrValueID": 29066736,
+			"name": "马里"
+		},
+		{
+			"attrValueID": 29364250,
+			"name": "纳米比亚"
+		},
+		{
+			"attrValueID": 30233657,
+			"name": "塞内加尔"
+		},
+		{
+			"attrValueID": 30288553,
+			"name": "格鲁吉亚"
+		},
+		{
+			"attrValueID": 30407041,
+			"name": "孟加拉国"
+		},
+		{
+			"attrValueID": 30478442,
+			"name": "南极洲"
+		},
+		{
+			"attrValueID": 30665147,
+			"name": "北马里亚纳群岛"
+		},
+		{
+			"attrValueID": 32401930,
+			"name": "阿塞拜疆"
+		},
+		{
+			"attrValueID": 34050683,
+			"name": "赤道几内亚"
+		},
+		{
+			"attrValueID": 36730392,
+			"name": "乌干达"
+		},
+		{
+			"attrValueID": 37278352,
+			"name": "塞浦路斯"
+		},
+		{
+			"attrValueID": 37281513,
+			"name": "吉尔吉斯斯坦"
+		},
+		{
+			"attrValueID": 37630922,
+			"name": "阿尔巴尼亚"
+		},
+		{
+			"attrValueID": 37630926,
+			"name": "加蓬"
+		},
+		{
+			"attrValueID": 37630927,
+			"name": "利比里亚"
+		},
+		{
+			"attrValueID": 37630928,
+			"name": "尼日尔"
+		},
+		{
+			"attrValueID": 37630929,
+			"name": "斯洛伐克"
+		},
+		{
+			"attrValueID": 37630930,
+			"name": "塞拉利昂"
+		},
+		{
+			"attrValueID": 37630933,
+			"name": "博茨瓦纳"
+		},
+		{
+			"attrValueID": 37630936,
+			"name": "利比亚"
+		},
+		{
+			"attrValueID": 37630938,
+			"name": "毛里塔尼亚"
+		},
+		{
+			"attrValueID": 37630939,
+			"name": "莫桑比克"
+		},
+		{
+			"attrValueID": 37630942,
+			"name": "巴布亚新几内亚"
+		},
+		{
+			"attrValueID": 37630945,
+			"name": "汤加"
+		},
+		{
+			"attrValueID": 39865108,
+			"name": "意大利"
+		},
+		{
+			"attrValueID": 42538446,
+			"name": "马拉维"
+		},
+		{
+			"attrValueID": 46163323,
+			"name": "萨摩亚"
+		},
+		{
+			"attrValueID": 50203075,
+			"name": "坦桑尼亚"
+		},
+		{
+			"attrValueID": 53725557,
+			"name": "卢旺达"
+		},
+		{
+			"attrValueID": 55482322,
+			"name": "斯洛文尼亚"
+		},
+		{
+			"attrValueID": 59796365,
+			"name": "多米尼加共和国"
+		},
+		{
+			"attrValueID": 60300144,
+			"name": "拉脱维亚"
+		},
+		{
+			"attrValueID": 75449989,
+			"name": "科摩罗"
+		},
+		{
+			"attrValueID": 86700456,
+			"name": "法罗群岛"
+		},
+		{
+			"attrValueID": 105063785,
+			"name": "东帝汶"
+		},
+		{
+			"attrValueID": 108507517,
+			"name": "佛得角"
+		},
+		{
+			"attrValueID": 133283106,
+			"name": "乍得"
+		},
+		{
+			"attrValueID": 148787658,
+			"name": "冈比亚"
+		},
+		{
+			"attrValueID": 148787662,
+			"name": "密克罗尼西亚"
+		},
+		{
+			"attrValueID": 148787697,
+			"name": "苏里南"
+		},
+		{
+			"attrValueID": 148787711,
+			"name": "安提瓜和巴布达"
+		},
+		{
+			"attrValueID": 148787732,
+			"name": "几内亚比绍"
+		},
+		{
+			"attrValueID": 293614248,
+			"name": "刚果民主共和国"
+		},
+		{
+			"attrValueID": 381668972,
+			"name": "中非共和国"
+		},
+		{
+			"attrValueID": 381714920,
+			"name": "法属波利尼西亚"
+		},
+		{
+			"attrValueID": 383268837,
+			"name": "美属萨摩亚"
+		},
+		{
+			"attrValueID": 387470570,
+			"name": "特克斯和凯科斯群岛"
+		},
+		{
+			"attrValueID": 387550527,
+			"name": "马绍尔群岛"
+		},
+		{
+			"attrValueID": 387760835,
+			"name": "维尔京群岛（美国）"
+		},
+		{
+			"attrValueID": 390802209,
+			"name": "马其顿共和国"
+		},
+		{
+			"attrValueID": 396648607,
+			"name": "圣赫勒拿"
+		},
+		{
+			"attrValueID": 406750692,
+			"name": "维尔京群岛（英国）"
+		},
+		{
+			"attrValueID": 424964635,
+			"name": "布基那法索"
+		},
+		{
+			"attrValueID": 427650574,
+			"name": "特里尼达和多巴哥"
+		},
+		{
+			"attrValueID": 844320328,
+			"name": "英属印度洋领地"
+		},
+		{
+			"attrValueID": 1127888326,
+			"name": "圣皮埃尔和密克隆岛"
+		},
+		{
+			"attrValueID": 1127906039,
+			"name": "南乔治亚岛和南桑威奇群岛"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 2176,
+		"isSKUAttribute": false,
+		"name": "品牌",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 31674,
+			"name": "十月妈咪"
+		},
+		{
+			"attrValueID": 6623451,
+			"name": "喜贵子"
+		},
+		{
+			"attrValueID": 3616855,
+			"name": "女之御"
+		},
+		{
+			"attrValueID": 20499,
+			"name": "添香"
+		},
+		{
+			"attrValueID": 12492633,
+			"name": "喜的屋"
+		},
+		{
+			"attrValueID": 11067406,
+			"name": "有喜娃"
+		},
+		{
+			"attrValueID": 26703560,
+			"name": "喜之孕"
+		},
+		{
+			"attrValueID": 98901131,
+			"name": "蚕坊俪"
+		},
+		{
+			"attrValueID": 156121109,
+			"name": "布衣妈咪"
+		},
+		{
+			"attrValueID": 3585431,
+			"name": "叶娇儿"
+		},
+		{
+			"attrValueID": 113492581,
+			"name": "优佳孕"
+		},
+		{
+			"attrValueID": 32052,
+			"name": "孕美"
+		},
+		{
+			"attrValueID": 3603172,
+			"name": "时尚妈咪"
+		},
+		{
+			"attrValueID": 124453753,
+			"name": "温馨彩孕坊"
+		},
+		{
+			"attrValueID": 134259770,
+			"name": "芸佳"
+		},
+		{
+			"attrValueID": 154922924,
+			"name": "EPIN MAMMY"
+		},
+		{
+			"attrValueID": 179952055,
+			"name": "有喜"
+		},
+		{
+			"attrValueID": 239744893,
+			"name": "美姿妤"
+		},
+		{
+			"attrValueID": 335512252,
+			"name": "绮孕美"
+		},
+		{
+			"attrValueID": 536198540,
+			"name": "僖艾妮"
+		},
+		{
+			"attrValueID": 40930357,
+			"name": "黛熊"
+		},
+		{
+			"attrValueID": 117853728,
+			"name": "靓之沙"
+		},
+		{
+			"attrValueID": 142147668,
+			"name": "金蔓莎"
+		},
+		{
+			"attrValueID": 961078079,
+			"name": "乐天嫲嫲"
+		},
+		{
+			"attrValueID": 21872975,
+			"name": "ajiacn"
+		},
+		{
+			"attrValueID": 55841374,
+			"name": "韵娅"
+		},
+		{
+			"attrValueID": 191806364,
+			"name": "巧蓓"
+		},
+		{
+			"attrValueID": 214092611,
+			"name": "优孕芳"
+		},
+		{
+			"attrValueID": 214180216,
+			"name": "享受孕"
+		},
+		{
+			"attrValueID": 228432905,
+			"name": "哼歌宝贝"
+		},
+		{
+			"attrValueID": 278914176,
+			"name": "娇婴乐"
+		},
+		{
+			"attrValueID": 30812,
+			"name": "Disney/迪士尼"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 6397,
+		"isSKUAttribute": false,
+		"name": "系列",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 29289,
+			"name": "海底总动员"
+		},
+		{
+			"attrValueID": 29293,
+			"name": "玩具总动员"
+		},
+		{
+			"attrValueID": 47762,
+			"name": "公主系列"
+		},
+		{
+			"attrValueID": 49022,
+			"name": "怪兽电力公司"
+		},
+		{
+			"attrValueID": 3240868,
+			"name": "星战"
+		},
+		{
+			"attrValueID": 3247956,
+			"name": "加勒比海盗"
+		},
+		{
+			"attrValueID": 6840481,
+			"name": "赛车总动员"
+		},
+		{
+			"attrValueID": 17793167,
+			"name": "漫威"
+		},
+		{
+			"attrValueID": 19470958,
+			"name": "tinker bell奇妙仙子"
+		},
+		{
+			"attrValueID": 46220989,
+			"name": "米奇和他的朋友们"
+		},
+		{
+			"attrValueID": 542052776,
+			"name": "冰雪奇缘"
+		},
+		{
+			"attrValueID": 693562643,
+			"name": "超能陆战队"
+		},
+		{
+			"attrValueID": 1112162790,
+			"name": "疯狂动物城"
+		},
+		{
+			"attrValueID": 1378010611,
+			"name": "熊维尼和他的朋友们"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 3149034,
+		"isSKUAttribute": false,
+		"name": "形象",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 22049,
+			"name": "鹰眼"
+		},
+		{
+			"attrValueID": 29187,
+			"name": "蜘蛛侠"
+		},
+		{
+			"attrValueID": 38861,
+			"name": "闪电"
+		},
+		{
+			"attrValueID": 41314,
+			"name": "火腿"
+		},
+		{
+			"attrValueID": 79082,
+			"name": "大白"
+		},
+		{
+			"attrValueID": 101391,
+			"name": "小叮当"
+		},
+		{
+			"attrValueID": 109075,
+			"name": "绿巨人"
+		},
+		{
+			"attrValueID": 3623181,
+			"name": "杰克船长"
+		},
+		{
+			"attrValueID": 3625938,
+			"name": "黑豹"
+		},
+		{
+			"attrValueID": 3737824,
+			"name": "雪宝"
+		},
+		{
+			"attrValueID": 4024947,
+			"name": "尼克"
+		},
+		{
+			"attrValueID": 4096313,
+			"name": "尼莫"
+		},
+		{
+			"attrValueID": 4151357,
+			"name": "巴斯光年"
+		},
+		{
+			"attrValueID": 4461654,
+			"name": "黑寡妇"
+		},
+		{
+			"attrValueID": 5193829,
+			"name": "大眼仔"
+		},
+		{
+			"attrValueID": 6095815,
+			"name": "BB-8"
+		},
+		{
+			"attrValueID": 7469369,
+			"name": "朱迪"
+		},
+		{
+			"attrValueID": 8160132,
+			"name": "星爵"
+		},
+		{
+			"attrValueID": 8695330,
+			"name": "钢铁侠"
+		},
+		{
+			"attrValueID": 9088787,
+			"name": "翠丝"
+		},
+		{
+			"attrValueID": 9915005,
+			"name": "安娜公主"
+		},
+		{
+			"attrValueID": 10126864,
+			"name": "多莉"
+		},
+		{
+			"attrValueID": 10830551,
+			"name": "R2-D2"
+		},
+		{
+			"attrValueID": 11975586,
+			"name": "OWL 猫头鹰"
+		},
+		{
+			"attrValueID": 15092865,
+			"name": "闪电麦坤"
+		},
+		{
+			"attrValueID": 18581595,
+			"name": "克里斯托夫"
+		},
+		{
+			"attrValueID": 22060287,
+			"name": "战争机器"
+		},
+		{
+			"attrValueID": 24933080,
+			"name": "Mickey Mouse 米奇"
+		},
+		{
+			"attrValueID": 27683608,
+			"name": "板牙"
+		},
+		{
+			"attrValueID": 32628665,
+			"name": "WINNIE THE POOH小熊维尼"
+		},
+		{
+			"attrValueID": 35315576,
+			"name": "毛怪"
+		},
+		{
+			"attrValueID": 46361289,
+			"name": "蚁人"
+		},
+		{
+			"attrValueID": 46919745,
+			"name": "胡迪"
+		},
+		{
+			"attrValueID": 77333006,
+			"name": "抱抱龙"
+		},
+		{
+			"attrValueID": 83418496,
+			"name": "c-3po"
+		},
+		{
+			"attrValueID": 89727009,
+			"name": "莱娅"
+		},
+		{
+			"attrValueID": 92113374,
+			"name": "美国队长"
+		},
+		{
+			"attrValueID": 95103820,
+			"name": "雷神"
+		},
+		{
+			"attrValueID": 100311108,
+			"name": "尤达大师"
+		},
+		{
+			"attrValueID": 108963695,
+			"name": "艾莎公主"
+		},
+		{
+			"attrValueID": 111106684,
+			"name": "汉·索罗"
+		},
+		{
+			"attrValueID": 112204329,
+			"name": "复仇者联盟"
+		},
+		{
+			"attrValueID": 116912375,
+			"name": "小宏"
+		},
+		{
+			"attrValueID": 117397757,
+			"name": "三眼外星人"
+		},
+		{
+			"attrValueID": 140463639,
+			"name": "Snow white 白雪公主"
+		},
+		{
+			"attrValueID": 153477173,
+			"name": "神盾局"
+		},
+		{
+			"attrValueID": 159551876,
+			"name": "死侍"
+		},
+		{
+			"attrValueID": 173926020,
+			"name": "玛林"
+		},
+		{
+			"attrValueID": 176182266,
+			"name": "芬恩"
+		},
+		{
+			"attrValueID": 184630989,
+			"name": "绯红女巫"
+		},
+		{
+			"attrValueID": 294384057,
+			"name": "Donald Duck 唐老鸭"
+		},
+		{
+			"attrValueID": 378464590,
+			"name": "蕾伊"
+		},
+		{
+			"attrValueID": 591710375,
+			"name": "银河护卫队"
+		},
+		{
+			"attrValueID": 628100614,
+			"name": "火箭浣熊"
+		},
+		{
+			"attrValueID": 653632746,
+			"name": "卢克·天行者"
+		},
+		{
+			"attrValueID": 658738315,
+			"name": "Daisy Duck 黛丝"
+		},
+		{
+			"attrValueID": 672114205,
+			"name": "杜库伯爵"
+		},
+		{
+			"attrValueID": 698000988,
+			"name": "pluto布鲁托"
+		},
+		{
+			"attrValueID": 750612758,
+			"name": "达斯·维达/黑武士"
+		},
+		{
+			"attrValueID": 823000114,
+			"name": "Minnie Mouse 米妮"
+		},
+		{
+			"attrValueID": 828800526,
+			"name": "奇异博士"
+		},
+		{
+			"attrValueID": 985454007,
+			"name": "波巴·费特"
+		},
+		{
+			"attrValueID": 994550767,
+			"name": "凯洛·伦"
+		},
+		{
+			"attrValueID": 1055676195,
+			"name": "法斯马队长"
+		},
+		{
+			"attrValueID": 1116810831,
+			"name": "暴风兵/白兵"
+		},
+		{
+			"attrValueID": 1117256108,
+			"name": "波·达默龙"
+		},
+		{
+			"attrValueID": 1156812194,
+			"name": "欧比旺·克诺比"
+		},
+		{
+			"attrValueID": 1156812195,
+			"name": "詹戈·费特"
+		},
+		{
+			"attrValueID": 1193620751,
+			"name": "Belle 贝儿公主"
+		},
+		{
+			"attrValueID": 1197750221,
+			"name": "JASMINE 茉莉公主"
+		},
+		{
+			"attrValueID": 1213664296,
+			"name": "GOOFY 高飞"
+		},
+		{
+			"attrValueID": 1213664304,
+			"name": "TIGGER 跳跳虎"
+		},
+		{
+			"attrValueID": 1377927966,
+			"name": "大熊/抱抱熊/草莓熊"
+		},
+		{
+			"attrValueID": 1377935804,
+			"name": "阿纳金·天行者"
+		},
+		{
+			"attrValueID": 1377935805,
+			"name": "帕尔帕廷"
+		},
+		{
+			"attrValueID": 1377978234,
+			"name": "兰多·卡瑞辛"
+		},
+		{
+			"attrValueID": 1377983098,
+			"name": "赫克斯将军"
+		},
+		{
+			"attrValueID": 1377983810,
+			"name": "Christopher Robin 克里斯多弗·罗宾"
+		},
+		{
+			"attrValueID": 1377998676,
+			"name": "Ariel 爱丽儿公主/小美人鱼"
+		},
+		{
+			"attrValueID": 1377999752,
+			"name": "Rapunzel 乐佩公主/长发公主"
+		},
+		{
+			"attrValueID": 1377999753,
+			"name": "Rabbit 瑞比"
+		},
+		{
+			"attrValueID": 1378001655,
+			"name": "Aurora 爱洛公主/睡美人"
+		},
+		{
+			"attrValueID": 1378001656,
+			"name": "Eeyore 屹耳"
+		},
+		{
+			"attrValueID": 1378001657,
+			"name": "Kanga & Roo 袋鼠妈妈和小豆"
+		},
+		{
+			"attrValueID": 1378001658,
+			"name": "Gopher 谷佛"
+		},
+		{
+			"attrValueID": 1378017448,
+			"name": "Cinderella 仙蒂公主/灰姑娘"
+		},
+		{
+			"attrValueID": 1378018362,
+			"name": "Piglet 小猪皮杰"
+		},
+		{
+			"attrValueID": 1378018364,
+			"name": "Heffalumps & Woozles 长鼻怪和大臭鼠"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 346,
+		"isSKUAttribute": false,
+		"name": "产地",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 29407,
+			"name": "广州"
+		},
+		{
+			"attrValueID": 29412,
+			"name": "杭州"
+		},
+		{
+			"attrValueID": 29423,
+			"name": "上海"
+		},
+		{
+			"attrValueID": 29425,
+			"name": "深圳"
+		},
+		{
+			"attrValueID": 84746,
+			"name": "东莞"
+		},
+		{
+			"attrValueID": 3314618,
+			"name": "义乌"
+		},
+		{
+			"attrValueID": 29400,
+			"name": "北京"
+		},
+		{
+			"attrValueID": 30501,
+			"name": "山东"
+		},
+		{
+			"attrValueID": 13106138,
+			"name": "普宁"
+		},
+		{
+			"attrValueID": 45994,
+			"name": "汕头"
+		},
+		{
+			"attrValueID": 38738,
+			"name": "烟台"
+		},
+		{
+			"attrValueID": 30510,
+			"name": "浙江"
+		},
+		{
+			"attrValueID": 46009,
+			"name": "揭阳"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 100017842,
+		"isSKUAttribute": false,
+		"name": "最快出货时间",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 61102975,
+			"name": "1-3天"
+		},
+		{
+			"attrValueID": 79220373,
+			"name": "8-15天"
+		},
+		{
+			"attrValueID": 115082037,
+			"name": "4-7天"
+		},
+		{
+			"attrValueID": 325012122,
+			"name": "16-30天"
+		},
+		{
+			"attrValueID": 325008992,
+			"name": "30天以上"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 973,
+		"isSKUAttribute": false,
+		"name": "风格",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 28105,
+			"name": "韩版"
+		},
+		{
+			"attrValueID": 29535,
+			"name": "休闲"
+		},
+		{
+			"attrValueID": 29919,
+			"name": "淑女"
+		},
+		{
+			"attrValueID": 29920,
+			"name": "瑞丽"
+		},
+		{
+			"attrValueID": 67958,
+			"name": "日式"
+		},
+		{
+			"attrValueID": 125200612,
+			"name": "欧美"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		},
+		{
+			"attrValueID": 3267776,
+			"name": "甜美"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 2531,
+		"isSKUAttribute": false,
+		"name": "适合季节",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 29457,
+			"name": "夏季"
+		},
+		{
+			"attrValueID": 29458,
+			"name": "冬季"
+		},
+		{
+			"attrValueID": 29937,
+			"name": "春季"
+		},
+		{
+			"attrValueID": 29938,
+			"name": "秋季"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 7002,
+		"isSKUAttribute": false,
+		"name": "厚薄",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 10004,
+			"name": "普通"
+		},
+		{
+			"attrValueID": 113060,
+			"name": "加厚"
+		},
+		{
+			"attrValueID": 3216783,
+			"name": "薄款"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 20602,
+		"isSKUAttribute": false,
+		"name": "领型",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 29447,
+			"name": "圆领"
+		},
+		{
+			"attrValueID": 29538,
+			"name": "方领"
+		},
+		{
+			"attrValueID": 29448,
+			"name": "V领"
+		},
+		{
+			"attrValueID": 29449,
+			"name": "翻领"
+		},
+		{
+			"attrValueID": 29541,
+			"name": "立领"
+		},
+		{
+			"attrValueID": 29546,
+			"name": "高领"
+		},
+		{
+			"attrValueID": 29917,
+			"name": "一字领"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 7001,
+		"isSKUAttribute": false,
+		"name": "袖长",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 29444,
+			"name": "长袖"
+		},
+		{
+			"attrValueID": 29445,
+			"name": "短袖"
+		},
+		{
+			"attrValueID": 29446,
+			"name": "无袖"
+		},
+		{
+			"attrValueID": 3216780,
+			"name": "五分袖/中袖"
+		},
+		{
+			"attrValueID": 11162412,
+			"name": "九分袖"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 31610,
+		"isSKUAttribute": false,
+		"name": "衣长",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 3226292,
+			"name": "常规"
+		},
+		{
+			"attrValueID": 44597,
+			"name": "中长款"
+		},
+		{
+			"attrValueID": 66612,
+			"name": "长款"
+		},
+		{
+			"attrValueID": 6465859,
+			"name": "超短"
+		},
+		{
+			"attrValueID": 15121517,
+			"name": "超长款"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 20418023,
+		"isSKUAttribute": false,
+		"name": "主图来源",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 92012,
+			"name": "实拍有模特"
+		},
+		{
+			"attrValueID": 92013,
+			"name": "实拍无模特"
+		},
+		{
+			"attrValueID": 92014,
+			"name": "官方图片"
+		},
+		{
+			"attrValueID": 3226294,
+			"name": "其他来源"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 100031521,
+		"isSKUAttribute": false,
+		"name": "面料名称",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 28344,
+			"name": "灯芯绒"
+		},
+		{
+			"attrValueID": 28347,
+			"name": "尼龙"
+		},
+		{
+			"attrValueID": 28348,
+			"name": "真丝"
+		},
+		{
+			"attrValueID": 28349,
+			"name": "化纤"
+		},
+		{
+			"attrValueID": 28351,
+			"name": "羊绒"
+		},
+		{
+			"attrValueID": 28352,
+			"name": "羊毛"
+		},
+		{
+			"attrValueID": 28354,
+			"name": "绸缎"
+		},
+		{
+			"attrValueID": 28385,
+			"name": "雪纺"
+		},
+		{
+			"attrValueID": 28386,
+			"name": "蕾丝"
+		},
+		{
+			"attrValueID": 30078,
+			"name": "PU皮"
+		},
+		{
+			"attrValueID": 44660,
+			"name": "真皮"
+		},
+		{
+			"attrValueID": 94348,
+			"name": "竹纤维"
+		},
+		{
+			"attrValueID": 103124,
+			"name": "莫代尔"
+		},
+		{
+			"attrValueID": 103127,
+			"name": "针织"
+		},
+		{
+			"attrValueID": 105134,
+			"name": "天然彩棉"
+		},
+		{
+			"attrValueID": 105135,
+			"name": "人工彩棉"
+		},
+		{
+			"attrValueID": 105255,
+			"name": "棉"
+		},
+		{
+			"attrValueID": 130192,
+			"name": "欧根纱"
+		},
+		{
+			"attrValueID": 3227333,
+			"name": "天鹅绒"
+		},
+		{
+			"attrValueID": 3267650,
+			"name": "毛呢"
+		},
+		{
+			"attrValueID": 3267653,
+			"name": "麻"
+		},
+		{
+			"attrValueID": 3308302,
+			"name": "牛仔"
+		},
+		{
+			"attrValueID": 3313135,
+			"name": "纱布"
+		},
+		{
+			"attrValueID": 3672097,
+			"name": "不倒绒"
+		},
+		{
+			"attrValueID": 3675172,
+			"name": "珊瑚绒"
+		},
+		{
+			"attrValueID": 3683007,
+			"name": "丝光棉"
+		},
+		{
+			"attrValueID": 3833451,
+			"name": "摇粒绒"
+		},
+		{
+			"attrValueID": 5516698,
+			"name": "金丝绒"
+		},
+		{
+			"attrValueID": 7236473,
+			"name": "色丁"
+		},
+		{
+			"attrValueID": 7698562,
+			"name": "韩国绒"
+		},
+		{
+			"attrValueID": 7874412,
+			"name": "法兰绒"
+		},
+		{
+			"attrValueID": 8030147,
+			"name": "羊羔绒"
+		},
+		{
+			"attrValueID": 8092438,
+			"name": "精梳棉"
+		},
+		{
+			"attrValueID": 9319699,
+			"name": "皮毛"
+		},
+		{
+			"attrValueID": 9785786,
+			"name": "牛奶丝"
+		},
+		{
+			"attrValueID": 10151968,
+			"name": "大卫衣"
+		},
+		{
+			"attrValueID": 11336544,
+			"name": "毛巾/毛圈"
+		},
+		{
+			"attrValueID": 16231274,
+			"name": "珍珠绒"
+		},
+		{
+			"attrValueID": 21344772,
+			"name": "春亚纺"
+		},
+		{
+			"attrValueID": 32111180,
+			"name": "羊毛拉架"
+		},
+		{
+			"attrValueID": 32751176,
+			"name": "水貂绒"
+		},
+		{
+			"attrValueID": 44427519,
+			"name": "棉类混纺"
+		},
+		{
+			"attrValueID": 45423298,
+			"name": "银狐绒"
+		},
+		{
+			"attrValueID": 52571896,
+			"name": "麻类混纺"
+		},
+		{
+			"attrValueID": 63074530,
+			"name": "化纤类混纺"
+		},
+		{
+			"attrValueID": 65332988,
+			"name": "奥代尔"
+		},
+		{
+			"attrValueID": 95681998,
+			"name": "毛类混纺"
+		},
+		{
+			"attrValueID": 118011340,
+			"name": "莱卡"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 117130178,
+		"isSKUAttribute": false,
+		"name": "主面料成分",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 21122,
+			"name": "兔毛"
+		},
+		{
+			"attrValueID": 28346,
+			"name": "亚麻"
+		},
+		{
+			"attrValueID": 28352,
+			"name": "羊毛"
+		},
+		{
+			"attrValueID": 80663,
+			"name": "丙纶"
+		},
+		{
+			"attrValueID": 80664,
+			"name": "腈纶"
+		},
+		{
+			"attrValueID": 103118,
+			"name": "氨纶"
+		},
+		{
+			"attrValueID": 103124,
+			"name": "莫代尔"
+		},
+		{
+			"attrValueID": 105221,
+			"name": "马海毛"
+		},
+		{
+			"attrValueID": 105255,
+			"name": "棉"
+		},
+		{
+			"attrValueID": 112996,
+			"name": "粘纤"
+		},
+		{
+			"attrValueID": 3775433,
+			"name": "桑蚕丝"
+		},
+		{
+			"attrValueID": 9583785,
+			"name": "山羊绒"
+		},
+		{
+			"attrValueID": 11042764,
+			"name": "苎麻"
+		},
+		{
+			"attrValueID": 21214478,
+			"name": "骆驼绒"
+		},
+		{
+			"attrValueID": 22679699,
+			"name": "水貂毛"
+		},
+		{
+			"attrValueID": 35280701,
+			"name": "骆驼毛"
+		},
+		{
+			"attrValueID": 35843025,
+			"name": "柞蚕丝"
+		},
+		{
+			"attrValueID": 45315007,
+			"name": "安哥拉兔毛"
+		},
+		{
+			"attrValueID": 52965045,
+			"name": "莱赛尔"
+		},
+		{
+			"attrValueID": 58013177,
+			"name": "锦纶/尼龙"
+		},
+		{
+			"attrValueID": 59971412,
+			"name": "芳纶"
+		},
+		{
+			"attrValueID": 93224640,
+			"name": "铜氨纤维"
+		},
+		{
+			"attrValueID": 130737854,
+			"name": "醋酯纤维"
+		},
+		{
+			"attrValueID": 147751678,
+			"name": "聚酯纤维（涤纶）"
+		},
+		{
+			"attrValueID": 917446351,
+			"name": "含氯纤维（氯纶）"
+		},
+		{
+			"attrValueID": 917448272,
+			"name": "聚乙烯纤维（乙纶）"
+		},
+		{
+			"attrValueID": 917454112,
+			"name": "聚乙烯醇纤维（维纶）"
+		},
+		{
+			"attrValueID": 32370368,
+			"name": "再生纤维素纤维"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 149092418,
+		"isSKUAttribute": false,
+		"name": "主面料成分含量",
+		"required": true,
+		"attrValues": []
+	},
+	{
+		"sign": 0,
+		"attrID": 2900,
+		"isSKUAttribute": false,
+		"name": "图案",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 596,
+			"name": "动物"
+		},
+		{
+			"attrValueID": 29452,
+			"name": "条纹"
+		},
+		{
+			"attrValueID": 29453,
+			"name": "格子"
+		},
+		{
+			"attrValueID": 29454,
+			"name": "纯色"
+		},
+		{
+			"attrValueID": 29455,
+			"name": "手绘"
+		},
+		{
+			"attrValueID": 31755,
+			"name": "卡通"
+		},
+		{
+			"attrValueID": 40785,
+			"name": "头像"
+		},
+		{
+			"attrValueID": 45576,
+			"name": "字母"
+		},
+		{
+			"attrValueID": 52813,
+			"name": "迷彩"
+		},
+		{
+			"attrValueID": 99819,
+			"name": "花朵"
+		},
+		{
+			"attrValueID": 103102,
+			"name": "爱心"
+		},
+		{
+			"attrValueID": 107622,
+			"name": "碎花"
+		},
+		{
+			"attrValueID": 111409,
+			"name": "抽象"
+		},
+		{
+			"attrValueID": 113019,
+			"name": "圆点"
+		},
+		{
+			"attrValueID": 4034189,
+			"name": "几何"
+		},
+		{
+			"attrValueID": 9142620,
+			"name": "拼接"
+		},
+		{
+			"attrValueID": 122774823,
+			"name": "花色"
+		},
+		{
+			"attrValueID": 20213,
+			"name": "其他"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 20680,
+		"isSKUAttribute": false,
+		"name": "裙长",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 44597,
+			"name": "中长款"
+		},
+		{
+			"attrValueID": 66612,
+			"name": "长款"
+		},
+		{
+			"attrValueID": 3226292,
+			"name": "常规"
+		},
+		{
+			"attrValueID": 6465859,
+			"name": "超短"
+		}]
+	},
+	{
+		"sign": 88,
+		"attrID": 3216,
+		"isSKUAttribute": true,
+		"name": "颜色",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 28320,
+			"name": "白色"
+		},
+		{
+			"attrValueID": 28324,
+			"name": "黄色"
+		},
+		{
+			"attrValueID": 28326,
+			"name": "红色"
+		},
+		{
+			"attrValueID": 28329,
+			"name": "紫色"
+		},
+		{
+			"attrValueID": 28331,
+			"name": "卡其色"
+		},
+		{
+			"attrValueID": 28335,
+			"name": "绿色"
+		},
+		{
+			"attrValueID": 28338,
+			"name": "蓝色"
+		},
+		{
+			"attrValueID": 28341,
+			"name": "黑色"
+		},
+		{
+			"attrValueID": 28323,
+			"name": "粉色"
+		},
+		{
+			"attrValueID": 28866,
+			"name": "藏青色"
+		},
+		{
+			"attrValueID": 60091,
+			"name": "橙色"
+		},
+		{
+			"attrValueID": 129819,
+			"name": "咖啡色"
+		}]
+	},
+	{
+		"sign": 24,
+		"attrID": 450,
+		"isSKUAttribute": true,
+		"name": "尺码",
+		"required": true,
+		"attrValues": [{
+			"attrValueID": 28313,
+			"name": "XS"
+		},
+		{
+			"attrValueID": 28314,
+			"name": "S"
+		},
+		{
+			"attrValueID": 28315,
+			"name": "M"
+		},
+		{
+			"attrValueID": 28316,
+			"name": "L"
+		},
+		{
+			"attrValueID": 28317,
+			"name": "XL"
+		},
+		{
+			"attrValueID": 28318,
+			"name": "XXL"
+		},
+		{
+			"attrValueID": 28319,
+			"name": "XXXL"
+		},
+		{
+			"attrValueID": 28381,
+			"name": "XXS"
+		},
+		{
+			"attrValueID": 28383,
+			"name": "均码"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 1459,
+		"isSKUAttribute": false,
+		"name": "计量单位",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 3313939,
+			"name": "套"
+		},
+		{
+			"attrValueID": 3325416,
+			"name": "件"
+		},
+		{
+			"attrValueID": 3397121,
+			"name": "条"
+		}]
+	},
+	{
+		"sign": 32,
+		"attrID": 4341,
+		"isSKUAttribute": false,
+		"name": "价格区间",
+		"required": false,
+		"attrValues": []
+	},
+	{
+		"sign": 32,
+		"attrID": 1150,
+		"isSKUAttribute": false,
+		"name": "供货总量",
+		"required": false,
+		"attrValues": []
+	},
+	{
+		"sign": 32,
+		"attrID": 8021,
+		"isSKUAttribute": false,
+		"name": "建议零售价",
+		"required": false,
+		"attrValues": []
+	},
+	{
+		"sign": 32,
+		"attrID": 101428437,
+		"isSKUAttribute": false,
+		"name": "单品货号",
+		"required": false,
+		"attrValues": []
+	},
+	{
+		"sign": 0,
+		"attrID": 7588903,
+		"isSKUAttribute": false,
+		"name": "销售单位",
+		"required": false,
+		"attrValues": [{
+			"attrValueID": 3347162,
+			"name": "手"
+		},
+		{
+			"attrValueID": 6598531,
+			"name": "打"
+		},
+		{
+			"attrValueID": 6791229,
+			"name": "箱"
+		}]
+	},
+	{
+		"sign": 0,
+		"attrID": 100022873,
+		"isSKUAttribute": false,
+		"name": "销售单位换算比率",
+		"required": false,
+		"attrValues": []
+	},
+	{
+		"sign": 0,
+		"attrID": 3939,
+		"isSKUAttribute": false,
+		"name": "最小起订量",
+		"required": false,
+		"attrValues": []
+	},
+	{
+		"sign": 0,
+		"attrID": 102415932,
+		"isSKUAttribute": false,
+		"name": "统一单位换算",
+		"required": false,
+		"attrValues": []
+	}]
+}

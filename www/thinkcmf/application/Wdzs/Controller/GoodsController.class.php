@@ -11,14 +11,27 @@ class GoodsController extends HomebaseController {
 		if(IS_POST){
 			$urls = explode("\r\n", I('goodsurls'));
 			
+			session('[destroy]');
+			
 			_init_apiinfo();
 			
-			//getCat(0);
-			//$goodsList = getProductList();
-			//$goods = getProduct("529010449551");
-			//addProduct();
-			addGroup("testgroup");
 			
+			
+			//$data = getCat(0);
+			//var_dump($data);
+			//$goodsList = getProductList();
+			//trace($goodsList,"goodslist");
+			//$goods = getProduct("529010449551");
+			//trace($goods,"goods");
+			$data = getCatAttr();
+			trace($data,"getCatAttr");
+			$data = addProduct();
+			trace($data,"add goods");
+			//$data = getGroupList();
+			//trace($data,"groupList");
+			
+			//$data = addGroup("testgroup");
+			//trace($data,"group");
 			//do_sync($urls);
 					
 		}

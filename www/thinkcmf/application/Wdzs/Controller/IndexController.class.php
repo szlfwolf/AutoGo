@@ -9,11 +9,17 @@ class IndexController extends HomebaseController {
 	
 
     //登录
-	public function index() {		
+	public function index() {
+		
+		//$usertoken = M("WdzsUserToken");
+		//$tokendata = $usertoken->order('id desc')->find();
+		//刷新token
+		
+				
 		_init_apiinfo();										
 		$appKey = C('API_1688.APP_KEY');
 	    $redirectUrl = C('API_1688.R_URL');					
-									//生成签名
+		//生成签名
 	    $code_arr = array(
 	        'client_id' => $appKey,
 	        'redirect_uri' => $redirectUrl,
@@ -30,12 +36,13 @@ class IndexController extends HomebaseController {
 		$authcode = I("get.code",'');
 		if (!empty($authcode))
 		{
+			//
 			_init_apiinfo();
 			$tokenurl = "https://gw.open.1688.com/openapi/http/1/system.oauth2/getToken/".
 				C('API_1688.APP_KEY')."?grant_type=authorization_code&need_refresh_token=true&client_id=".
 				C('API_1688.APP_KEY')."&client_secret=".
-				C('API_1688.APP_CODE')."&redirect_uri=".
-				C('API_1688.R_URL').
+				C('API_1688.APP_CODE')."&redirect_uri=http://localhost".
+				U("goods/index").
 				"&code=".$authcode;
 			var_dump($tokenurl);			
 			$json = send_post($tokenurl);			
@@ -43,11 +50,11 @@ class IndexController extends HomebaseController {
 			var_dump($tokenarr);
 
 			$usertoken = M("WdzsUserToken");
+			//$tokenarr["createtime"] = date("Y-m-d H:i:s");
 			$usertoken->add($tokenarr);
-
-			//session('name','value'); 
 			
-			this.redirect(U("goods/index"));
+			//this.redirect(U("goods/index"));
+			$this -> display(":token");
 		}
 		else{
 			$ip = get_client_ip();

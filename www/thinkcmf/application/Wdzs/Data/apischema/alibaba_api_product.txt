@@ -10,7 +10,26 @@ Array (
 				[attributeName] => 货号 
 				[value] => 3089C601232 
 				[isCustom] => ) 
-			[1] => Array ( [attributeID] => 364 [attributeName] => 产品类别 [value] => 连衣裙 [isCustom] => ) [2] => Array ( [attributeID] => 100000691 [attributeName] => 货源类别 [value] => 现货 [isCustom] => ) [3] => Array ( [attributeID] => 2176 [attributeName] => 品牌 [value] => 其他 [isCustom] => ) [4] => Array ( [attributeID] => 346 [attributeName] => 产地 [value] => 广州 [isCustom] => ) [5] => Array ( [attributeID] => 100017842 [attributeName] => 最快出货时间 [value] => 1-3天 [isCustom] => ) [6] => Array ( [attributeID] => 973 [attributeName] => 风格 [value] => 欧美 [isCustom] => ) [7] => Array ( [attributeID] => 2531 [attributeName] => 适合季节 [value] => 夏季 [isCustom] => ) [8] => Array ( [attributeID] => 7002 [attributeName] => 厚薄 [value] => 普通 [isCustom] => ) [9] => Array ( [attributeID] => 20602 [attributeName] => 领型 [value] => 圆领 [isCustom] => ) [10] => Array ( [attributeID] => 7001 [attributeName] => 袖长 [value] => 无袖 [isCustom] => ) [11] => Array ( [attributeID] => 31610 [attributeName] => 衣长 [value] => 常规 [isCustom] => ) [12] => Array ( [attributeID] => 20418023 [attributeName] => 主图来源 [value] => 实拍有模特 [isCustom] => ) [13] => Array ( [attributeID] => 100031521 [attributeName] => 面料名称 [value] => 雪纺 [isCustom] => ) [14] => Array ( [attributeID] => 117130178 [attributeName] => 主面料成分 [value] => 聚酯纤维（涤纶） [isCustom] => ) [15] => Array ( [attributeID] => 149092418 [attributeName] => 主面料成分含量 [value] => 90 [isCustom] => ) [16] => Array ( [attributeID] => 2900 [attributeName] => 图案 [value] => 纯色 [isCustom] => ) [17] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 砖红色 [isCustom] => ) [18] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 草绿色 [isCustom] => ) [19] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 杏色 [isCustom] => ) [20] => Array ( [attributeID] => 450 [attributeName] => 尺码 [value] => 均码（外贸加长版） [isCustom] => ) ) 
+			[1] => Array ( [attributeID] => 364 [attributeName] => 产品类别 [value] => 连衣裙 [isCustom] => ) 
+			[2] => Array ( [attributeID] => 100000691 [attributeName] => 货源类别 [value] => 现货 [isCustom] => ) 
+			[3] => Array ( [attributeID] => 2176 [attributeName] => 品牌 [value] => 其他 [isCustom] => ) 
+			[4] => Array ( [attributeID] => 346 [attributeName] => 产地 [value] => 广州 [isCustom] => ) 
+			[5] => Array ( [attributeID] => 100017842 [attributeName] => 最快出货时间 [value] => 1-3天 [isCustom] => ) 
+			[6] => Array ( [attributeID] => 973 [attributeName] => 风格 [value] => 欧美 [isCustom] => ) 
+			[7] => Array ( [attributeID] => 2531 [attributeName] => 适合季节 [value] => 夏季 [isCustom] => ) 
+			[8] => Array ( [attributeID] => 7002 [attributeName] => 厚薄 [value] => 普通 [isCustom] => ) 
+			[9] => Array ( [attributeID] => 20602 [attributeName] => 领型 [value] => 圆领 [isCustom] => ) 
+			[10] => Array ( [attributeID] => 7001 [attributeName] => 袖长 [value] => 无袖 [isCustom] => ) 
+			[11] => Array ( [attributeID] => 31610 [attributeName] => 衣长 [value] => 常规 [isCustom] => ) 
+			[12] => Array ( [attributeID] => 20418023 [attributeName] => 主图来源 [value] => 实拍有模特 [isCustom] => ) 
+			[13] => Array ( [attributeID] => 100031521 [attributeName] => 面料名称 [value] => 雪纺 [isCustom] => ) 
+			[14] => Array ( [attributeID] => 117130178 [attributeName] => 主面料成分 [value] => 聚酯纤维（涤纶） [isCustom] => ) 
+			[15] => Array ( [attributeID] => 149092418 [attributeName] => 主面料成分含量 [value] => 90 [isCustom] => ) 
+			[16] => Array ( [attributeID] => 2900 [attributeName] => 图案 [value] => 纯色 [isCustom] => ) 
+			[17] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 砖红色 [isCustom] => ) 
+			[18] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 草绿色 [isCustom] => )
+			[19] => Array ( [attributeID] => 3216 [attributeName] => 颜色 [value] => 杏色 [isCustom] => ) 
+			[20] => Array ( [attributeID] => 450 [attributeName] => 尺码 [value] => 均码（外贸加长版） [isCustom] => ) ) 
 		[groupID] => Array ( 
 			[0] => 69931588 [1] => 70763194 ) 
 		[status] => member deleted 
