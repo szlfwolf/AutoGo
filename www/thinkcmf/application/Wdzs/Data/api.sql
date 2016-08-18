@@ -51,7 +51,8 @@ CREATE TABLE `ag_wdzs_api_category` (
 --类目的属性信息
 CREATE TABLE `ag_wdzs_api_category_attr` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-	`API_TYPE` varchar(255) NOT NULL COMMENT 'api类型，1688',	
+	`API_TYPE` varchar(255) NOT NULL COMMENT 'api类型，1688',
+	`categoryid` bigint(20) NOT NULL COMMENT '属性id',	
 	`attrID` bigint(20) NOT NULL COMMENT '属性id',	
 	`name` varchar(255) NOT NULL COMMENT 'api类型，1688',
 	`required` tinyint(1) NOT NULL COMMENT '是否必填属性',

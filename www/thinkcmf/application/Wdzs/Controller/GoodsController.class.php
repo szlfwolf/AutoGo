@@ -9,13 +9,14 @@ class GoodsController extends HomebaseController {
     //登录
 	public function index() {
 
+		_init_apiinfo();
 		if(IS_POST){
 			$urls = explode("\r\n", I('goodsurls'));
 			$catid = I("catid");
 			trace($urls);
 			
 			session('[destroy]');			
-			_init_apiinfo();
+
 			
 			
 			
@@ -25,22 +26,27 @@ class GoodsController extends HomebaseController {
 			//trace($goodsList,"goodslist");
 			//$goods = getProduct("529010449551");
 			//trace($goods,"goods");
-			$data = getCatAttr($catid);
-			trace($data,"getCatAttr");
+			
 			foreach($urls as $pid){
-				$data = addProduct($pid);
-				trace($data,"add goods[".$pid."]");	
+				//$data = addProduct($pid);
+				//trace($data,"add goods[".$pid."]");	
 			}
 					
-			//$data = getGroupList();
-			//trace($data,"groupList");
+			$data = getGroupList();
+			trace($data,"groupList");
 			
 			//$data = addGroup("testgroup");
 			//trace($data,"group");
 			//do_sync($urls);
 					
 		}
-					
+		
+		$data = getGroupList();
+		trace($data,"groupList");
+		
+		$data = getCatAttr($catid);
+		trace($data,"getCatAttr");
+		$this->assign("catattr",$data);			
 		$this->display("index");
 		
     }	  

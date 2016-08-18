@@ -164,20 +164,31 @@ function getCatAttr($catid){
 	if(empty($catid) ){
 		$catid = 122196005;	
 	}
-	$catattr = M("WdzsApiCategoryAttr");
-	$catattr->select("attrID=".$catid)->find();
 	
-	if ( empty($catattr))
+	
+	$apiinfo = M("WdzsApiCategoryAttr");
+	$arr = $apiinfo->where("categoryid='".$catid."' ")->order("attrID")->select();
+	
+	if ( empty($arr))
 	{
 		$postdata= array(
-			"categoryID"=> 122196005,
+			"categoryID"=> $catid,
 			"webSite"	=> "1688",
 		);	
-		$catinfo= _invokeApi("alibaba.category.attribute.get",$postdata,TRUE,TRUE);
-		$usertoken->add($catinfo);
-		return $catinfo; 		
+		$data= _invokeApi("alibaba.category.attribute.get",$postdata,TRUE,TRUE);
+		foreach($data["attributes"] as $r){
+			$r["categoryid"] = $catid;
+			$r["API_TYPE"] = "1688";
+			$r["attrValues"] = json_encode($r["attrValues"]);
+			$apiinfo->add($r);			
+		}		
+		return $data; 		
+	}else{
+		foreach($arr as $k=>$r){
+			$arr[$k]["attrvalues"] = json_decode($r["attrvalues"],TRUE);			
+		}
 	}
-	return $catattr;
+	return $arr;
 	
 	
 	
@@ -232,6 +243,7 @@ function addProduct($gid,$catid=null){
 		"pictureAuth"	=>	"false",
 		"image"			=>	"{'images':".$goodsinfo->goodsimgs."}",
 		"attributes"	=>	"[{'attributeID':364,'attributeName':'产品类别','value':'连衣裙','isCustom':false},".
+			"{'attributeID':100000691,'attributeName':'货源类别','value':'现货','isCustom':false},".
 			"{'attributeID':2176,'attributeName':'品牌','value':'其他','isCustom':false},".
 			"{'attributeID':346,'attributeName':'产地','value':'广州','isCustom':false},".
 			"{'attributeID':100017842,'attributeName':'最快出货时间','value':'1-3天','isCustom':false},".

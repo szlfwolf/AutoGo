@@ -25,6 +25,22 @@
         		<p><select name="catid"><option value="122196005" selected="true">连衣裙</option></select></p>
 				 <textarea class="" placeholder="商品地址，每行一条" name="goodsurls" /></textarea>
 				 <input type="submit" class="btn btn-info" value="Go" style="margin:0"/>
+				 <div>
+				 <volist name="catattr" id="vo">
+				   {$vo["name"]}:
+				   <notempty name="vo['attrvalues']">
+					   <select name="{$vo["attrid"]}">
+						<volist name="vo['attrvalues']" id="sub">
+							<option value="{$sub.attrValueID}">{$sub.name}</option>:
+						</volist>
+						</select>	
+					<else /> 
+						<input type="text" name="{$vo["attrid"]}">
+				  </notempty>				   
+				   <br>				   				
+				</volist>
+				</div>
+				 
 			</form>
 				</dvi>
 			</div>
