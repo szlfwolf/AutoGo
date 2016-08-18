@@ -20,19 +20,19 @@ class WdClothPipeline(object):
 
 	def __init__(self):
 		try:
-			conn=MySQLdb.connect(host='localhost',user='root',passwd='',db='wd_cloth2',port=3306)
+			conn=MySQLdb.connect(host='localhost',user='root',passwd='',db='autogo',port=3306)
 			cur=conn.cursor()
-			cur.execute('select count(*) from s_shopinfo')
+			cur.execute('select count(*) from ag_s_shopinfo')
 			cur.close()
 			conn.close()
-			print "mysql connect db[wd_cloth2]ok "
+			print "mysql connect db[autogo]ok "
 		except MySQLdb.Error,e:
 			print "Mysql Error %d: %s" % (e.args[0], e.args[1])
 		
 		#log.startLogging(sys.stdout)
 		self.dbpool = adbapi.ConnectionPool('MySQLdb',
 			host = '127.0.0.1',
-			db = 'wd_cloth2',
+			db = 'autogo',
 			user = 'root',
 			passwd = '',
 			cursorclass = MySQLdb.cursors.DictCursor,
@@ -67,27 +67,27 @@ class WdClothPipeline(object):
 	
 	#保存【city】信息
 	def _insert_city(self,tx,item):
-		tx.execute("select * from s_city where cityurl = %s", (item['cityurl']))
+		tx.execute("select * from ag_s_city where cityurl = %s", (item['cityurl']))
 		result = tx.fetchone()
 		if not result:
-			tx.execute("insert s_city (cityname,cityurl) values (%s,%s) ", ( item['cityname'],item['cityurl']))
+			tx.execute("insert ag_s_city (cityname,cityurl) values (%s,%s) ", ( item['cityname'],item['cityurl']))
 			print 'city:[%s] added!' % item['cityname'] 
 	
 	#保存【市场】信息
 	def _insert_market(self,tx,item):
-		tx.execute("select * from s_citymarket where marketurl=%s", (item['marketurl']))
+		tx.execute("select * from ag_s_citymarket where marketurl=%s", (item['marketurl']))
 		result = tx.fetchone()
 		if not result:
-			tx.execute("insert s_citymarket (marketurl,marketname,cityname) values (%s,%s,%s) ", ( item['marketurl'],item['marketname'],item['cityname']))
+			tx.execute("insert ag_s_citymarket (marketurl,marketname,cityname) values (%s,%s,%s) ", ( item['marketurl'],item['marketname'],item['cityname']))
 			print 'market:[%s] added!' % item['marketname']
 
 	#保存【店铺】信息，解析列表页
 	def _conditional_insert(self, tx, item):
-		tx.execute("select * from s_shopinfo where shopid = %s", (item['shopid'] ))
+		tx.execute("select * from ag_s_shopinfo where shopid = %s", (item['shopid'] ))
 		result = tx.fetchone()
 		if not result:
 			tx.execute(\
-				"insert into s_shopinfo (shopname,shopid,shopurl,marketname,marketfloor,marketdk,category,tip,qqinfo,wwinfo,props)\
+				"insert into ag_s_shopinfo (shopname,shopid,shopurl,marketname,marketfloor,marketdk,category,tip,qqinfo,wwinfo,props)\
 				values (%s,%s,%s,%s,%s, %s,%s,%s,%s,%s,%s)",
 				(item['shopname'].encode('utf-8'),
 				 item['shopid'],
@@ -104,38 +104,38 @@ class WdClothPipeline(object):
 				)
 			sid = tx.connection.insert_id()
 			#保存【市场】与【店铺】的关联关系
-			tx.execute("select * from s_shopinfo where shopid = %s", (item['shopid'] ))
+			tx.execute("select * from ag_s_shopinfo where shopid = %s", (item['shopid'] ))
 			result = tx.fetchone()
 			if result:
 				marketid = int(result['id'])
-				tx.execute("insert into s_market_shop (marketid,shopid) values (%s,%s)", (marketid,sid))
-			print "insert s_shopinfo[%s]: done, shopid:%s" % (sid,item['shopid'])
-			tx.execute("insert into s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("add",sid,"s_shopinfo"))
+				tx.execute("insert into ag_s_market_shop (marketid,shopid) values (%s,%s)", (marketid,sid))
+			print "insert ag_s_shopinfo[%s]: done, shopid:%s" % (sid,item['shopid'])
+			tx.execute("insert into ag_s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("add",sid,"ag_s_shopinfo"))
 			
 
 	#更新【店铺】信息，解析店铺页
 	def _conditional_update_shopinfo(self, tx, item):
-		tx.execute("select * from s_shopinfo where shopid = %s", (item['shopid'] ))
+		tx.execute("select * from ag_s_shopinfo where shopid = %s", (item['shopid'] ))
 		result = tx.fetchone()
 		if result:
 			if not result['wwname']:
 				tx.execute(\
-					"update s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
+					"update ag_s_shopinfo set qqnum=%s,wwname=%s,phonenum=%s,tburl=%s where shopurl = %s",
 					(item['qqnum'],item['wwname'].encode('utf-8'),item['phonenum'],item['tburl'],item['shopinfourl'])
 					)
 				shopid = result['id']
-				print "update s_shopinfo[%s]: done." % shopid
-				tx.execute("insert into s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("update",shopid,"s_shopinfo"))
+				print "update ag_s_shopinfo[%s]: done." % shopid
+				tx.execute("insert into ag_s_spiderlog (optype,keyid,objname) values (%s,%s,%s)",("update",shopid,"ag_s_shopinfo"))
 
 
 	#保存【商品】信息
 	def _conditional_insert_goods(self, tx, item):
-		tx.execute("select id from s_goodsinfo where goodsurl = %s", (item['goodsurl'] ))
+		tx.execute("select id from ag_s_goodsinfo where goodsurl = %s", (item['goodsurl'] ))
 		result = tx.fetchone()
 		if not result:
-			print "begin insert s_goodsinfo"
+			print "begin insert ag_s_goodsinfo"
 			tx.execute(\
-				"insert into s_goodsinfo (goodsurl,shopurl,goodsimgs,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details,goodsid)\
+				"insert into ag_s_goodsinfo (goodsurl,shopurl,goodsimgs,goodsname,goodsprice,taobaoprice,taobaourl,uptime,props,details,goodsid)\
 				values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
 				(item['goodsurl'],
 				 item['shopurl'],
@@ -152,10 +152,10 @@ class WdClothPipeline(object):
 				)
 			id = tx.connection.insert_id()
 			#保存【店铺】与【商品】的关联关系
-			tx.execute("insert into s_shop_goods (goodsid,shopid) values (%s,%s)", (item['goodsid'],item['shopid']))
+			tx.execute("insert into ag_s_shop_goods (goodsid,shopid) values (%s,%s)", (item['goodsid'],item['shopid']))
 
 
-			print "insert s_goodsinfo[%s]: done." %  item['goodsid']
-			#tx.execute("insert into s_spiderlog (optype,keyid,objname) values ( %s,%s,%s)",("add",item['goodsid'],"s_goodsinfo"))
+			print "insert ag_s_goodsinfo[%s]: done." %  item['goodsid']
+			#tx.execute("insert into ag_s_spiderlog (optype,keyid,objname) values ( %s,%s,%s)",("add",item['goodsid'],"ag_s_goodsinfo"))
 			#tx.commit()
 

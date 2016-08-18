@@ -8,11 +8,13 @@ use Common\Controller\HomebaseController;
 class GoodsController extends HomebaseController {
     //登录
 	public function index() {
+
 		if(IS_POST){
 			$urls = explode("\r\n", I('goodsurls'));
+			$catid = I("catid");
+			trace($urls);
 			
-			session('[destroy]');
-			
+			session('[destroy]');			
 			_init_apiinfo();
 			
 			
@@ -23,10 +25,13 @@ class GoodsController extends HomebaseController {
 			//trace($goodsList,"goodslist");
 			//$goods = getProduct("529010449551");
 			//trace($goods,"goods");
-			$data = getCatAttr();
+			$data = getCatAttr($catid);
 			trace($data,"getCatAttr");
-			$data = addProduct();
-			trace($data,"add goods");
+			foreach($urls as $pid){
+				$data = addProduct($pid);
+				trace($data,"add goods[".$pid."]");	
+			}
+					
 			//$data = getGroupList();
 			//trace($data,"groupList");
 			

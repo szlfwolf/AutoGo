@@ -35,6 +35,7 @@ CREATE TABLE `ag_wdzs_user_token` (
   KEY `access_token` (`access_token`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--类目信息
 CREATE TABLE `ag_wdzs_api_category` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
 	`API_TYPE` varchar(255) NOT NULL COMMENT 'api类型，1688',
@@ -42,6 +43,24 @@ CREATE TABLE `ag_wdzs_api_category` (
 	`level` varchar(255) NOT NULL COMMENT 'api类型，1688',
 	`enName` varchar(255) NOT NULL COMMENT '类目名称',
 	`isLeaf` varchar(255) NOT NULL COMMENT '是否叶子节点',
-	`childIDs` varchar(255) NOT NULL COMMENT '',
-	
-)
+	`childIDs` varchar(255) NOT NULL COMMENT '子节点',
+	PRIMARY KEY (`id`),
+	KEY `categoryid` (`categoryid`)	
+)ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--类目的属性信息
+CREATE TABLE `ag_wdzs_api_category_attr` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+	`API_TYPE` varchar(255) NOT NULL COMMENT 'api类型，1688',	
+	`attrID` bigint(20) NOT NULL COMMENT '属性id',	
+	`name` varchar(255) NOT NULL COMMENT 'api类型，1688',
+	`required` tinyint(1) NOT NULL COMMENT '是否必填属性',
+	`units` varchar(255) NOT NULL COMMENT '该属性的单位',
+	`isSKUAttribute` tinyint(1) NOT NULL COMMENT '该属性能否当成SKU属性',
+	`attrValues` varchar(255) NOT NULL COMMENT '属性可选的属性值',
+	`inputType` varchar(255) NOT NULL COMMENT '输入类型',
+	`isSupportCustomizeValue` tinyint(1) NOT NULL COMMENT '用成SKU属性时，是否支持自定义属性值名称，1688不返回该信息',
+	`isSupportCustomizeImage` tinyint(1) NOT NULL COMMENT '用成SKU属性时，是否支持自定义图片展示，1688不返回该信息',	
+	PRIMARY KEY (`id`),
+	KEY `attrID` (`attrID`)	
+)ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
