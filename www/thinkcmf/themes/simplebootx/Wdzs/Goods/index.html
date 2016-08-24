@@ -4,49 +4,59 @@
 <title>{$site_name}</title>
 <meta name="keywords" content="{$site_seo_keywords}" />
 <meta name="description" content="{$site_seo_description}">
-<meta name="author" content="ThinkCMF">
-<tc_include file="Public:head" />
+<meta name="author" content="AuoGo">
+<tc_include file="Wdzs:head" />
 <style>
-.control-label{
-	font-weight: bold;
-	float: left;
-	width: 70px;
-}
+
 </style>
 </head>
-<body class="body-white" id="top">
-	<tc_include file="Public:nav" />
+<body>	
+	<tc_include file="Wdzs:nav" />
 	
-	<div class="container tc-main">
-		<div class="row">
-			<div class="span4 offset4">
-				<div class="tab-content">
-        	<form method="post" class="form-inline" action="{:U('wdzs/goods/index')}" style="margin:18px 0;">
-        		<p><select name="catid"><option value="122196005" selected="true">连衣裙</option></select></p>
-				 <textarea class="" placeholder="商品地址，每行一条" name="goodsurls" /></textarea>
-				 <input type="submit" class="btn btn-info" value="Go" style="margin:0"/>
-				 <div>
-				 <volist name="catattr" id="vo">
-				   {$vo["name"]}:
-				   <notempty name="vo['attrvalues']">
-					   <select name="{$vo["attrid"]}">
-						<volist name="vo['attrvalues']" id="sub">
-							<option value="{$sub.attrValueID}">{$sub.name}</option>:
-						</volist>
-						</select>	
-					<else /> 
-						<input type="text" name="{$vo["attrid"]}">
-				  </notempty>				   
-				   <br>				   				
-				</volist>
+	<div class="container">		
+		<form method="post" class="form-horizontal" action="{:U('wdzs/goods/index')}">
+			<fieldset>				
+				<div class="col-sm-6" style="border: none;" ng-app="">
+					<div class="form-group">
+						<label for="catid" class="col-sm-4 control-label">类目</label>   
+						<div class="col-sm-8">
+							<select name="catid" id="catid" class=" form-control"><option value="122196005" selected="true">连衣裙</option></select>
+						</div>			
+					</div>
+					<legend>类目属性</legend>
+					<!-- 遍历类目属性 -->
+					 <volist name="catattr" id="vo">
+					 <div class="form-group">
+					   <label for="{$vo["attrid"]}" class="control-label col-sm-4">{$vo["name"]}({$vo["attrid"]}):</label>
+					   <div class="col-sm-8">
+					   <notempty name="vo['attrvalues']">
+						   	<if condition="sizeof($vo['attrvalues']) gt 1">
+							    <select name="{$vo["attrid"]}" class="form-control">
+								<volist name="vo['attrvalues']" id="sub">
+									<option value="{$sub.attrValueID}">{$sub.name}</option>:
+								</volist>
+								</select>
+							<elseif condition="sizeof($vo['attrvalues']) gt 0"/>
+								<input type="text" name="{$vo["attrid"]}" id="{$vo['attrid']}" class="form-control" value="{$vo['attrvalues'][0]['name']}" />	
+							</if>
+						<else /> 
+								<input type="text" name="{$vo["attrid"]}" id="{$vo['attrid']}" class="form-control" value="" />			
+					  	</notempty>				
+						</div>
+					</div>
+					</volist>
+					<legend>17zwd网站</legend>
+					<div class="form-group">
+						<textarea class="form-control" rows=10 placeholder="商品地址，每行一条" name="goodsurls" ng-model="purl" /></textarea>
+						<button type="submit" class="btn btn-default">发布商品</button>
+					</div>
+					<p ng-bind="purl"></p>
+					<p>You wrote: {{ purl }}</p> 
 				</div>
-				 
-			</form>
-				</dvi>
-			</div>
-		</div>
+			</fieldset>
+		</form>		
 	</div>
 	
-	<tc_include file="Public:scripts" />
+	<tc_include file="Wdzs:scripts" />
 </body>
 </html>

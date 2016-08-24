@@ -8,18 +8,32 @@ use Common\Controller\HomebaseController;
 class GoodsController extends HomebaseController {
     //登录
 	public function index() {
-
+		
+		$data = getCatAttr($catid);
 		_init_apiinfo();
 		if(IS_POST){
 			$urls = explode("\r\n", I('goodsurls'));
 			$catid = I("catid");
 			trace($urls);
 			
-			session('[destroy]');			
+			session('[destroy]');	
+			
+			$inparas = I('post.');
+			
+			foreach($inparas as $k=>$v){
+				echo $k."->".$v."<br/>";
+			}	
+			echo '$data.<br/>';
+			foreach($data as $k=>$a){
+				if (array_key_exists($a["attrid"],$inparas)){
 
-			
-			
-			
+					$data[$k]['attrvalues'] = $inparas[$a["attrid"]];
+					
+					echo $a["attrid"]."->".$data[$k]['attrvalues']."<br/>";
+				}
+			}	
+
+			trace($data,"attrinfo");
 			//$data = getCat(0);
 			//var_dump($data);
 			//$goodsList = getProductList();
@@ -32,20 +46,24 @@ class GoodsController extends HomebaseController {
 				//trace($data,"add goods[".$pid."]");	
 			}
 					
-			$data = getGroupList();
-			trace($data,"groupList");
+			//$data = getGroupList();
+			//trace($data,"groupList");
 			
 			//$data = addGroup("testgroup");
 			//trace($data,"group");
 			//do_sync($urls);
 					
+		}else{
+			
+			trace($data,"getCatAttr");
+			foreach($data as $k=>$d){
+				if ($d["attrid"] == 346){
+					$data[$k]["attrvalues"] = array(
+						0=> array("attrValueID"=>"中国", "name"=>"中国"));
+				}	
+			}
 		}
-		
-		$data = getGroupList();
-		trace($data,"groupList");
-		
-		$data = getCatAttr($catid);
-		trace($data,"getCatAttr");
+
 		$this->assign("catattr",$data);			
 		$this->display("index");
 		

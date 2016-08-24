@@ -167,7 +167,7 @@ function getCatAttr($catid){
 	
 	
 	$apiinfo = M("WdzsApiCategoryAttr");
-	$arr = $apiinfo->where("categoryid='".$catid."' ")->order("attrID")->select();
+	$arr = $apiinfo->where("categoryid='".$catid."' and required=1 ")->order("attrID")->select();
 	
 	if ( empty($arr))
 	{
