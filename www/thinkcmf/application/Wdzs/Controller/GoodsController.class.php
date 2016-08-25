@@ -6,12 +6,16 @@
 namespace Wdzs\Controller;
 use Common\Controller\HomebaseController;
 class GoodsController extends HomebaseController {
+	
+
+	
     //登录
 	public function index() {
 		
-		$data = getCatAttr($catid);
-		_init_apiinfo();
+
 		if(IS_POST){
+			$data = getCatAttr($catid);
+			//_init_apiinfo();
 			$urls = explode("\r\n", I('goodsurls'));
 			$catid = I("catid");
 			trace($urls);
@@ -20,20 +24,9 @@ class GoodsController extends HomebaseController {
 			
 			$inparas = I('post.');
 			
-			foreach($inparas as $k=>$v){
-				echo $k."->".$v."<br/>";
-			}	
-			echo '$data.<br/>';
-			foreach($data as $k=>$a){
-				if (array_key_exists($a["attrid"],$inparas)){
 
-					$data[$k]['attrvalues'] = $inparas[$a["attrid"]];
-					
-					echo $a["attrid"]."->".$data[$k]['attrvalues']."<br/>";
-				}
-			}	
 
-			trace($data,"attrinfo");
+			
 			//$data = getCat(0);
 			//var_dump($data);
 			//$goodsList = getProductList();
@@ -42,6 +35,10 @@ class GoodsController extends HomebaseController {
 			//trace($goods,"goods");
 			
 			foreach($urls as $pid){
+				
+				$data = _init_cat($data,$pid);
+				
+				
 				//$data = addProduct($pid);
 				//trace($data,"add goods[".$pid."]");	
 			}
@@ -52,22 +49,37 @@ class GoodsController extends HomebaseController {
 			//$data = addGroup("testgroup");
 			//trace($data,"group");
 			//do_sync($urls);
+			$this->assign("gid",$urls[0]);
+			
+			$this->assign("subject",$catattr["subject"]);
+			$this->assign("description",$catattr["description"]);
+			
+			unset($catattr["subject"]);
+			unset($catattr["description"]);
+			
+			trace($data,"catattr");
+			
+			$this->assign("catattr",$data);
 					
 		}else{
 			
-			trace($data,"getCatAttr");
-			foreach($data as $k=>$d){
-				if ($d["attrid"] == 346){
-					$data[$k]["attrvalues"] = array(
-						0=> array("attrValueID"=>"中国", "name"=>"中国"));
-				}	
-			}
+			
 		}
 
-		$this->assign("catattr",$data);			
+				
 		$this->display("index");
 		
     }	  
+    
+    public function add(){
+    	$inparas = I('post.');
+    	
+    	trace($inparas,"postdata");
+    	
+    	$this->display("index");
+    	
+    }
+    
 
 	
 	public function category()

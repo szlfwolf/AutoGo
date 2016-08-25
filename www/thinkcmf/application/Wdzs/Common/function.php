@@ -167,7 +167,7 @@ function getCatAttr($catid){
 	
 	
 	$apiinfo = M("WdzsApiCategoryAttr");
-	$arr = $apiinfo->where("categoryid='".$catid."' and required=1 ")->order("attrID")->select();
+	$arr = $apiinfo->where("categoryid='".$catid."' and required in (1,0) ")->order("attrID")->select();
 	
 	if ( empty($arr))
 	{
@@ -357,5 +357,97 @@ function _init_apiinfo()
 	C('API_1688.APP_KEY',$arr[0]["api_value"]);
 	C('API_1688.APP_CODE',$arr[1]["api_value"]);
 	C('API_1688.R_URL',$arr[2]["api_value"]);
+}
+
+function _init_cat($data, $gid=null){
+	$props = array();
+	if($gid){
+		$goodsinfo = M("SGoodsinfo");
+		$goodsinfo->where("goodsid=$gid")->find();
+		$props = json_decode($goodsinfo->props,true);	
+		
+		$data["subject"]=$goodsinfo->goodsname;
+		$data["description"]=$goodsinfo->details;
+		$data["goodsimg"]=str_replace("50x50","400x400",json_decode($goodsinfo->goodsimgs,true)[0]);
+
+	}
+	foreach($data as $k=>$a){
+		$attrvalue = "";
+		if( !is_array($a)) continue;
+		switch($a["attrid"]){
+			case 364 :
+				$attrvalue= "连衣裙";
+				break;
+			case 100000691 :
+				$attrvalue = "现货";
+				break;
+			case 2176 :
+				$attrvalue = "其他";
+				break;				
+			case 346 :
+				 $attrvalue= htmlspecialchars("广州");
+				break;
+			case 100017842 :
+				$attrvalue= "1-3天";
+				break;
+			case 973 :
+				$attrvalue = "韩版";
+				break;	
+			case 7002 :
+				$attrvalue = "普通";
+				break;
+			case 20602 :
+				$attrvalue = "圆领";
+				break;
+			case 7001:
+				$attrvalue = "无袖";
+				break;
+			case 31610:
+				$attrvalue = "常规";
+				break;
+				
+			case 20418023:
+				$attrvalue = "实拍有模特";
+				break;
+			case 100031521:
+				$attrvalue = "雪纺";
+				break;
+			case 117130178:
+				$attrvalue = "聚酯纤维（涤纶）";
+				break;
+			case 149092418:
+				$attrvalue = 90;
+				break;
+			case 2900:
+				$attrvalue = "纯色";
+				break;				
+				;
+			case 450 :
+				$attrvalue = $props["尺码"];
+				break;
+			case 3216 :
+				$attrvalue = $props["颜色分类"];
+				break;	
+			case 1398 :
+				$attrvalue = $props["货号"];
+				break;
+			case 2531 :
+				$attrvalue = $props["上市年份季节"];
+				break;				
+							
+			default:
+				$attrvalue = "default";
+		}
+		if($attrvalue != "default"){
+			$data[$k]["attrvalues"] = $attrvalue;
+		}else {
+			unset($data[$k]);
+		}
+		
+	};
+
+
+	
+	return $data;
 }
 
