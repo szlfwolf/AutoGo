@@ -224,50 +224,86 @@ function getProduct($productId)
 			
 }
 
-function addProduct($gid,$catid=null){
-	if (empty($catid) ) $catid = "122196005";
+function addProduct($data){
 	
-	$goodsinfo = M("SGoodsinfo");
-	$goodsinfo->where("goodsid=$gid")->find();
+	_init_apiinfo();
 	
+	$catid = "122196005";
+	
+ 	$goodsinfo = M("SGoodsinfo");
+ 	$goodsinfo->where("goodsid='".$data['gid']."'")->find();
+ 	
+ 	$attrs = null;
+ 	foreach($data as $k => $v){
+ 		if ( is_numeric($k) ){
+ 			if($k == 450){
+ 				$sizes = explode(",", $v);
+ 				foreach($sizes as $s){
+ 					$attrs[] = array(
+ 							"attributeID"	=> $k,
+ 							"value"	=>$s,
+ 							"isCustom" => false,
+ 					);
+ 				}
+ 			
+ 			}else{
+	 			$attrs[] = array(
+	 				"attributeID"	=> $k,
+	 				"value"	=>$v,
+	 				"isCustom" => false,	
+	 			);
+ 			}
+ 		}
+ 	}
+ 	$attrs[] = array(
+ 			"attributeID"	=> 7869,
+ 			"value"	=>"否",
+ 			"isCustom" => false,
+ 	);
+	
+ 	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
+ 	$imgs = str_replace("//","http://",$imgs);
+ 	
+ 	trace($imgs,"imgs");
 	
 	$postdata= array(
 		"productType"	=>	"wholesale",
 		"categoryID"	=>	$catid,		
 		"groupID"		=>	"{[69931588,70763194]}",
-		"subject"		=>	$goodsinfo->goodsname,
-		"description"	=>	$goodsinfo->details,
+		"subject"		=>	$data["goodsname"],
+		"description"	=>	$data["content"],
 		"language"		=>	"CHINESE",
 		"periodOfValidity"=>	200,
 		"bizType"		=>	1,
 		"pictureAuth"	=>	"false",
-		"image"			=>	"{'images':".$goodsinfo->goodsimgs."}",
-		"attributes"	=>	"[{'attributeID':364,'attributeName':'产品类别','value':'连衣裙','isCustom':false},".
-			"{'attributeID':100000691,'attributeName':'货源类别','value':'现货','isCustom':false},".
-			"{'attributeID':2176,'attributeName':'品牌','value':'其他','isCustom':false},".
-			"{'attributeID':346,'attributeName':'产地','value':'广州','isCustom':false},".
-			"{'attributeID':100017842,'attributeName':'最快出货时间','value':'1-3天','isCustom':false},".
-			"{'attributeID':973,'attributeName':'风格','value':'欧美','isCustom':false},".
-			"{'attributeID':2531,'attributeName':'适合季节','value':'夏季','isCustom':false},".
-			"{'attributeID':7002,'attributeName':'厚薄','value':'普通','isCustom':false},".
-			"{'attributeID':20602,'attributeName':'领型','value':'圆领','isCustom':false},".
-			"{'attributeID':7001,'attributeName':'袖长','value':'常规','isCustom':false},".
-			"{'attributeID':31610,'attributeName':'衣长','value':'常规','isCustom':false},".
-			"{'attributeID':3216,'attributeName':'颜色','value':'砖红色','isCustom':false},".
-			"{'attributeID':100031521,'attributeName':'面料名称','value':'雪纺','isCustom':false},".
-			"{'attributeID':117130178,'attributeName':'主面料成分','value':'聚酯纤维（涤纶）','isCustom':false},".
-			"{'attributeID':149092418,'attributeName':'主面料成分含量','value':'90','isCustom':false},".
-			"{'attributeID':450,'attributeName':'尺码','value':'均码（外贸加长版）','isCustom':false},".
-			"{'attributeID':7869,'attributeName':'是否进口','value':'是','isCustom':false},".
-			"{'attributeID':159484581,'attributeName':'原产国/地区','value':'中国','isCustom':false},".			
-			"{'attributeID':1398,'attributeName':'货号','value':'3089C601232','isCustom':false}]",	
-		"skuInfos"		=>	"[{'attributes':[{'attributeID':3216,'attributeValue':'砖红色'},{'attributeID':450,'attributeValue':'均码（外贸加长版）'}],'cargoNumber':'','amountOnSale':888,'retailPrice':64.0,'skuId':3149890863276,'specId':'9da620ca4ba93e8c6ff98936d3de4f00'}]",
+		"image"			=>	"{'images':".$imgs."}",
+		"attributes"	=>	json_encode($attrs,true),
+// 			"[{'attributeID':364,'attributeName':'产品类别','value':'连衣裙','isCustom':false},".
+// 			"{'attributeID':100000691,'attributeName':'货源类别','value':'现货','isCustom':false},".
+// 			"{'attributeID':2176,'attributeName':'品牌','value':'其他','isCustom':false},".
+// 			"{'attributeID':346,'attributeName':'产地','value':'广州','isCustom':false},".
+// 			"{'attributeID':100017842,'attributeName':'最快出货时间','value':'1-3天','isCustom':false},".
+// 			"{'attributeID':973,'attributeName':'风格','value':'欧美','isCustom':false},".
+// 			"{'attributeID':2531,'attributeName':'适合季节','value':'夏季','isCustom':false},".
+// 			"{'attributeID':7002,'attributeName':'厚薄','value':'普通','isCustom':false},".
+// 			"{'attributeID':20602,'attributeName':'领型','value':'圆领','isCustom':false},".
+// 			"{'attributeID':7001,'attributeName':'袖长','value':'常规','isCustom':false},".
+// 			"{'attributeID':31610,'attributeName':'衣长','value':'常规','isCustom':false},".
+// 			"{'attributeID':3216,'attributeName':'颜色','value':'砖红色','isCustom':false},".
+// 			"{'attributeID':100031521,'attributeName':'面料名称','value':'雪纺','isCustom':false},".
+// 			"{'attributeID':117130178,'attributeName':'主面料成分','value':'聚酯纤维（涤纶）','isCustom':false},".
+// 			"{'attributeID':149092418,'attributeName':'主面料成分含量','value':'90','isCustom':false},".
+// 			"{'attributeID':450,'attributeName':'尺码','value':'均码（外贸加长版）','isCustom':false},".
+// 			"{'attributeID':7869,'attributeName':'是否进口','value':'是','isCustom':false},".
+// 			"{'attributeID':159484581,'attributeName':'原产国/地区','value':'中国','isCustom':false},".			
+// 			"{'attributeID':1398,'attributeName':'货号','value':'3089C601232','isCustom':false}]",	
+		"skuInfos"		=>	"[{'attributes':[{'attributeID':3216,'attributeValue':'黑色'},{'attributeID':450,'attributeValue':'均码（外贸加长版）'}],'cargoNumber':'','amountOnSale':888,'retailPrice':64.0,'skuId':3149890863276,'specId':'9da620ca4ba93e8c6ff98936d3de4f00'}]",
 		"saleInfo"		=>	"{'supportOnlineTrade':true,'mixWholeSale':true,'saleType':'normal','priceAuth':false,'priceRanges':[{'startQuantity':1,'price':39.0},{'startQuantity':10,'price':38.0},{'startQuantity':20,'price':37.0}],'amountOnSale':2663.0,'unit':'件','minOrderQuantity':1,'quoteType':2}",
 		"shippingInfo"	=>	"{'freightTemplateID':3485370,'unitWeight':0.2,'sendGoodsAddressId':11933061}",
 		"webSite"		=> "1688",	
 	);	
 	
-	return _invokeApi("alibaba.product.add",$postdata,True,True);	
+	//return _invokeApi("alibaba.product.add",$postdata,True,True);	
 }
 
 function addGroup($groupname){

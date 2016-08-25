@@ -76,6 +76,9 @@ class GoodsController extends HomebaseController {
     	
     	trace($inparas,"postdata");
     	
+    	$data = addProduct($inparas);
+    	trace($data,"addProduct");
+    	
     	$this->display("index");
     	
     }
