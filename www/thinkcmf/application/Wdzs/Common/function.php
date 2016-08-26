@@ -226,7 +226,7 @@ function getProduct($productId)
 
 function addProduct($data){
 	
-	_init_apiinfo();
+	$retailPrice = $data["goodsprice"]+10;
 	
 	$catid = "122196005";
 	
@@ -260,11 +260,52 @@ function addProduct($data){
  			"value"	=>"否",
  			"isCustom" => false,
  	);
-	
+	//图片需要调用上传，不能直接用他人图片链接做主图。
  	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
  	$imgs = str_replace("//","http://",$imgs);
  	
- 	trace($imgs,"imgs");
+ 	//sku属性
+ 	$skuinfos = array(
+ 			0 =>array(
+ 			"retailPrice" => $retailPrice,
+ 			"amountOnSale"=>888,
+ 			'skuId' =>3149890863276,
+ 			'specId' =>'9da620ca4ba93e8c6ff98936d3de4f00',
+ 			"attributes" =>array(),
+ 					)
+ 	);	
+ 	
+ 	foreach($attrs as $a){
+ 		$arrid = $a["attributeID"] ; 		
+ 		if ($arrid == 3216  ){
+ 			$skuinfos[0]["attributes"][] = array(
+ 					'attributeID' =>$arrid,
+ 					'attributeValue' => $a["value"],
+ 			);
+ 		}
+ 	}
+ 	$skuinfos = json_encode($skuinfos,JSON_UNESCAPED_UNICODE);
+ 	trace($skuinfos,"skuinfo");
+ 
+ 	
+ 	//销售属性
+ 	$saleInfo = array(
+ 			'supportOnlineTrade'=>true,
+ 			'mixWholeSale'=>true,
+ 			'saleType'=>'normal',
+ 			'priceAuth'=>false,
+ 			'priceRanges'=>array(
+ 				array('startQuantity'=>1,'price'=>$retailPrice+7),
+ 				array('startQuantity'=>10,'price'=>$retailPrice+6),
+ 				array('startQuantity'=>20,'price'=>$retailPrice+5),
+ 			) ,
+ 			'amountOnSale'=>888.0,
+ 			'unit'=>'件',
+ 			'minOrderQuantity'=>1,
+ 			'quoteType'=>2
+ 	);
+ 	$saleInfo = json_encode($saleInfo,true);
+ 	
 	
 	$postdata= array(
 		"productType"	=>	"wholesale",
@@ -297,13 +338,20 @@ function addProduct($data){
 // 			"{'attributeID':7869,'attributeName':'是否进口','value':'是','isCustom':false},".
 // 			"{'attributeID':159484581,'attributeName':'原产国/地区','value':'中国','isCustom':false},".			
 // 			"{'attributeID':1398,'attributeName':'货号','value':'3089C601232','isCustom':false}]",	
-		"skuInfos"		=>	"[{'attributes':[{'attributeID':3216,'attributeValue':'黑色'},{'attributeID':450,'attributeValue':'均码（外贸加长版）'}],'cargoNumber':'','amountOnSale':888,'retailPrice':64.0,'skuId':3149890863276,'specId':'9da620ca4ba93e8c6ff98936d3de4f00'}]",
-		"saleInfo"		=>	"{'supportOnlineTrade':true,'mixWholeSale':true,'saleType':'normal','priceAuth':false,'priceRanges':[{'startQuantity':1,'price':39.0},{'startQuantity':10,'price':38.0},{'startQuantity':20,'price':37.0}],'amountOnSale':2663.0,'unit':'件','minOrderQuantity':1,'quoteType':2}",
+		"skuInfos"		=> $skuinfos,
+			//$skuinfos,
+			//json_encode($skuinfos,true),	
+			//"[{'attributes':[{'attributeID':3216,'attributeValue':'黑色'},{'attributeID':450,'attributeValue':'均码（外贸加长版）'}],'cargoNumber':'','amountOnSale':888,'retailPrice':64.0,'skuId':3149890863276,'specId':'9da620ca4ba93e8c6ff98936d3de4f00'}]",
+		"saleInfo"		=>$saleInfo,
+			//json_encode($saleInfo,true),	
+			//"{'supportOnlineTrade':true,'mixWholeSale':true,'saleType':'normal','priceAuth':false,'priceRanges':[{'startQuantity':1,'price':39.0},{'startQuantity':10,'price':38.0},{'startQuantity':20,'price':37.0}],'amountOnSale':2663.0,'unit':'件','minOrderQuantity':1,'quoteType':2}",
 		"shippingInfo"	=>	"{'freightTemplateID':3485370,'unitWeight':0.2,'sendGoodsAddressId':11933061}",
 		"webSite"		=> "1688",	
 	);	
+
 	
-	//return _invokeApi("alibaba.product.add",$postdata,True,True);	
+	
+	return _invokeApi("alibaba.product.add",$postdata,True,True);	
 }
 
 function addGroup($groupname){
@@ -356,6 +404,8 @@ function getGroupList(){
 
 function _invokeApi($apiname,$postdata,$needSign=FALSE,$needToken=FALSE,$https=FALSE){
 	
+	_init_apiinfo();
+	
 	$apiInfo ="param2/1/com.alibaba.product/".$apiname."/";
 	$url = C("API_1688.API_BASE") . $apiInfo. C('API_1688.APP_KEY') ;
 	
@@ -387,12 +437,16 @@ function _invokeApi($apiname,$postdata,$needSign=FALSE,$needToken=FALSE,$https=F
 
 function _init_apiinfo()
 {		
-	$apiinfo = M("WdzsApiInfo");
-	$arr = $apiinfo->where("api_type='1688'")->select();
-	
-	C('API_1688.APP_KEY',$arr[0]["api_value"]);
-	C('API_1688.APP_CODE',$arr[1]["api_value"]);
-	C('API_1688.R_URL',$arr[2]["api_value"]);
+	if ( !C('API_1688.APP_KEY'))
+	{
+		$apiinfo = M("WdzsApiInfo");
+		$arr = $apiinfo->where("api_type='1688'")->select();
+		
+		C('API_1688.APP_KEY',$arr[0]["api_value"]);
+		C('API_1688.APP_CODE',$arr[1]["api_value"]);
+		C('API_1688.R_URL',$arr[2]["api_value"]);
+		
+	}			
 }
 
 function _init_cat($data, $gid=null){
@@ -400,11 +454,17 @@ function _init_cat($data, $gid=null){
 	if($gid){
 		$goodsinfo = M("SGoodsinfo");
 		$goodsinfo->where("goodsid=$gid")->find();
+		
+		if ( empty($goodsinfo->goodsid)){
+			return htmlspecialchars("未找到商品: ".$gid);
+		}
+		
 		$props = json_decode($goodsinfo->props,true);	
 		
 		$data["subject"]=$goodsinfo->goodsname;
 		$data["description"]=$goodsinfo->details;
 		$data["goodsimg"]=str_replace("50x50","400x400",json_decode($goodsinfo->goodsimgs,true)[0]);
+		$data["goodsprice"]=$goodsinfo->goodsprice;
 
 	}
 	foreach($data as $k=>$a){
@@ -421,7 +481,7 @@ function _init_cat($data, $gid=null){
 				$attrvalue = "其他";
 				break;				
 			case 346 :
-				 $attrvalue= htmlspecialchars("广州");
+				 $attrvalue= "广州";
 				break;
 			case 100017842 :
 				$attrvalue= "1-3天";
@@ -440,8 +500,7 @@ function _init_cat($data, $gid=null){
 				break;
 			case 31610:
 				$attrvalue = "常规";
-				break;
-				
+				break;				
 			case 20418023:
 				$attrvalue = "实拍有模特";
 				break;
@@ -457,7 +516,9 @@ function _init_cat($data, $gid=null){
 			case 2900:
 				$attrvalue = "纯色";
 				break;				
-				;
+			case 2531 :
+				$attrvalue = "秋季";
+				break;		
 			case 450 :
 				$attrvalue = $props["尺码"];
 				break;
@@ -467,10 +528,6 @@ function _init_cat($data, $gid=null){
 			case 1398 :
 				$attrvalue = $props["货号"];
 				break;
-			case 2531 :
-				$attrvalue = $props["上市年份季节"];
-				break;				
-							
 			default:
 				$attrvalue = "default";
 		}

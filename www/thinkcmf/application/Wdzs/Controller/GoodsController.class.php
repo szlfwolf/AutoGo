@@ -14,11 +14,12 @@ class GoodsController extends HomebaseController {
 		
 
 		if(IS_POST){
-			$data = getCatAttr($catid);
-			//_init_apiinfo();
-			$urls = explode("\r\n", I('goodsurls'));
 			$catid = I("catid");
-			trace($urls);
+			$data = getCatAttr($catid);
+
+			$urls = explode("\r\n", I('goodsurls'));
+			
+
 			
 			session('[destroy]');	
 			
@@ -38,6 +39,10 @@ class GoodsController extends HomebaseController {
 				
 				$data = _init_cat($data,$pid);
 				
+				if(!is_array($data)){
+
+					$this->error($data);
+				}
 				
 				//$data = addProduct($pid);
 				//trace($data,"add goods[".$pid."]");	
@@ -51,13 +56,14 @@ class GoodsController extends HomebaseController {
 			//do_sync($urls);
 			$this->assign("gid",$urls[0]);
 			
-			$this->assign("subject",$catattr["subject"]);
-			$this->assign("description",$catattr["description"]);
+			$this->assign("subject",$data["subject"]);
+			$this->assign("description",$data["description"]);
+			$this->assign("goodsprice",$data["goodsprice"]);
 			
-			unset($catattr["subject"]);
-			unset($catattr["description"]);
+			unset($data["subject"]);
+			unset($data["description"]);
 			
-			trace($data,"catattr");
+			//trace($data,"catattr");
 			
 			$this->assign("catattr",$data);
 					
@@ -74,7 +80,7 @@ class GoodsController extends HomebaseController {
     public function add(){
     	$inparas = I('post.');
     	
-    	trace($inparas,"postdata");
+    	
     	
     	$data = addProduct($inparas);
     	trace($data,"addProduct");
