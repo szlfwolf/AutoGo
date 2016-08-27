@@ -53,8 +53,9 @@ class IndexController extends HomebaseController {
 			//$tokenarr["createtime"] = date("Y-m-d H:i:s");
 			$usertoken->add($tokenarr);
 			
-			//this.redirect(U("goods/index"));
-			$this -> display(":token");
+			
+			this.redirect(U("goods/index"));
+			//$this -> display(":token");
 		}
 		else{
 			$ip = get_client_ip();

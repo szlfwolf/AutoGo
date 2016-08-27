@@ -214,7 +214,7 @@ function getProductList()
 
 function getProduct($productId)
 {
-
+	
 	$postdata= array(
 		"productID"		=>	$productId,
 		"webSite"		=> "1688",
@@ -226,7 +226,7 @@ function getProduct($productId)
 
 function addProduct($data){
 	
-	$retailPrice = $data["goodsprice"]+10;
+	$retailPrice = $data["goodsprice"]+7;
 	
 	$catid = "122196005";
 	
@@ -237,6 +237,7 @@ function addProduct($data){
  	foreach($data as $k => $v){
  		if ( is_numeric($k) ){
  			if($k == 450){
+ 				//码数拆分
  				$sizes = explode(",", $v);
  				foreach($sizes as $s){
  					$attrs[] = array(
@@ -264,25 +265,40 @@ function addProduct($data){
  	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
  	$imgs = str_replace("//","http://",$imgs);
  	
- 	//sku属性
- 	$skuinfos = array(
- 			0 =>array(
- 			"retailPrice" => $retailPrice,
- 			"amountOnSale"=>888,
- 			'skuId' =>3149890863276,
- 			'specId' =>'9da620ca4ba93e8c6ff98936d3de4f00',
- 			"attributes" =>array(),
- 					)
- 	);	
+ 	//addPhoto(json_decode($imgs,true));
+ 	//return;
+ 	
+ 	//sku属性(颜色3216+码数450)
+ 	$skuinfos = array();
+ 			
+ 					
  	
  	foreach($attrs as $a){
  		$arrid = $a["attributeID"] ; 		
- 		if ($arrid == 3216  ){
- 			$skuinfos[0]["attributes"][] = array(
- 					'attributeID' =>$arrid,
- 					'attributeValue' => $a["value"],
- 			);
- 		}
+ 		if ($arrid == 3216  ){ 		
+ 			foreach($attrs as $ma){ 	
+ 				$maid = $ma["attributeID"];
+ 				if ($maid == 450){
+ 					$skuinfo = array(
+ 							"retailPrice" => $retailPrice,
+ 							"amountOnSale"=>888,
+ 							"skuid"=>3149890863276,
+ 							"specId"=>"9da620ca4ba93e8c6ff98936d3de4f00",
+ 							"attributes" =>array(
+ 									0=>array(
+ 											'attributeID' =>	$arrid,
+ 											'attributeValue' => $a["value"],
+ 									),
+ 									1=>array(
+ 										'attributeID' =>	$maid,
+		 								'attributeValue' => $ma["value"],
+ 									),
+ 							),
+		 			);
+ 					$skuinfos[] = $skuinfo;
+ 				}
+ 			} 			
+ 		} 			 			
  	}
  	$skuinfos = json_encode($skuinfos,JSON_UNESCAPED_UNICODE);
  	trace($skuinfos,"skuinfo");
@@ -295,17 +311,17 @@ function addProduct($data){
  			'saleType'=>'normal',
  			'priceAuth'=>false,
  			'priceRanges'=>array(
- 				array('startQuantity'=>1,'price'=>$retailPrice+7),
- 				array('startQuantity'=>10,'price'=>$retailPrice+6),
- 				array('startQuantity'=>20,'price'=>$retailPrice+5),
+ 				array('startQuantity'=>1,'price'=>$retailPrice),
+ 				array('startQuantity'=>10,'price'=>$retailPrice-1),
+ 				array('startQuantity'=>20,'price'=>$retailPrice-2),
  			) ,
  			'amountOnSale'=>888.0,
  			'unit'=>'件',
  			'minOrderQuantity'=>1,
  			'quoteType'=>2
  	);
- 	$saleInfo = json_encode($saleInfo,true);
- 	
+ 	$saleInfo = json_encode($saleInfo,JSON_UNESCAPED_UNICODE);
+ 	trace($saleInfo,"saleinfo");
 	
 	$postdata= array(
 		"productType"	=>	"wholesale",
@@ -458,13 +474,13 @@ function _init_cat($data, $gid=null){
 		if ( empty($goodsinfo->goodsid)){
 			return htmlspecialchars("未找到商品: ".$gid);
 		}
-		
+		$goodsinfo->goodsprice = intval($goodsinfo->goodsprice);
 		$props = json_decode($goodsinfo->props,true);	
 		
 		$data["subject"]=$goodsinfo->goodsname;
 		$data["description"]=$goodsinfo->details;
 		$data["goodsimg"]=str_replace("50x50","400x400",json_decode($goodsinfo->goodsimgs,true)[0]);
-		$data["goodsprice"]=$goodsinfo->goodsprice;
+		$data["goodsprice"]=intval($goodsinfo->goodsprice);
 
 	}
 	foreach($data as $k=>$a){
@@ -526,7 +542,7 @@ function _init_cat($data, $gid=null){
 				$attrvalue = $props["颜色分类"];
 				break;	
 			case 1398 :
-				$attrvalue = $props["货号"];
+				$attrvalue = $gid.'-'.str_replace("#","",$props["货号"])."0".intval($goodsinfo->goodsprice);
 				break;
 			default:
 				$attrvalue = "default";
@@ -542,5 +558,33 @@ function _init_cat($data, $gid=null){
 
 	
 	return $data;
+}
+
+function addPhoto($imgurls){
+	
+	foreach($imgurls as $k=>$url){
+		
+		//$img_file = DATA_PATH."tmp-$k.jpg";
+		//file_put_contents($img_file, file_get_contents($url));
+		
+		//$fp = fopen($img_file, 'rb');
+		//$content = fread($fp, filesize($img_file)); //二进制数据
+		//fclose($fp);
+		
+		
+		
+		$imgdata=base64_encode(file_get_contents($url));
+		trace($imgdata,"imgdata");
+		
+		$postdata= array(
+				"groupID"		=>-1,
+				"webSite"		=> "1688",
+				"imageBytes"	=> $imgdata,
+				"name"			=> "1688-$k",
+		
+		);
+		return _invokeApi("alibaba.photobank.photo.add",$postdata,FALSE,TRUE);
+		
+	}
 }
 

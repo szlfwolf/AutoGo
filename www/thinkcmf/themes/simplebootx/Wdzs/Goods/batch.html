@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="AuoGo">
+<tc_include file="Wdzs:head" />
+
+<style>
+
+</style>
+</head>
+<body>	
+	<tc_include file="Wdzs:nav" />
+	
+	<div class="container" style="width:80%">
+		<div class="row">
+		<form method="post" class="form-horizontal" action="{:U('wdzs/goods/batch')}">
+			<fieldset>
+				<legend>17zwd网站</legend>
+				<div class="col-sm-12"  ng-app="x">
+				<div class="form-group">
+					<label for="goodsname" class="control-label col-sm-2">商品网址:</label>
+					<div class="col-sm-6">
+						<textarea class="form-control" placeholder="商品地址" name="goodsurls" ng-model="purl" >{$goodsurls}</textarea>
+					</div>
+					<div class="col-sm-4">
+						<button type="submit" class="btn btn-default col-sm-3">抓取商品</button>
+					</div>
+									
+<!-- 					<p ng-bind="purl"></p> -->
+<!-- 					<p>You wrote: {{ purl }}</p>  -->
+				</div>
+				</div>
+			</fieldset>	
+		</form>
+		</div>
+		<div class="row">
+			<notempty name="goodslist">
+			<form method="post" class="form-horizontal" action="{:U('wdzs/goods/addbatch')}">
+			<table class="table">
+  				<tr><th>#</th><th>主图<th>商品名称</th><th>商品价格</th><th>颜色</th><th>尺寸</th></tr>
+  				<volist name="goodslist" id="goods">
+  				<tr>  					
+  					<td><input type="checkbox" name="{$goods.goodsid}" class="checkbox-inline" >{$goods.goodsid}</input></td>
+  					<td><img src="{$goods.goodsimg}" /></td>
+  					<td><input class="form-control" value="{$goods.goodsname}" name="{$goods.goodsid}_name" /></td>
+  					<td><input class="form-control" value="{$goods.goodsprice}" name="{$goods.goodsid}_price" readonly="value"/></td>
+  					<td><input class="form-control" value="{$goods.color}" name="{$goods.goodsid}_color" readonly="value" /></td>
+  					<td><input class="form-control" value="{$goods.size}" name="{$goods.goodsid}_size" readonly="value" /></td>
+  				</tr>
+  				</volist>
+			</table>
+			<button type="submit" class="btn btn-default col-sm-3">发布商品</button>
+			</form>
+			</notempty>
+		</div>
+	</div>
+	
+	<tc_include file="Wdzs:scripts" />	
+</body>
+</html>

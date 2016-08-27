@@ -17,9 +17,10 @@ class A17zwdGoodsSpider(scrapy.Spider):
 	#start_urls = ["http://sz.17zwd.com/shop/11985.htm?item_type=onsale"]
 	
 	def start_requests(self):
-		#return ['http://sz.17zwd.com/shop/11985.htm?item_type=onsale']
+		#start_urls = ["http://gz.17zwd.com/shop/27797.htm?item_type=onsale"]
 		dbc = dbcontext()
 		for url in dbc.getshops():
+		#for url in start_urls:
 			#time.sleep(2)
 			yield self.make_requests_from_url(url)
 		
