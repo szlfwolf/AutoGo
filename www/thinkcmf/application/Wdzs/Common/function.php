@@ -265,8 +265,8 @@ function addProduct($data){
  	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
  	$imgs = str_replace("//","http://",$imgs);
  	
- 	//addPhoto(json_decode($imgs,true));
- 	//return;
+ 	return addPhoto(json_decode($imgs,true));
+ 	
  	
  	//sku属性(颜色3216+码数450)
  	$skuinfos = array();
@@ -472,6 +472,7 @@ function _init_cat($data, $gid=null){
 		$goodsinfo->where("goodsid=$gid")->find();
 		
 		if ( empty($goodsinfo->goodsid)){
+			popen("scrapy crawl 17zwdgoods",'r');
 			return htmlspecialchars("未找到商品: ".$gid);
 		}
 		$goodsinfo->goodsprice = intval($goodsinfo->goodsprice);

@@ -109,19 +109,24 @@ class GoodsController extends HomebaseController {
 	    		    	
 	    	trace($data,"addProduct");
 	    	
+	    	if( array_key_exists ("errorCode",$data)){
+	    		
+	    		var_dump($data);
+	    	}
 	    	if( array_key_exists ("productID",$data)){
 	    	
 	    		$this->success("添加商品成功,即将跳转1688商品页! ","https://detail.1688.com/offer/".$data["productID"].".html");
 	    		
 	    	}
 	    	else {
-	    		$this->error("添加商品失败：".$pid);
+	    		
+	    		//$this->error("添加商品失败：".$pid);
 	    	}
 	    		
 	    		    	
-    	}else{
-    		$this->direct("index");
     	}
+    	$this->display("index");
+    	
     	
     }
     

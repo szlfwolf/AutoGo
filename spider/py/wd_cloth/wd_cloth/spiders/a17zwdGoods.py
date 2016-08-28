@@ -16,13 +16,19 @@ class A17zwdGoodsSpider(scrapy.Spider):
 	allowed_domains = ["17zwd.com"]
 	#start_urls = ["http://sz.17zwd.com/shop/11985.htm?item_type=onsale"]
 	
+	def __init__(self, url):
+		self.start_urls = url;
+	
 	def start_requests(self):
 		#start_urls = ["http://gz.17zwd.com/shop/27797.htm?item_type=onsale"]
-		dbc = dbcontext()
-		for url in dbc.getshops():
-		#for url in start_urls:
-			#time.sleep(2)
-			yield self.make_requests_from_url(url)
+		if len(self.start_urls) ==0 :
+			dbc = dbcontext()
+			for url in dbc.getshops():
+			#for url in start_urls:
+				#time.sleep(2)
+				yield self.make_requests_from_url(url)
+		else:
+			yield self.make_requests_from_url(self.start_urls)
 		
 	def parse(self, response):
 		self.parse_page(response)

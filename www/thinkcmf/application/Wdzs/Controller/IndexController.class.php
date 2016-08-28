@@ -8,8 +8,13 @@ use Common\Controller\HomebaseController;
 class IndexController extends HomebaseController {
 	
 
-    //登录
 	public function index() {
+		
+		$this->display(":index");
+		
+	}
+    //登录
+	public function login() {
 		
 		//$usertoken = M("WdzsUserToken");
 		//$tokendata = $usertoken->order('id desc')->find();
