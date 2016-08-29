@@ -262,7 +262,8 @@ function addProduct($data){
  			"isCustom" => false,
  	);
 	//图片需要调用上传，不能直接用他人图片链接做主图。
- 	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
+	$imgs = $goodsinfo->goodsimgs;
+ 	//$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
  	$imgs = str_replace("//","http://",$imgs);
  	
  	return addPhoto(json_decode($imgs,true));
