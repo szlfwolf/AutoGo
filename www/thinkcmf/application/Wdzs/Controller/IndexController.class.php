@@ -10,11 +10,7 @@ class IndexController extends HomebaseController {
 
 	public function index() {
 		
-		$this->display(":index");
-		
-	}
-    //登录
-	public function login() {
+
 		
 		//$usertoken = M("WdzsUserToken");
 		//$tokendata = $usertoken->order('id desc')->find();

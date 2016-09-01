@@ -263,10 +263,11 @@ function addProduct($data){
  	);
 	//图片需要调用上传，不能直接用他人图片链接做主图。
 	$imgs = $goodsinfo->goodsimgs;
- 	//$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
+ 	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
  	$imgs = str_replace("//","http://",$imgs);
- 	
- 	return addPhoto(json_decode($imgs,true));
+ 	trace($imgs,"imgurls");
+
+ 	$aliimgs= addPhoto(json_decode($imgs,true));
  	
  	
  	//sku属性(颜色3216+码数450)
@@ -334,7 +335,7 @@ function addProduct($data){
 		"periodOfValidity"=>	200,
 		"bizType"		=>	1,
 		"pictureAuth"	=>	"false",
-		"image"			=>	"{'images':".$imgs."}",
+		"image"			=>	"{'images':".$aliimgs."}",
 		"attributes"	=>	json_encode($attrs,true),
 // 			"[{'attributeID':364,'attributeName':'产品类别','value':'连衣裙','isCustom':false},".
 // 			"{'attributeID':100000691,'attributeName':'货源类别','value':'现货','isCustom':false},".
@@ -563,7 +564,7 @@ function _init_cat($data, $gid=null){
 }
 
 function addPhoto($imgurls){
-	
+	$aliimgurls = array();
 	foreach($imgurls as $k=>$url){
 		
 		//$img_file = DATA_PATH."tmp-$k.jpg";
@@ -573,20 +574,36 @@ function addPhoto($imgurls){
 		//$content = fread($fp, filesize($img_file)); //二进制数据
 		//fclose($fp);
 		
+		//获取相册ID.
+		//$postdata= array(
+		//		"webSite"		=> "1688",		
+		//);
 		
+		//$albumarr = _invokeApi("alibaba.photobank.album.getList",$postdata,TRUE,TRUE);
+		//$albumid = $albumarr["albumInfos"][0]["albumID"];
+		//trace($albumid,"albumid");
+		//api return:{"albumInfos":[{"authority":1,"description":"","albumID":171904860,"name":"7-4"},{"authority":1,"description":"","albumID":170407874,"name":"528"},{"authority":1,"description":"","albumID":170206573,"name":"523"},{"authority":1,"description":"","albumID":170430732,"name":"518"},{"authority":1,"description":"","albumID":169940111,"name":"511"},{"authority":1,"description":"","albumID":169586740,"name":"5-2"},{"authority":1,"description":"","albumID":169235317,"name":"4-23"},{"authority":1,"description":"","albumID":168649983,"name":"4-16"},{"authority":1,"description":"","albumID":168774459,"name":"4-10"},{"authority":1,"description":"","albumID":168432863,"name":"401"},{"authority":1,"description":"","albumID":168210078,"name":"328"},{"authority":1,"description":"","albumID":167026688,"name":"哺乳裙"},{"authority":1,"description":"","albumID":167017735,"name":"孕妇哺乳装"}]}
+		
+		$albumid=170206573;
 		
 		$imgdata=base64_encode(file_get_contents($url));
-		trace($imgdata,"imgdata");
+		
 		
 		$postdata= array(
-				"groupID"		=>-1,
+				"albumID"	=> $albumid,
 				"webSite"		=> "1688",
 				"imageBytes"	=> $imgdata,
 				"name"			=> "1688-$k",
+				"description"	=> "test",
 		
 		);
-		return _invokeApi("alibaba.photobank.photo.add",$postdata,FALSE,TRUE);
-		
+		$imgbaseurl = "https://cbu01.alicdn.com/";
+		//errcode=11,代表没有传入相册ID.
+		//ERRCODE=13,代表该相册空间已满.
+		$arr= _invokeApi("alibaba.photobank.photo.add",$postdata,FALSE,TRUE);
+		$aliimgurls[] = $imgbaseurl . $arr["image"]["url"];
 	}
+	trace($aliimgurls,"imgurls");
+	return json_encode($aliimgurls);
 }
 
