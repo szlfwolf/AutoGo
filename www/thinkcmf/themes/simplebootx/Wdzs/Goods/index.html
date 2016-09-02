@@ -72,8 +72,11 @@
 					
 					<legend>商品主图</legend>
 					<div class="form-group">
-						<img src="{$catattr['goodsimg']}" style="float:right" />
-						
+						<volist name="goodsimgs" id="ig">
+						<div style="float:left">
+						<input name="goodsimgs[]" type="checkbox" checked="true" value="{$ig}"  /><img  src="{$ig}" style="float:right" />
+						</div>
+						</volist>
 					</div>
 												
 					<legend>商品属性</legend>

@@ -262,7 +262,7 @@ function addProduct($data){
  			"isCustom" => false,
  	);
 	//图片需要调用上传，不能直接用他人图片链接做主图。
-	$imgs = $goodsinfo->goodsimgs;
+	$imgs = $data["goodsimgs"]; //$goodsinfo->goodsimgs;
  	$imgs = str_replace("50x50","400x400",$goodsinfo->goodsimgs);
  	$imgs = str_replace("//","http://",$imgs);
  	trace($imgs,"imgurls");
@@ -481,14 +481,14 @@ function _init_cat($data, $gid=null){
 		$props = json_decode($goodsinfo->props,true);	
 		
 		$data["subject"]=$goodsinfo->goodsname;
-		$data["description"]=$goodsinfo->details;
-		$data["goodsimg"]=str_replace("50x50","400x400",json_decode($goodsinfo->goodsimgs,true)[0]);
+		$data["description"]=$goodsinfo->details;		
+		$data["goodsimgs"]=json_decode($goodsinfo->goodsimgs,true);
 		$data["goodsprice"]=intval($goodsinfo->goodsprice);
 
 	}
 	foreach($data as $k=>$a){
 		$attrvalue = "";
-		if( !is_array($a)) continue;
+		if( !is_array($a) || $k == "goodsimgs") continue;
 		switch($a["attrid"]){
 			case 364 :
 				$attrvalue= "连衣裙";

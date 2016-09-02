@@ -70,11 +70,13 @@ class GoodsController extends HomebaseController {
 			$this->assign("subject",$data["subject"]);
 			$this->assign("description",$data["description"]);
 			$this->assign("goodsprice",$data["goodsprice"]);
+			$this->assign("goodsimgs",$data["goodsimgs"]);
 			
 			unset($data["subject"]);
 			unset($data["description"]);
+			unset($data["goodsimgs"]);
 			
-			//trace($data,"catattr");
+			trace($data["goodsimg"],"catattr");
 			
 			$this->assign("catattr",$data);
 					
@@ -94,6 +96,8 @@ class GoodsController extends HomebaseController {
     	if(empty($gid)){
     		$gid = 529010449551;
     	}
+				
+		
     	$data = getProduct($gid);
     	trace($data,"goodsinfo");
     	
@@ -105,8 +109,10 @@ class GoodsController extends HomebaseController {
     public function add(){
     	if ( IS_POST){
 	    	$inparas = I('post.');    	
+			
+			trace($inparas["goodsimgs"],"postData");
+			
 	    	$data = addProduct($inparas);
-	    		    	
 	    	trace($data,"addProduct");
 	    	
 	    	if( array_key_exists ("errorCode",$data)){
