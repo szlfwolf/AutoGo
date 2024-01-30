@@ -56,7 +56,7 @@
                         }
                         const schoolRankingTitle = {
                             "Field": "SchoolRanking",
-                            "Title": "弘雅排名",
+                            "Title": "学校排名",
                             "IsPublic": false,
                             "OtherTypeId": null,
                             "SubjectIds": null,
