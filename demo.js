@@ -1,12 +1,16 @@
 // ==UserScript==
 // @name         宝安教育
 // @namespace    http://tampermonkey.net/
+// @description  显示考试排名，包含班级、学校、区排名
+// @description:zh-CN  显示考试排名，包含班级、学校、区排名
+// @description:en  show exam ranking
 // @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://jxzl.baoan.edu.cn/student/home/schoolHome
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant        none
+// @license      GPL-3.0 License
 // ==/UserScript==
 
 (function() {
