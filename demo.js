@@ -88,10 +88,6 @@
                         res.Data.MySubjectScore.Headers.push(classRankingTitle);
                         res.Data.MySubjectScore.Headers.push(schoolRankingTitle);
                         res.Data.MySubjectScore.Headers.push(rankingTitle);
-//                         res.Data.MySubjectScore.Rows.forEach(function(subject) {
-//                             subject["Level "] = subject["Level "]+"/"+subject.Score+"/"+subject.ClassRanking+"/"+subject.SchoolRanking+"/"+subject.Ranking
-//                             console.log(subject);
-//                         });
                         return JSON.stringify(res);
                     } catch (e) {
                         return result;
