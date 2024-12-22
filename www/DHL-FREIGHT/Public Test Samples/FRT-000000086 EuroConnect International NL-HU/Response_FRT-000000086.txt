@@ -1,0 +1,203 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000086",
+    "pickupConfirmationRequested": false,
+    "productCode": "ECI",
+    "pickupDate": "2022-07-13T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 2,
+    "totalWeight": 1100.0,
+    "totalVolume": 2.52,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 2.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 550.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DDP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.NL0001",
+        "type": "Consignor",
+        "name": "COMPANY NETHERLANDS",
+        "contactName": "Johnny O.",
+        "references": [
+          "Consignor-NL-Ref.123"
+        ],
+        "address": {
+          "street": "STRAAT 1",
+          "streetNumber": "",
+          "cityName": "CITY NL",
+          "postalCode": "4651 SR",
+          "countryCode": "NL",
+          "accessCode": ""
+        },
+        "phone": "+31 63559867",
+        "email": "nl1.netherlands.dev@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Consignee",
+        "name": "COMPANY HUNGARY",
+        "contactName": "Felicia W.",
+        "references": [
+          "Consignee-HU-Ref.123"
+        ],
+        "address": {
+          "street": "STREET HUNGARY ÚT 1",
+          "streetNumber": "",
+          "cityName": "TISZAÚJVÁROS",
+          "postalCode": "3580",
+          "countryCode": "HU",
+          "accessCode": ""
+        },
+        "phone": "+36 921345871",
+        "email": "hu1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Pickup",
+        "name": "DELIVERY NETHERLANDS",
+        "contactName": "Johnny O.",
+        "references": [
+          "Consignor-NL-Ref.123"
+        ],
+        "address": {
+          "street": "STRAAT 1",
+          "streetNumber": "",
+          "cityName": "CITY NL",
+          "postalCode": "4651 SR",
+          "countryCode": "NL",
+          "accessCode": ""
+        },
+        "phone": "+31 63559867",
+        "email": "nl1.netherlands.dev@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Delivery",
+        "name": "DELIVERY HUNGARY",
+        "contactName": "Felicia W.",
+        "references": [
+          "Delivery-HU-Ref.123"
+        ],
+        "address": {
+          "street": "STREET HUNGARY ÚT 1",
+          "streetNumber": "",
+          "cityName": "TISZAÚJVÁROS",
+          "postalCode": "3580",
+          "countryCode": "HU",
+          "accessCode": ""
+        },
+        "phone": "+36 921345871",
+        "email": "hu1.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {
+      "cashOnDelivery": {
+        "amount": 955,
+        "bankGiroNumber": "",
+        "plusGiroNumber": "",
+        "reference": "",
+        "currency": "EUR"
+      },
+      "dangerousGoods": true,
+      "insurance": {
+        "value": 10000.0,
+        "currency": "EUR"
+      },
+      "preAdvice": true,
+      "tailLiftLoading": true,
+      "tailLiftUnloading": true,
+      "dropOffByConsignor": false
+    },
+    "pieces": [
+      {
+        "id": [
+          "373221512506842344",
+          "373221512506842351"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PAL",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "dangerousGoods": {
+          "dgmId": 979,
+          "adrClass": "4.2",
+          "unNumber": 1380,
+          "flashpointValue": "85",
+          "packageGroup": "I",
+          "tunnelCode": "B/E",
+          "grossWeight": 700.0,
+          "quantityMeasurementUnitQualifier": "LTR",
+          "quantityMeasurementValue": 750.0,
+          "numberOfPieces": 2,
+          "packageType": "IBC",
+          "officialNameTechDescription": "Very dangerous liquids!",
+          "marinePollutant": true,
+          "marinePollutantName": "Pollutant in water Johnny",
+          "exceptedQuantity": false,
+          "limitedQuantity": false,
+          "emptyContainer": false
+        },
+        "stackable": true
+      }
+    ],
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "EIN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "BUD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "EIN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "John Global Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Netherlands",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

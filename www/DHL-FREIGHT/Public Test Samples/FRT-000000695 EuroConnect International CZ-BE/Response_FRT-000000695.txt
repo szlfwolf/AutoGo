@@ -1,0 +1,148 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000695",
+    "pickupConfirmationRequested": false,
+    "productCode": "ECI",
+    "pickupDate": "2022-08-11T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 4,
+    "totalWeight": 1700.0,
+    "totalVolume": 5.04,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 4.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 300.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "EXW",
+      "location": ""
+    },
+    "parties": [
+      {
+        "type": "Consignor",
+        "name": "CONSIGNOR CZECH REPUBLIC",
+        "contactName": "Marcek S.",
+        "references": [
+          "Consignor-CZ-Ref.123"
+        ],
+        "address": {
+          "street": "ULICE 123B",
+          "streetNumber": "",
+          "cityName": "BRNO - SLATINA",
+          "postalCode": "627 00",
+          "countryCode": "CZ",
+          "accessCode": ""
+        },
+        "phone": "+420 223344",
+        "email": "cz1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "id": "12345678.BE0001",
+        "type": "Consignee",
+        "name": "CONSIGNEE BELGIUM",
+        "contactName": "Camille C.",
+        "references": [
+          "Consignee-BE-Ref.123"
+        ],
+        "address": {
+          "street": "PARC 12 B15",
+          "streetNumber": "",
+          "cityName": "RECHAIN",
+          "postalCode": "4800",
+          "countryCode": "BE",
+          "accessCode": ""
+        },
+        "phone": "+32 121212",
+        "email": "be1.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {},
+    "pieces": [
+      {
+        "id": [
+          "373221512506840036",
+          "373221512506840043"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PAL",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      },
+      {
+        "id": [
+          "373221512506840050",
+          "373221512506840067"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLX",
+        "marksAndNumbers": "MN0002",
+        "numberOfPieces": 2,
+        "weight": 300.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LBE4800+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "BRQ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "OPG",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "OPG",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Belgium",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

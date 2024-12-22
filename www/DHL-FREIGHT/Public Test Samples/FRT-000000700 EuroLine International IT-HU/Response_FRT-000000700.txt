@@ -1,0 +1,176 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000700",
+    "pickupConfirmationRequested": false,
+    "productCode": "ELI",
+    "pickupDate": "2022-08-15T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 10,
+    "totalWeight": 14000.0,
+    "totalVolume": 26.0,
+    "totalLoadingMeters": 11.0,
+    "totalPalletPlaces": 30.0,
+    "maxPieceWeight": 1400.0,
+    "minPieceWeight": 1400.0,
+    "maxPieceHeight": 100.0,
+    "minPieceHeight": 100.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.ES0001",
+        "type": "Consignor",
+        "name": "CONSIGNOR SPAIN",
+        "contactName": "Gustavo A.",
+        "references": [
+          "Consignor-ES-Ref.123"
+        ],
+        "address": {
+          "street": "CARRETERA 123",
+          "streetNumber": "",
+          "cityName": "LA CANONJA",
+          "postalCode": "43110",
+          "countryCode": "ES",
+          "accessCode": ""
+        },
+        "phone": "+34 123123",
+        "email": "es1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Consignee",
+        "name": "CONSIGNEE HUNGARY",
+        "contactName": "Vince P.",
+        "references": [
+          "Consignee-HU-Ref.123"
+        ],
+        "address": {
+          "street": "UTCA 1223",
+          "streetNumber": "",
+          "cityName": "BUDAPEST",
+          "postalCode": "1044",
+          "countryCode": "HU",
+          "accessCode": ""
+        },
+        "phone": "+36 1234",
+        "email": "hu2.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Pickup",
+        "name": "PICKUP CUSTOMER ITALY",
+        "contactName": "Antonio A.",
+        "references": [
+          "Pickup-IT-Ref.123"
+        ],
+        "address": {
+          "street": "VIA UNO 1",
+          "streetNumber": "",
+          "cityName": "CORREGGIO",
+          "postalCode": "42015",
+          "countryCode": "IT",
+          "accessCode": ""
+        },
+        "phone": "+39 987987",
+        "email": "it1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Delivery",
+        "name": "DELIVERY CUSTOMER HUNGARY",
+        "contactName": "Felicia W.",
+        "references": [
+          "Delivery-HU-Ref.123"
+        ],
+        "address": {
+          "street": "UTCA 4545",
+          "streetNumber": "",
+          "cityName": "TISZAÚJVÁROS",
+          "postalCode": "3580",
+          "countryCode": "HU",
+          "accessCode": ""
+        },
+        "phone": "+36 363636",
+        "email": "hu1.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {},
+    "pieces": [
+      {
+        "id": [
+          "373221512506840333",
+          "373221512506840340",
+          "373221512506840357",
+          "373221512506840364",
+          "373221512506840371",
+          "373221512506840388",
+          "373221512506840395",
+          "373221512506840401",
+          "373221512506840418",
+          "373221512506840425"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLO",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 10,
+        "weight": 1400.0,
+        "volume": 2.6,
+        "loadingMeters": 1.1,
+        "palletPlaces": 3.0,
+        "width": 100.0,
+        "height": 100.0,
+        "length": 260.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LHU3580+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "CGL",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "BUD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Spain",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

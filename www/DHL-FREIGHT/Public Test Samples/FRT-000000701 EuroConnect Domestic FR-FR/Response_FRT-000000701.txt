@@ -1,0 +1,221 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000701",
+    "pickupConfirmationRequested": false,
+    "productCode": "ECD",
+    "pickupDate": "2022-08-15T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 3,
+    "totalWeight": 1500.0,
+    "totalVolume": 2.88,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 3.0,
+    "maxPieceWeight": 500.0,
+    "minPieceWeight": 500.0,
+    "maxPieceHeight": 100.0,
+    "minPieceHeight": 100.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.FR0001",
+        "type": "Consignor",
+        "name": "CONSIGNOR FRANCE",
+        "contactName": "Francois D.",
+        "references": [
+          "Consignor-FR-Ref.123"
+        ],
+        "address": {
+          "street": "AVENUE  17",
+          "streetNumber": "",
+          "cityName": "MERIGNAC",
+          "postalCode": "33700",
+          "countryCode": "FR",
+          "accessCode": ""
+        },
+        "phone": "+33 123456",
+        "email": "fr1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Consignee",
+        "name": "CONSIGNEE FRANCE",
+        "contactName": "Elaine F.",
+        "references": [
+          "Consignee-FR-Ref.123"
+        ],
+        "address": {
+          "street": "25 RUE PARIS",
+          "streetNumber": "",
+          "cityName": "SEVRAN",
+          "postalCode": "93270",
+          "countryCode": "FR",
+          "accessCode": ""
+        },
+        "phone": "+33 188776",
+        "email": "fr2.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {
+      "dangerousGoods": true,
+      "dropOffByConsignor": true
+    },
+    "pieces": [
+      {
+        "id": [
+          "373221512506840432"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLE",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 1,
+        "weight": 500.0,
+        "volume": 0.96,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 80.0,
+        "height": 100.0,
+        "length": 120.0,
+        "dangerousGoods": {
+          "dgmId": 0,
+          "adrClass": "4.2",
+          "unNumber": 1380,
+          "flashpointValue": "85",
+          "packageGroup": "I",
+          "tunnelCode": "B/E",
+          "grossWeight": 400.0,
+          "quantityMeasurementUnitQualifier": "LTR",
+          "quantityMeasurementValue": 400.0,
+          "numberOfPieces": 1,
+          "packageType": "IBC",
+          "marinePollutant": false,
+          "marinePollutantName": "",
+          "exceptedQuantity": false,
+          "limitedQuantity": false,
+          "emptyContainer": false
+        },
+        "stackable": true
+      },
+      {
+        "id": [
+          "373221512506840449"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLE",
+        "marksAndNumbers": "MN0002",
+        "numberOfPieces": 1,
+        "weight": 500.0,
+        "volume": 0.96,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 80.0,
+        "height": 100.0,
+        "length": 120.0,
+        "dangerousGoods": {
+          "dgmId": 0,
+          "adrClass": "6.1",
+          "unNumber": 1551,
+          "flashpointValue": "65",
+          "packageGroup": "III",
+          "tunnelCode": "E",
+          "grossWeight": 333.0,
+          "quantityMeasurementUnitQualifier": "KG",
+          "quantityMeasurementValue": 333.0,
+          "numberOfPieces": 1,
+          "packageType": "1A2",
+          "marinePollutant": false,
+          "marinePollutantName": "",
+          "exceptedQuantity": false,
+          "limitedQuantity": false,
+          "emptyContainer": false
+        },
+        "stackable": true
+      },
+      {
+        "id": [
+          "373221512506840456"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLE",
+        "marksAndNumbers": "MN0003",
+        "numberOfPieces": 1,
+        "weight": 500.0,
+        "volume": 0.96,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 80.0,
+        "height": 100.0,
+        "length": 120.0,
+        "dangerousGoods": {
+          "dgmId": 0,
+          "adrClass": "2.2",
+          "unNumber": 3500,
+          "flashpointValue": "65",
+          "packageGroup": "",
+          "tunnelCode": "E",
+          "grossWeight": 200.0,
+          "quantityMeasurementUnitQualifier": "LTR",
+          "quantityMeasurementValue": 200.0,
+          "numberOfPieces": 1,
+          "packageType": "1B2",
+          "officialNameTechDescription": "Additional tech.name required",
+          "marinePollutant": false,
+          "marinePollutantName": "",
+          "exceptedQuantity": false,
+          "limitedQuantity": false,
+          "emptyContainer": false
+        },
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LFR93270+00000032",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "BOD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "PAR",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "BOD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - France",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

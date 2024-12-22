@@ -1,0 +1,137 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000698",
+    "pickupConfirmationRequested": false,
+    "productCode": "ECD",
+    "pickupDate": "2022-08-15T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 2,
+    "totalWeight": 1100.0,
+    "totalVolume": 2.52,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 2.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 550.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.ES0001",
+        "type": "Consignor",
+        "name": "CONSIGNOR SPAIN",
+        "contactName": "Gustavo A.",
+        "references": [
+          "Consignor-ES-Ref.123"
+        ],
+        "address": {
+          "street": "CARRETERA 123",
+          "streetNumber": "",
+          "cityName": "LA CANONJA",
+          "postalCode": "43110",
+          "countryCode": "ES",
+          "accessCode": ""
+        },
+        "phone": "+34 123123",
+        "email": "es1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Consignee",
+        "name": "CONSIGNEE SPAIN",
+        "contactName": "Francesca Y.",
+        "references": [
+          "Consignee-ES-Ref.123"
+        ],
+        "address": {
+          "street": "AVENUA 55",
+          "streetNumber": "",
+          "cityName": "ALCOBENDAS",
+          "postalCode": "28108",
+          "countryCode": "ES",
+          "accessCode": ""
+        },
+        "phone": "+34 345345",
+        "email": "es2.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {
+      "timeDefiniteLoading": {
+        "dateTime": "2022-08-15T00:00:00.006Z"
+      },
+      "timeDefiniteUnloading": {
+        "dateTime": "2022-08-16T00:00:00.006Z"
+      }
+    },
+    "pieces": [
+      {
+        "id": [
+          "338008529300018000",
+          "338008529300018479"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "SK",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LES28108+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "MAD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Spain",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

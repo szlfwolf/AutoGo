@@ -1,0 +1,157 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000694",
+    "pickupConfirmationRequested": false,
+    "productCode": "ERI",
+    "pickupDate": "2022-08-11T00:11:13.631Z",
+    "requestedDeliveryDate": "2022-08-12T00:00:00",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 4,
+    "totalWeight": 1700.0,
+    "totalVolume": 5.04,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 4.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 300.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "123456789",
+        "type": "Consignor",
+        "name": "CONSIGNOR GERMANY",
+        "contactName": "Jürgen H.",
+        "references": [
+          "Consignor-DE-Ref.123"
+        ],
+        "address": {
+          "street": "STRASSE 1234",
+          "streetNumber": "",
+          "cityName": "ALPEN",
+          "postalCode": "46519",
+          "countryCode": "DE",
+          "accessCode": ""
+        },
+        "phone": "+49 334455",
+        "email": "de1c.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Consignee",
+        "name": "CONSIGNEE FRANCE",
+        "contactName": "Elaine F.",
+        "references": [
+          "Consignee-FR-Ref.123"
+        ],
+        "address": {
+          "street": "14 ALLEE FRANCE",
+          "streetNumber": "",
+          "cityName": "SEVRAN",
+          "postalCode": "93270",
+          "countryCode": "FR",
+          "accessCode": ""
+        },
+        "phone": "+33 1243547689",
+        "email": "fr2.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {
+      "insurance": {
+        "value": 10000.0,
+        "currency": "EUR"
+      },
+      "tailLiftLoading": true,
+      "tailLiftUnloading": true,
+      "priorityServiceP12": true
+    },
+    "pieces": [
+      {
+        "id": [
+          "373221512506839993",
+          "373221512506840005"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PAL",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      },
+      {
+        "id": [
+          "373221512506840012",
+          "373221512506840029"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLX",
+        "marksAndNumbers": "MN0002",
+        "numberOfPieces": 2,
+        "weight": 300.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LFR93270+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "DUI",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "PAR",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "DUI",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Germany",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

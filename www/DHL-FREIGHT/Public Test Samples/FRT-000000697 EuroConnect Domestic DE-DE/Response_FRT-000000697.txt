@@ -1,0 +1,130 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000697",
+    "pickupConfirmationRequested": false,
+    "productCode": "ECD",
+    "pickupDate": "2022-08-11T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 4,
+    "totalWeight": 1100.0,
+    "totalVolume": 2.52,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 4.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 550.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "EXW",
+      "location": ""
+    },
+    "parties": [
+      {
+        "type": "Consignor",
+        "name": "CONSIGNOR GERMANY",
+        "contactName": "Jürgen H.",
+        "references": [
+          "Consignor-DE-Ref.123"
+        ],
+        "address": {
+          "street": "STRASSE 1",
+          "streetNumber": "",
+          "cityName": "ALPEN",
+          "postalCode": "46519",
+          "countryCode": "DE",
+          "accessCode": ""
+        },
+        "phone": "+49 1212",
+        "email": "de1c.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "id": "026108000",
+        "type": "Consignee",
+        "name": "CONSIGNEE GERMANY",
+        "contactName": "Uwe. H",
+        "references": [
+          "Consignee-DE-Ref.123"
+        ],
+        "address": {
+          "street": "STRASSE 12A",
+          "streetNumber": "",
+          "cityName": "KÖLN",
+          "postalCode": "50739",
+          "countryCode": "DE",
+          "accessCode": ""
+        },
+        "phone": "+49 998877",
+        "email": "de2.api.tst@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {},
+    "pieces": [
+      {
+        "id": [
+          "373221512506840098",
+          "373221512506840104"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PAL",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LDE50739+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "DUI",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "CGN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "CGN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Germany",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

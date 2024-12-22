@@ -1,0 +1,177 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000693",
+    "pickupConfirmationRequested": false,
+    "productCode": "ERI",
+    "pickupDate": "2022-08-11T00:11:13.631Z",
+    "requestedDeliveryDate": "2022-08-16T00:00:00",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 2,
+    "totalWeight": 1100.0,
+    "totalVolume": 2.52,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 2.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 550.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.FR0001",
+        "type": "Consignor",
+        "name": "CONSIGNOR FRANCE",
+        "contactName": "Francois D.",
+        "references": [
+          "Consignor-FR-Ref.123"
+        ],
+        "address": {
+          "street": "AVENUE 17",
+          "streetNumber": "",
+          "cityName": "MERIGNAC",
+          "postalCode": "33700",
+          "countryCode": "FR",
+          "accessCode": ""
+        },
+        "phone": "+33 1234",
+        "email": "fr1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "id": "12345678.HU0001",
+        "type": "Consignee",
+        "name": "CONSIGNEE HUNGARY",
+        "contactName": "Vince P.",
+        "references": [
+          "Consignee-HU-Ref.123"
+        ],
+        "address": {
+          "street": "UTCA 1234",
+          "streetNumber": "",
+          "cityName": "BUDAPEST",
+          "postalCode": "1044",
+          "countryCode": "HU",
+          "accessCode": ""
+        },
+        "phone": "+36 123",
+        "email": "hu2.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Pickup",
+        "name": "PICKUP FRANCE",
+        "contactName": "Elaine F.",
+        "references": [
+          "Pickup-FR-Ref.123"
+        ],
+        "address": {
+          "street": "14 RUE ALLEE",
+          "streetNumber": "",
+          "cityName": "SEVRAN",
+          "postalCode": "93270",
+          "countryCode": "FR",
+          "accessCode": ""
+        },
+        "phone": "+33 123",
+        "email": "fr2.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Delivery",
+        "name": "DELIVERY HUNGARY",
+        "contactName": "Felicia W.",
+        "references": [
+          "Delivery-HU-Ref.123"
+        ],
+        "address": {
+          "street": "UTCA 12345 A",
+          "streetNumber": "",
+          "cityName": "TISZAÚJVÁROS",
+          "postalCode": "3580",
+          "countryCode": "HU",
+          "accessCode": ""
+        },
+        "phone": "+36 12345",
+        "email": "hu1.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {
+      "insurance": {
+        "value": 10000.0,
+        "currency": "EUR"
+      },
+      "tailLiftLoading": true,
+      "tailLiftUnloading": true
+    },
+    "pieces": [
+      {
+        "id": [
+          "373221512506839979",
+          "373221512506839986"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PAL",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LHU3580+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "PAR",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "BUD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "BOD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - France",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

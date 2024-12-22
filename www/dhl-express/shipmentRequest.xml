@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ship="http://scxgxtt.phxdc.dhl.com/euExpressRateBook/ShipmentMsgRequest">\n    
+    <soapenv:Header>\n        
+        <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">\n            
+            <wsse:UsernameToken wsu:Id="UsernameToken-5" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\n                
+                <wsse:Username>luxmateeuroNL</wsse:Username>\n
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">C#2zT$2iV$5k</wsse:Password>\n
+            </wsse:UsernameToken>\n
+        </wsse:Security>\n
+    </soapenv:Header>\n
+    <soapenv:Body>\n        
+        <ShipmentRequest xmlns="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest">\n            
+            <Request>\n                
+                <ServiceHeader>\n                    
+                    <MessageTime>2024-09-16T10:00:57.373Z</MessageTime>\n
+                    <MessageReference>this is the reference of the message</MessageReference>\n
+                    <ShippingSystemPlatform>test</ShippingSystemPlatform>\n
+                    <ShippingSystemPlatformVersion>7.0</ShippingSystemPlatformVersion>\n
+                </ServiceHeader>\n
+            </Request>\n
+            <RequestedShipment>\n                
+                <ShipTimestamp>2024-09-16T12:01:57GMT+02:00</ShipTimestamp>\n
+                <PaymentInfo>DAP</PaymentInfo>\n
+                <Ship>\n                    
+                    <Shipper>\n                        
+                        <Contact>\n                            
+                            <PersonName>Tomas Handlir</PersonName>\n
+                            <CompanyName>Master Warehouse</CompanyName>\n
+                            <PhoneNumber>+31 020-225 9424</PhoneNumber>\n
+                            <EmailAddress>tomas.handlir@lux-mate.com</EmailAddress>\n
+                        </Contact>\n
+                        <Address>\n                            
+                            <StreetLines>Koolhovenlaan 80 1119 NH Schiphol Rijknull</StreetLines>\n
+                            <City>Lux-mate Europe BV</City>\n
+                            <PostalCode>1119 NH</PostalCode>\n
+                            <CountryCode>NL</CountryCode>\n
+                        </Address>\n
+                    </Shipper>\n
+                    <Recipient>\n                        
+                        <Contact>\n                            
+                            <PersonName>Raúl Mogarra</PersonName>\n
+                            <CompanyName>AMS</CompanyName>\n
+                            <PhoneNumber>+34640410613</PhoneNumber>\n
+                            <EmailAddress>rmogarra@cobendai.es</EmailAddress>\n
+                        </Contact>\n
+                        <Address>\n                            
+                            <StreetLines>Carretera Fuencarral, 70</StreetLines>\n
+                            <City>Alcobendas</City>\n
+                            <PostalCode>28108</PostalCode>\n
+                            <CountryCode>ES</CountryCode>\n
+                        </Address>\n
+                    </Recipient>\n
+                </Ship>\n
+                <Packages>\n                    
+                    <RequestedPackages number="1">\n                        
+                        <Weight>1.0</Weight>\n
+                        <Dimensions>\n                            
+                            <Length>25.00</Length>\n
+                            <Width>15.00</Width>\n
+                            <Height>15.00</Height>\n
+                        </Dimensions>\n
+                    </RequestedPackages>\n
+                </Packages>\n
+                <ShipmentInfo>\n                    
+                    <DropOffType>REGULAR_PICKUP</DropOffType>\n
+                    <ServiceType>W</ServiceType>\n
+                    <Currency>EUR</Currency>\n
+                    <UnitOfMeasurement>SI</UnitOfMeasurement>\n
+                    <Billing>\n                        
+                        <ShipperAccountNumber>194553810</ShipperAccountNumber>\n
+                        <ShippingPaymentType>S</ShippingPaymentType>\n
+                        <BillingAccountNumber>194553810</BillingAccountNumber>\n
+                    </Billing>\n
+                </ShipmentInfo>\n
+                <InternationalDetail>\n                    
+                    <Content>DOCUMENTS</Content>\n
+                    <Commodities>\n                        
+                        <Description>5A9012491545</Description>\n
+                    </Commodities>\n
+                </InternationalDetail>\n
+            </RequestedShipment>\n
+        </ShipmentRequest>\n
+    </soapenv:Body>\n
+</soapenv:Envelope>

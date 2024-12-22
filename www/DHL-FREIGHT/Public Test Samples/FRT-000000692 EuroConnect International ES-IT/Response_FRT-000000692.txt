@@ -1,0 +1,131 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000692",
+    "pickupConfirmationRequested": false,
+    "productCode": "ECI",
+    "pickupDate": "2022-08-11T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 2,
+    "totalWeight": 1100.0,
+    "totalVolume": 2.52,
+    "totalLoadingMeters": 0.0,
+    "totalPalletPlaces": 2.0,
+    "maxPieceWeight": 550.0,
+    "minPieceWeight": 550.0,
+    "maxPieceHeight": 140.0,
+    "minPieceHeight": 140.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.ES0001",
+        "type": "Consignor",
+        "name": "Company Spain",
+        "contactName": "Gustavo A.",
+        "references": [
+          "Consignor-ES-Ref.123"
+        ],
+        "address": {
+          "street": "CARRETERA 123",
+          "streetNumber": "",
+          "cityName": "LA CANONJA (TARRAGONA)",
+          "postalCode": "43110",
+          "countryCode": "ES",
+          "accessCode": ""
+        },
+        "phone": "+34 153265182",
+        "email": "es1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "id": "12345678.IT0001",
+        "type": "Consignee",
+        "name": "Company Italy",
+        "contactName": "Antonio A.",
+        "references": [
+          "Consignee-IT-Ref.123"
+        ],
+        "address": {
+          "street": "VIA TEST 33",
+          "streetNumber": "",
+          "cityName": "CORREGGIO",
+          "postalCode": "42015",
+          "countryCode": "IT",
+          "accessCode": ""
+        },
+        "phone": "+39 5612487321",
+        "email": "it1.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {},
+    "pieces": [
+      {
+        "id": [
+          "373221512506839955",
+          "373221512506839962"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PAL",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 2,
+        "weight": 550.0,
+        "volume": 1.26,
+        "loadingMeters": 0.0,
+        "palletPlaces": 1.0,
+        "width": 90.0,
+        "height": 140.0,
+        "length": 100.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LIT42015+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "CGL",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Spain",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}

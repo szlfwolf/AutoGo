@@ -1,0 +1,157 @@
+{
+  "status": "Succes",
+  "transportInstruction": {
+    "id": "FRT-000000699",
+    "pickupConfirmationRequested": false,
+    "productCode": "ELD",
+    "pickupDate": "2022-08-15T00:11:13.631Z",
+    "deliveryInstruction": "Please deliver it quickly",
+    "pickupInstruction": "Please pick it up!",
+    "totalNumberOfPieces": 20,
+    "totalWeight": 15000.0,
+    "totalVolume": 19.2,
+    "totalLoadingMeters": 8.0,
+    "totalPalletPlaces": 20.0,
+    "maxPieceWeight": 750.0,
+    "minPieceWeight": 750.0,
+    "maxPieceHeight": 100.0,
+    "minPieceHeight": 100.0,
+    "goodsDescription": "Electronical equipment",
+    "references": [
+      {
+        "qualifier": "CNR",
+        "value": "Consignor-Ref.123"
+      },
+      {
+        "qualifier": "CNZ",
+        "value": "Consignee-Ref.456"
+      }
+    ],
+    "payerCode": {
+      "code": "DAP",
+      "location": ""
+    },
+    "parties": [
+      {
+        "id": "12345678.ES0001",
+        "type": "Consignor",
+        "name": "CONSIGNOR SPAIN",
+        "contactName": "Gustavo A.",
+        "references": [
+          "Consignor-ES-Ref.123"
+        ],
+        "address": {
+          "street": "CARRETERA 123",
+          "streetNumber": "",
+          "cityName": "LA CANONJA",
+          "postalCode": "43110",
+          "countryCode": "ES",
+          "accessCode": ""
+        },
+        "phone": "+34 123123",
+        "email": "es1.def.xyz@dhl.com",
+        "fax": ""
+      },
+      {
+        "type": "Consignee",
+        "name": "CONSIGNEE SPAIN",
+        "contactName": "Francesca Y.",
+        "references": [
+          "Consignee-ES-Ref.123"
+        ],
+        "address": {
+          "street": "AVENUA 55",
+          "streetNumber": "",
+          "cityName": "ALCOBENDAS",
+          "postalCode": "28108",
+          "countryCode": "ES",
+          "accessCode": ""
+        },
+        "phone": "+34 345345",
+        "email": "es2.def.xyz@dhl.com",
+        "fax": ""
+      }
+    ],
+    "additionalServices": {
+      "highValueShipment": {
+        "value": 100000.0,
+        "currency": "EUR"
+      },
+      "thermoCold": {
+        "min": 15.0,
+        "max": 50.0
+      }
+    },
+    "pieces": [
+      {
+        "id": [
+          "373221512506840135",
+          "373221512506840142",
+          "373221512506840159",
+          "373221512506840166",
+          "373221512506840173",
+          "373221512506840180",
+          "373221512506840197",
+          "373221512506840203",
+          "373221512506840210",
+          "373221512506840227",
+          "373221512506840234",
+          "373221512506840241",
+          "373221512506840258",
+          "373221512506840265",
+          "373221512506840272",
+          "373221512506840289",
+          "373221512506840296",
+          "373221512506840302",
+          "373221512506840319",
+          "373221512506840326"
+        ],
+        "goodsType": "Electronical equipment",
+        "packageType": "PLE",
+        "marksAndNumbers": "MN0001",
+        "numberOfPieces": 20,
+        "weight": 750.0,
+        "volume": 0.96,
+        "loadingMeters": 0.4,
+        "palletPlaces": 1.0,
+        "width": 80.0,
+        "height": 100.0,
+        "length": 120.0,
+        "stackable": true
+      }
+    ],
+    "routingCode": "2LES28108+00000000",
+    "additionalInformation": [
+      {
+        "code": "OriginTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "DestinationTerminal",
+        "stringValue": "MAD",
+        "numericValue": 0.0
+      },
+      {
+        "code": "FreightpayerTerminal",
+        "stringValue": "BCN",
+        "numericValue": 0.0
+      },
+      {
+        "code": "EVO-OrgUnit",
+        "stringValue": "",
+        "numericValue": 0.0
+      },
+      {
+        "code": "OrganisationName",
+        "stringValue": "Freight Global Booking API - Test ",
+        "numericValue": 0.0
+      },
+      {
+        "code": "ApplicationName",
+        "stringValue": "UAT Booking API - Spain",
+        "numericValue": 0.0
+      }
+    ]
+  }
+}
